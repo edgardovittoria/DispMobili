@@ -1,0 +1,12 @@
+#Mac store
+.DS_Store
+
+#Netbeans
+Biglietti/nbproject
+
+#Open Office
+.~lock.
+
+#Config.php
+Biglietti/Config.php
+
