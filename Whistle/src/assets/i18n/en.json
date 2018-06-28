@@ -1,0 +1,18 @@
+{
+"LOGIN_BUTTON": "Enter",
+  "DONE_BUTTON": "Done",
+  "SAVE_BUTTON": "Save",
+  "CANCEL_BUTTON": "Cancel",
+  "DELETE_BUTTON": "Delete",
+
+  "LOGIN_TITLE": "Login",
+  "LOGIN_ERROR_TITLE": "Login error",
+  "LOGIN_ERROR_SUB_TITLE": "Wrong username and/or password",
+
+  "PAGINA_COSTRUZIONE": "Page under construction!!!!!",
+
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "USERNAME_REQUIRED": "Username required",
+  "PASSWORD_REQUIRED": "Password required"
+}  
