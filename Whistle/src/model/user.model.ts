@@ -1,3 +1,4 @@
+import { Chat } from "./chat.model";
 
 export class User {
     name: string;
@@ -6,4 +7,5 @@ export class User {
     photo: string; //?????
     description: string;
     solved_calls: number;
+    chats: Array<Chat>;
 }

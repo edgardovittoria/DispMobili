@@ -19,3 +19,4 @@ interceptors become quite handy.[...]There are four types of interceptors Reques
 Request error and Response Error. Every interceptor factory should have one out of these 
 four methods defined rest are optional. (preso da internet)
 
+I file .ts dentro le cartelle di 'pages' vanno visti (almeno credo) come classi control delle pagine dell'applicazione (ad esempio appelli.ts ha dei metodi relativi alla gestione della vista). I file .module.ts invece sono tipo dichiarazioni/costruttori??? dei file precedenti.
