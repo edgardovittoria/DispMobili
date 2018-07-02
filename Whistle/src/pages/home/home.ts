@@ -12,4 +12,19 @@ export class HomePage {
 
   }
 
+  createWhistle() {
+
+  }
+
+  openNots() {
+        
+  }
+
+  search() {
+
+  }
+
+  openProfile() {
+    
+  }
 }

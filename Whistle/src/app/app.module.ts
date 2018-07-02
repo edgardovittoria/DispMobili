@@ -10,6 +10,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { IonicStorageModule } from '@ionic/storage';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -30,6 +31,10 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
+    }),
+    IonicStorageModule.forRoot({
+      name: 'db_whistle',  //nome del db sqlite (si trova sul dispositivo)
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
     }),
     IonicModule.forRoot(MyApp)
   ],

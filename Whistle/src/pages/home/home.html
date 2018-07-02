@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar id="header">
     <ion-title>
       Whistle
     </ion-title>
@@ -11,18 +11,24 @@
       <ion-list>
           <ion-item>
             <ion-avatar item-start>
-              <img src="img/Jessica.jpg">
+              <img src="../../assets/imgs/Jessica.jpg">
             </ion-avatar>
             <h2>Jessica</h2>
             <p>Truth is like poetry... and most ppl fucking hate poetry</p>
           </ion-item>
         </ion-list> 
   </p>
+
+      <!-- Button shaped as a circle that just like a normal button scrolls with the content -->
+        <ion-img cache="true" src="../../assets/imgs/Icon10.png" id="new-whistle" (click)="createWhistle()"></ion-img>
+
+
   <p>
-      <ion-footer>
-          <ion-toolbar>
-            <ion-title>Footer</ion-title>
-          </ion-toolbar>
-        </ion-footer>
+      <ion-footer id="bar">
+          <ion-img cache="true" src="../../assets/imgs/Icon4.jpg" class="bar-btn" id="home-btn"></ion-img>
+          <ion-img cache="true" src="../../assets/imgs/Icon3.jpg" class="bar-btn" id="notifications-btn" (click)="openNots()"></ion-img>
+          <ion-img cache="true" src="../../assets/imgs/Icon2.jpg" class="bar-btn" id="search-btn" (click)="search()"></ion-img>
+          <ion-img cache="true" src="../../assets/imgs/Icon1.jpg" class="bar-btn" id="profile-btn" (click)="openProfile()"></ion-img>
+      </ion-footer>
   </p>
 </ion-content>
