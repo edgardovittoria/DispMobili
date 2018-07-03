@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Refresher } from 'ionic-angular';
+import { PAGES } from '../pages';
 
 @IonicPage()
 @Component({
@@ -8,12 +9,13 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class HomePage {
 
+
   constructor(public navCtrl: NavController) {
 
   }
 
   createWhistle() {
-
+    this.navCtrl.push(PAGES.WHISTLE);
   }
 
   openNots() {
@@ -25,6 +27,6 @@ export class HomePage {
   }
 
   openProfile() {
-    
+    this.navCtrl.push(PAGES.USER);
   }
 }

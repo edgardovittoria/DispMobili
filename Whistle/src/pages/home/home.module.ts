@@ -13,4 +13,4 @@ import { HomePage } from './home';
     TranslateModule.forChild()
   ],
 })
-export class ChatPageModule {}
+export class HomePageModule {}

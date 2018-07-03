@@ -18,5 +18,7 @@
   "PASSWORD": "Password",
   "TELEFONO": "Telefono",
   "USERNAME_REQUIRED": "Username obbligatorio",
-  "PASSWORD_REQUIRED": "Password obbligatorio"
+  "PASSWORD_REQUIRED": "Password obbligatorio",
+
+  "USER_TITLE": "Utente"
 }

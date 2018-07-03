@@ -1,5 +1,7 @@
 {
-"LOGIN_BUTTON": "Enter",
+  "BACK_BUTTON_TEXT":  "Indietro",
+
+  "LOGIN_BUTTON": "Enter",
   "DONE_BUTTON": "Done",
   "SAVE_BUTTON": "Save",
   "CANCEL_BUTTON": "Cancel",
@@ -14,5 +16,7 @@
   "USERNAME": "Username",
   "PASSWORD": "Password",
   "USERNAME_REQUIRED": "Username required",
-  "PASSWORD_REQUIRED": "Password required"
+  "PASSWORD_REQUIRED": "Password required",
+
+  "USER_TITLE": "User"
 }  
