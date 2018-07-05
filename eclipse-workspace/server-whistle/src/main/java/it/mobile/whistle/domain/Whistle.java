@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +16,11 @@ import javax.persistence.Table;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+@Entity
+@Table(name = "whistles")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TIPOLOGIA_WHISTLE", discriminatorType = DiscriminatorType.STRING)
-@Entity
-@Table(name = "whistle")
+@DiscriminatorValue("whistle")
 public class Whistle {
 
 	@Id
@@ -29,18 +31,14 @@ public class Whistle {
 	@Column(name = "BODY", nullable = false, length = 255)
 	private String body;
 
-	/*@Column(name = "DESCRIZIONE", nullable = false, length = 255)
-	private String descrizione;*/
 
 	@Column(name = "DATA_PUBBLICAZIONE", nullable = false)
 	private Date dataPubblicazione;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_USER", nullable = false)
-	private User pubblicatoDa;
+	private Utente pubblicatoDa;
 	
-	@Column(name = "REACTIONS", nullable = false, length = 255)
-	private int reactions;
 	
 	@Column(name = "LOCATION", nullable = false, length = 255)
 	private String location;
@@ -69,20 +67,12 @@ public class Whistle {
 		this.dataPubblicazione = dataPubblicazione;
 	}
 
-	public User getPubblicatoDa() {
+	public Utente getPubblicatoDa() {
 		return pubblicatoDa;
 	}
 
-	public void setPubblicatoDa(User pubblicatoDa) {
+	public void setPubblicatoDa(Utente pubblicatoDa) {
 		this.pubblicatoDa = pubblicatoDa;
-	}
-
-	public int getReactions() {
-		return reactions;
-	}
-
-	public void setReactions(int reactions) {
-		this.reactions = reactions;
 	}
 
 	public String getLocation() {
@@ -93,9 +83,6 @@ public class Whistle {
 		this.location = location;
 	}
 
-	/*@ManyToOne
-	@JoinColumn(name = "ID_TIPOLOGIA_NOTIZIA", nullable = false)
-	private TipologiaNotizia tipologia;*/
 	
 	
 }

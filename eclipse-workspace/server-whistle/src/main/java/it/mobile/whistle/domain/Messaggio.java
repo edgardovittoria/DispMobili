@@ -26,9 +26,6 @@ public class Messaggio {
 	@Column(name = "BODY", nullable = false, length = 255)
 	private String body;
 
-	/*@Column(name = "DESCRIZIONE", nullable = false, length = 255)
-	private String descrizione;*/
-
 	@Column(name = "DATA_MESSAGGIO", nullable = false)
 	private Date dataPubblicazione;
 

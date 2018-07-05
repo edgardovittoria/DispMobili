@@ -1,5 +1,8 @@
 package it.mobile.whistle.domain;
 
+/*import java.util.HashSet;
+import java.util.Set;*/
+
 
 import javax.persistence.Column;
 
@@ -22,12 +25,14 @@ public class Chat {
 	@Column(name = "ID_CHAT", nullable = false)
 	private Long id;
 
-	/*@Column(name = "DATA_PUBBLICAZIONE", nullable = false)
-	private Date dataPubblicazione;*/
-
 	@ManyToOne
 	@JoinColumn(name = "ID_USER", nullable = false)
-	private User apertaDa;
+	private Utente apertaDa;
 	
+	@ManyToOne
+	@JoinColumn(name = "PARTECIPANTE", nullable = false)
+	private Utente partecipante;
+	
+	//private Set<Messaggio> Messaggi = new HashSet<Messaggio>();
 	
 }
