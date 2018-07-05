@@ -5,6 +5,7 @@ export const URL_BASE = USE_PROXY ? 'api' : 'http://localhost:8080/Whistle/api';
 export const URL = {
     LOGIN: URL_BASE + "/login",
     LOGOUT: URL_BASE + "/logout",
+    CHATLIST: URL_BASE + "/chat-list",
     UPDATE_PROFILO: URL_BASE + "/utente/updateprofilo"
 }
 
