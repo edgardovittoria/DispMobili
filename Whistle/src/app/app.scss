@@ -16,7 +16,11 @@
 // automatically applied to the <body> element in the app.
 
 .toolbar-background {
-    background-color: #4636AD;
+    background: linear-gradient(color($colors, gradient1),color($colors, gradient2));
+}
+
+.scroll-content {
+    background-color: color($colors, backgr);
 }
 
 .toolbar-title.toolbar-title-md, 
