@@ -1,5 +1,0 @@
-package it.mobile.whistle.domain;
-
-public enum Lingua {
-
-}

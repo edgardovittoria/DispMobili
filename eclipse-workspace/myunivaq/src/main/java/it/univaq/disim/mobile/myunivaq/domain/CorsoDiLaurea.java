@@ -21,6 +21,7 @@ public class CorsoDiLaurea {
 
 	@Column(name = "CLASSE", nullable = false, length = 255)
 	private String classe;
+	
 
 	public Long getId() {
 		return id;
@@ -45,5 +46,5 @@ public class CorsoDiLaurea {
 	public void setClasse(String classe) {
 		this.classe = classe;
 	}
-
+	
 }

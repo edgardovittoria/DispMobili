@@ -43,6 +43,16 @@ public class MyUnivaqApplication {
 			tipologiaLavoro.setNome("Lavoro");
 			tipologiaLavoro = tipologiaNotiziaRepository.save(tipologiaLavoro);
 
+			CorsoDiLaurea corsoDiLaureaInformatica = new CorsoDiLaurea();
+			corsoDiLaureaInformatica.setClasse("L-31");
+			corsoDiLaureaInformatica.setNome("Informatica");
+			corsoDiLaureaInformatica = corsoDiLaureaRepository.save(corsoDiLaureaInformatica);
+
+			CorsoDiLaurea corsoDiLaureaMaster = new CorsoDiLaurea();
+			corsoDiLaureaMaster.setClasse("L-32");
+			corsoDiLaureaMaster.setNome("Master Web Technology");
+			corsoDiLaureaMaster = corsoDiLaureaRepository.save(corsoDiLaureaMaster);
+			
 			Docente amleto = new Docente();
 			amleto.setUsername("amleto");
 			amleto.setPassword(passwordEncoder.encode("amleto"));
@@ -51,7 +61,6 @@ public class MyUnivaqApplication {
 			amleto.setEmail("amleto.disalle@univaq.it");
 			amleto.setMatricola("09999");
 			amleto.setTelefono("+39.0862/433735");
-			// amleto.addRuolo(ruoloDocente);
 			amleto = utenteRepository.save(amleto);
 			
 			Docente marco = new Docente();
@@ -62,7 +71,6 @@ public class MyUnivaqApplication {
 			marco.setEmail("marco.autili@univaq.it");
 			marco.setMatricola("01111");
 			marco.setTelefono("+39.0862/433xxx");
-			// amleto.addRuolo(ruoloDocente);
 			marco = utenteRepository.save(marco);			
 
 			Studente studente = new Studente();
@@ -72,7 +80,7 @@ public class MyUnivaqApplication {
 			studente.setCognome("Studente");
 			studente.setEmail("studente.studente@student.univaq.it");
 			studente.setMatricola("299999");
-			// studente.addRuolo(ruoloStudente);
+			studente.setCorsoDiLaurea(corsoDiLaureaInformatica);
 			studente = utenteRepository.save(studente);
 
 			for (int i = 0; i < 10; i++) {
@@ -85,16 +93,6 @@ public class MyUnivaqApplication {
 				notizia.setTipologia(tipologiaDidattica);
 				notiziaRepository.save(notizia);
 			}
-
-			CorsoDiLaurea corsoDiLaureaInformatica = new CorsoDiLaurea();
-			corsoDiLaureaInformatica.setClasse("L-31");
-			corsoDiLaureaInformatica.setNome("Informatica");
-			corsoDiLaureaInformatica = corsoDiLaureaRepository.save(corsoDiLaureaInformatica);
-
-			CorsoDiLaurea corsoDiLaureaMaster = new CorsoDiLaurea();
-			corsoDiLaureaMaster.setClasse("L-32");
-			corsoDiLaureaMaster.setNome("Master Web Technology");
-			corsoDiLaureaMaster = corsoDiLaureaRepository.save(corsoDiLaureaMaster);
 
 			Insegnamento mobile = new Insegnamento();
 			mobile.setCodice("F1081");

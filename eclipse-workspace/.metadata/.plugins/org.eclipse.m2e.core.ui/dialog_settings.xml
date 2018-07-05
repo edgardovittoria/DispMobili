@@ -4,13 +4,10 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="io.whistle"/>
 		</list>
 		<list key="name">
-			<item value="whistle"/>
 		</list>
 		<list key="artifactId">
-			<item value="server-whistle"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -36,6 +33,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\Edgardo Vittoria\DispMobili\eclipse-workspace\myunivaq"/>
 			<item value="C:\Users\Edgardo Vittoria\eclipse-workspace\myunivaq"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -60,6 +58,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\Edgardo Vittoria\DispMobili\eclipse-workspace"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

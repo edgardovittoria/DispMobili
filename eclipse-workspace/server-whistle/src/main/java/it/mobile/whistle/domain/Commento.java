@@ -30,19 +30,11 @@ public class Commento {
 	@Column(name = "body", nullable = false, length = 255)
 	private String body;
 	
-	/*@Enumerated(EnumType.STRING)
-	private TipologiaEsame tipologiaEsame;*/
-	
-
-	/*@ManyToOne
-    @JoinColumn(name = "ID_INSEGNAMENTO", nullable = false)
-	private Insegnamento insegnamento;*/
-	
 	@ManyToMany
 	@JoinTable(name="COMMENTI_WHISTLE",
 	    joinColumns={@JoinColumn(name="ID_COMMENTO")},
 	    inverseJoinColumns={@JoinColumn(name="ID_WHISTLE")})
-	private Set<Whistle> whistleCommentati = new HashSet<Whistle>();
+	private Set<Commento> commenti = new HashSet<Commento>();
 
 	public Long getId() {
 		return id;
@@ -68,13 +60,13 @@ public class Commento {
 		this.body = body;
 	}
 
-	public Set<Whistle> getWhistleCommentati() {
+	/*public Set<Whistle> getWhistleCommentati() {
 		return whistleCommentati;
 	}
 
 	public void setWhistleCommentati(Set<Whistle> whistleCommentati) {
 		this.whistleCommentati = whistleCommentati;
-	}
+	}*/
 	
 	
 }
