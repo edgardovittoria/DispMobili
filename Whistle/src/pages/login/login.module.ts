@@ -13,4 +13,4 @@ import { LoginPage } from './login';
     TranslateModule.forChild()
   ],
 })
-export class ChatPageModule {}
+export class LoginPageModule {}

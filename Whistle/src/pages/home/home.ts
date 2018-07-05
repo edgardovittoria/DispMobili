@@ -19,7 +19,7 @@ export class HomePage {
   }
 
   openNots() {
-        
+    this.navCtrl.push(PAGES.CHAT_LIST);
   }
 
   search() {
