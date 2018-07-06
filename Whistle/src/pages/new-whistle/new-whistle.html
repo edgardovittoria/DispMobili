@@ -8,5 +8,60 @@
   </ion-header>
 
 <ion-content>
-    
+
+    <div padding>
+        <ion-segment [(ngModel)]="type">
+          <ion-segment-button value="Fun">
+            Fun
+          </ion-segment-button>
+          <ion-segment-button value="Call">
+            Call
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
+  <div [ngSwitch]="type">
+    <div class="form" *ngSwitchCase="'Call'">
+    <ion-card>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="../../assets/imgs/Paolo.jpg">
+          </ion-avatar>
+          <h2>Paolo Capulli</h2>
+        </ion-item>
+        <ion-card-content>
+            <ion-item>
+                <ion-input type="text" placeholder="Write here.."></ion-input>
+              </ion-item>             
+        </ion-card-content>
+        <ion-item>
+            <ion-label color="primary">Type</ion-label>
+            <ion-select [(ngModel)]="callTypes">
+              <ion-option value="Passage">Passage</ion-option>
+              <ion-option value="Break">Break</ion-option>
+              <ion-option value="Information">Information</ion-option>
+            </ion-select>
+        </ion-item>      
+  </ion-card> 
+</div>
+
+<div class="form" *ngSwitchCase="'Fun'">
+  <ion-card>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/Paolo.jpg">
+        </ion-avatar>
+        <h2>Paolo Capulli</h2>
+      </ion-item>
+      <ion-card-content>
+          <ion-item>
+              <ion-input type="text" placeholder="Write here.."></ion-input>
+            </ion-item>   
+      </ion-card-content>
+</ion-card>
+</div>
+</div>
+
+<button ion-button round color="primary" class="submit" (click)="submit()">Submit</button>
+
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
+import { PAGES } from '../pages';
 
 
 @IonicPage()
@@ -7,4 +8,10 @@ import { IonicPage } from 'ionic-angular';
   selector: 'page-tabs',
   templateUrl: 'tabs.html'
 })
-export class TabsPage {}
+export class TabsPage {
+
+    home: string = PAGES.HOME;
+    notifications: string = PAGES.CHAT_LIST;
+    search: any;
+    profile: string = PAGES.USER;
+}

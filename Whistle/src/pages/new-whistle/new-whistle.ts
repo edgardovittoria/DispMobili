@@ -8,5 +8,10 @@ import { IonicPage} from 'ionic-angular';
 })
 
 export class WhistlePage {
+  type: string = 'Fun';
+  callTypes: string;
 
+  submit() {
+    
+  }
 }

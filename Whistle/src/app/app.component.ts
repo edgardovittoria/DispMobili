@@ -30,7 +30,7 @@ export class MyApp {
           //this.user = pippo;       
           this.rootPage = PAGES.LOGIN;
         } else {          
-          this.rootPage = PAGES.HOME;
+          this.rootPage = PAGES.TABS;
         }
       //});
       statusBar.styleDefault();
