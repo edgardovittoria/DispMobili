@@ -7,27 +7,125 @@
 </ion-header>
 
 <ion-content padding>
-  <p>
-      <ion-list>
-          <ion-item>
-            <ion-avatar item-start>
-              <img src="../../assets/imgs/Jessica.jpg">
-            </ion-avatar>
-            <h2>Jessica</h2>
-            <p>Truth is like poetry... and most ppl fucking hate poetry</p>
-          </ion-item>
-        </ion-list> 
-  </p>
-     
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/Marty-Mcfly.jpg">
+      </ion-avatar>
+      <h2>Marty McFly</h2>
+      <p>Fun Whistle</p>
+    </ion-item>
+
+  
+    <ion-card-content>
+      <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          12 min ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card>
+
+  <ion-card>
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="../../assets/imgs/Jessica.jpg">
+    </ion-avatar>
+    <h2>Jessica</h2>
+    <p>Fun Whistle</p>
+  </ion-item>
+
+
+  <ion-card-content>
+    <p>Truth is like poetry... and most ppl fuckin' hate poetry.</p>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-start clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>237 Likes</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-start clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>50 Comments</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note>
+        6h ago
+      </ion-note>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+
+<ion-card>
+<ion-item>
+  <ion-avatar item-start>
+    <img src="../../assets/imgs/Paolo.jpg">
+  </ion-avatar>
+  <h2>Paolo Capulli</h2>
+  <p>Call Whistle</p>
+</ion-item>
+
+<img src="../../assets/imgs/warning-dog.jpg">
+
+<ion-card-content>
+  <p>Just lost my doge!!!! Anyone has seen him around?</p>
+</ion-card-content>
+
+<ion-row>
+  <ion-col>
+    <button ion-button color="primary" clear small icon-start>
+      <ion-icon name='thumbs-up'></ion-icon>
+      46 Likes
+    </button>
+  </ion-col>
+  <ion-col>
+    <button ion-button color="primary" clear small icon-start>
+      <ion-icon name='text'></ion-icon>
+      66 Comments
+    </button>
+  </ion-col>
+  <ion-col align-self-center text-center>
+    <ion-note>
+      2d ago
+    </ion-note>
+  </ion-col>
+</ion-row>
+
+</ion-card>
+
+<ion-fab bottom right id="whistle-btn">
     <ion-img cache="true" src="../../assets/imgs/Icon10.png" id="new-whistle" (click)="createWhistle()"></ion-img>
+  </ion-fab>
 
 
-  <p>
       <ion-footer id="bar">
           <ion-img cache="true" src="../../assets/imgs/Icon4.jpg" class="bar-btn" id="home-btn"></ion-img>
           <ion-img cache="true" src="../../assets/imgs/Icon3.jpg" class="bar-btn" id="notifications-btn" (click)="openNots()"></ion-img>
           <ion-img cache="true" src="../../assets/imgs/Icon2.jpg" class="bar-btn" id="search-btn" (click)="search()"></ion-img>
           <ion-img cache="true" src="../../assets/imgs/Icon1.jpg" class="bar-btn" id="profile-btn" (click)="openProfile()"></ion-img>
       </ion-footer>
-  </p>
 </ion-content>

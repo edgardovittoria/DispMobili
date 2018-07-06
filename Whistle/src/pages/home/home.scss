@@ -1,24 +1,28 @@
 
 
 #new-whistle {
-    margin-top: 100%;
-    margin-right: 3%;
-    float: right;
     height: 50px;
     width: 50px;
     border-radius: 50%;
 }
 
-.bar {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    
+#bar {
+    height: 7%;
+    background-color: white;  
+    /*border-top: 1px;
+    border-color: black;*/
 }
+
+#whistle-btn {
+    margin-bottom: 10%;
+    margin-right: 5%;
+}
+
 
 .bar-btn {
     border-radius: 50%;
     height: 30px;
     width: 30px;
     margin-left: 12%;
+    margin-top: 1%;
 }
