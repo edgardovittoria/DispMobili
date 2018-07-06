@@ -12,6 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import it.mobile.whistle.domain.Call;
+import it.mobile.whistle.domain.CallsType;
 import it.mobile.whistle.domain.Utente;
 import it.mobile.whistle.domain.Whistle;
 
@@ -68,6 +70,22 @@ public class WhistleApplication {
 			whistle2.setLocation("Palena");
 			whistle2.setPubblicatoDa(edgardo);
 			whistle2 = whistleRepository.save(whistle2);
+			
+			Call call = new Call();
+			call.setBody("Ciao...qualcuno è disposto a prendere un caffe al tropical??");
+			call.setCallsType(CallsType.CAFFE);
+			call.setDataPubblicazione(today);
+			call.setLocation("L'Aquila");
+			call.setPubblicatoDa(federico);
+			call = whistleRepository.save(call);
+			
+			Call call1 = new Call();
+			call1.setBody("Ciao...qualcuno può gentilmente darmi un oki...mi scoppia la testa dopo aver usato spring boot XD?");
+			call1.setCallsType(CallsType.MEDICINALI);
+			call1.setDataPubblicazione(today);
+			call1.setLocation("L'Aquila");
+			call1.setPubblicatoDa(edgardo);
+			call1 = whistleRepository.save(call1);
 			
 			
 			
