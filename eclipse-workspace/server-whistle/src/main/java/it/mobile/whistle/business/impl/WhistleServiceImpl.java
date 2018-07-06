@@ -31,6 +31,13 @@ public class WhistleServiceImpl implements WhistleService {
 	public Utente findUtenteByUsername(String username) throws BusinessException {
 		return utenteRepository.findByUsername(username);
 	}
+	
+	@Override
+	public Utente updateProfilo(Utente profilo) throws BusinessException {
+		Utente utente = utenteRepository.findByUsername(profilo.getUsername());
+		utente.setEmail(profilo.getEmail());
+		return utente;
+	}
 
 	@Override
 	public List<Whistle> findAllWhistle() throws BusinessException {
@@ -41,13 +48,14 @@ public class WhistleServiceImpl implements WhistleService {
 	public Whistle findWhistleById(Long id) throws BusinessException {
 		return whistleRepository.findById(id).get();
 	}
-
+	
 	@Override
-	public Utente updateProfilo(Utente profilo) throws BusinessException {
-		Utente utente = utenteRepository.findByUsername(profilo.getUsername());
-		utente.setEmail(profilo.getEmail());
-		return utente;
+	public List<Whistle> findAllCall() throws BusinessException {
+		return whistleRepository.findByTipologia_whistle();
 	}
+	
+	
+	
 
 
 }

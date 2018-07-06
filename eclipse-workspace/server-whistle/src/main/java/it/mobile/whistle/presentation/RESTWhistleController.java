@@ -12,18 +12,23 @@ import it.mobile.whistle.business.WhistleService;
 import it.mobile.whistle.domain.Whistle;
 
 @RestController
-@RequestMapping("/api/whistle")
+@RequestMapping("/api")
 public class RESTWhistleController {
 	
 	@Autowired
 	private WhistleService service;
 	
-	@GetMapping
+	@GetMapping("/whistle")
 	public List<Whistle> list() {
 		return service.findAllWhistle();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/Call")
+	public List<Whistle> listCall() {
+		return service.findAllCall();
+	}
+	
+	@GetMapping("/whistle/{id}")
 	public Whistle findById(@PathVariable Long id) {
 		return service.findWhistleById(id);
 	}
