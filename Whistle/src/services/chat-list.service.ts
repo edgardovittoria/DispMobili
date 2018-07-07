@@ -15,8 +15,8 @@ export class ChatListService {
         return this.http.get<Array<Chat>>(URL.CHATLIST);
     }
 
-    findById(notiziaId: number): Observable<Chat> {
-        let apiURL = `${URL.CHATLIST}/${notiziaId}`;
+    findById(chatId: number): Observable<Chat> {
+        let apiURL = `${URL.CHATLIST}/${chatId}`;
         return this.http.get<Chat>(apiURL);
     }
 }

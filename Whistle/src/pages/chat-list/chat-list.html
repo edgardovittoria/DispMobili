@@ -9,22 +9,22 @@
 
 <ion-content padding>
     <p>
-        <ion-list>
-            <ion-item> <!--aggiungere (click)="openChat(chat)"-->
+        <ion-item (click)="openChatprova()"> 
+          <ion-avatar item-start>
+            <img src="../../assets/imgs/Jessica.jpg">
+          </ion-avatar>
+          <h2>Jessica</h2>
+          <p>Ok.. See you there!</p>
+        </ion-item>
+        <!--<ion-list *ngFor="let c of chats">
+            <ion-item (click)="openChat(c)"> 
               <ion-avatar item-start>
                 <img src="../../assets/imgs/Jessica.jpg">
               </ion-avatar>
-              <h2>Jessica</h2>
-              <p>Ok.. See you there!</p>
-            </ion-item>
-            <ion-item>
-              <ion-avatar item-start>
-                <img src="../../assets/imgs/Jessica.jpg">
-              </ion-avatar>
-              <h2>Tom Bombadil</h2>
-              <p>Man that's awesome!! I'll offer you a beer B)</p>
-            </ion-item>
-          </ion-list> 
+              <h2>{{c.Partecipant}}</h2>
+              <p>{{c.Text}}</p>
+            </ion-item>            
+          </ion-list> -->
     </p>
 
 </ion-content>

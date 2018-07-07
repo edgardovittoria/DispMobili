@@ -4,5 +4,8 @@ export const PAGES = {  HOME: 'HomePage',
                         USER: 'UserPage',
                         TABS: 'TabsPage',
                         WHISTLE: 'WhistlePage', 
+                        WHISTLE_DETAILS: 'WhistleDetailsPage',
                         CHAT_LIST: 'ChatListPage',
-                        CHAT: 'CHAT'};
+                        CHAT: 'ChatPage',
+                        COMMENTS: 'CommentsPage'
+                        };

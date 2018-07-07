@@ -9,12 +9,12 @@
 <ion-content padding>
   <ion-card>
 
-    <ion-item>
+    <ion-item (click)="openDetails()">
       <ion-avatar item-start>
         <img src="../../assets/imgs/Marty-Mcfly.jpg">
       </ion-avatar>
       <h2>Marty McFly</h2>
-      <p>Fun Whistle</p>
+      <p class="Wtype">Fun Whistle</p>
     </ion-item>
 
   
@@ -26,7 +26,7 @@
       <ion-col>
         <button ion-button color="secondary" icon-start clear small>
           <ion-icon name="heart-outline"></ion-icon>
-          <div>12 Likes</div>
+          <div>12 Reacts</div>
         </button>
       </ion-col>
       <ion-col>
@@ -45,12 +45,12 @@
   </ion-card>
 
   <ion-card>
-  <ion-item>
+  <ion-item (click)="openDetails()">
     <ion-avatar item-start>
       <img src="../../assets/imgs/Jessica.jpg">
     </ion-avatar>
     <h2>Jessica</h2>
-    <p>Fun Whistle</p>
+    <p class="Wtype">Fun Whistle</p>
   </ion-item>
 
 
@@ -62,13 +62,13 @@
     <ion-col>
       <button ion-button color="secondary" icon-start clear small>
         <ion-icon name="heart-outline"></ion-icon>
-        <div>237 Likes</div>
+        <div>237 Reacts</div>
       </button>
     </ion-col>
     <ion-col>
-      <button ion-button color="secondary" icon-start clear small>
+      <button ion-button color="secondary" icon-start clear small (click)="openComments()">
         <ion-icon name="ios-chatboxes-outline"></ion-icon>
-        <div>50 Comments</div>
+        <div>3 Comments</div>
       </button>
     </ion-col>
     <ion-col center text-center>
@@ -81,12 +81,12 @@
 </ion-card>
 
 <ion-card>
-<ion-item>
+<ion-item (click)="openDetails()">
   <ion-avatar item-start>
     <img src="../../assets/imgs/Paolo.jpg">
   </ion-avatar>
   <h2>Paolo Capulli</h2>
-  <p>Call Whistle</p>
+  <p class="Wtype">Call Whistle</p>
 </ion-item>
 
 <img src="../../assets/imgs/warning-dog.jpg">
@@ -120,12 +120,4 @@
 <ion-fab bottom right id="whistle-btn">
     <ion-img cache="true" src="../../assets/imgs/Icon10.png" id="new-whistle" (click)="createWhistle()"></ion-img>
   </ion-fab>
-
-
-      <!--<ion-footer id="bar">
-          <ion-img cache="true" src="../../assets/imgs/Icon4.jpg" class="bar-btn" id="home-btn"></ion-img>
-          <ion-img cache="true" src="../../assets/imgs/Icon3.jpg" class="bar-btn" id="notifications-btn" (click)="openNots()"></ion-img>
-          <ion-img cache="true" src="../../assets/imgs/Icon2.jpg" class="bar-btn" id="search-btn" (click)="search()"></ion-img>
-          <ion-img cache="true" src="../../assets/imgs/Icon1.jpg" class="bar-btn" id="profile-btn" (click)="openProfile()"></ion-img>
-      </ion-footer>-->
 </ion-content>

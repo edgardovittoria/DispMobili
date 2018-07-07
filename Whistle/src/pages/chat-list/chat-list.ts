@@ -24,6 +24,10 @@ export class ChatListPage {
       }*/
 
     openChat(selectedChat: Chat) {
-        this.navCtrl.push(PAGES.CHAT, selectedChat);
+        this.navCtrl.push(PAGES.CHAT, selectedChat);       
+    }
+
+    openChatprova() {
+        this.navCtrl.push(PAGES.CHAT);
     }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { PAGES } from '../pages';
 
 
@@ -14,4 +14,11 @@ export class TabsPage {
     notifications: string = PAGES.CHAT_LIST;
     search: any;
     profile: string = PAGES.USER;
+
+
+    constructor(public navCtrl: NavController) {
+
+    }
+
+    
 }

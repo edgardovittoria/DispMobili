@@ -14,6 +14,14 @@ export class HomePage {
 
   }
 
+  openDetails() {
+    this.navCtrl.push(PAGES.WHISTLE_DETAILS);
+  }
+
+  openComments() {
+    this.navCtrl.push(PAGES.COMMENTS);
+  }
+
   createWhistle() {
     this.navCtrl.push(PAGES.WHISTLE);
   }
