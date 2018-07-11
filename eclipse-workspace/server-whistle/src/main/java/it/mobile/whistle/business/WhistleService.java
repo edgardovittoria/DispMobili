@@ -18,6 +18,8 @@ public interface WhistleService {
 	Whistle findWhistleById(Long id) throws BusinessException;
 
 	List<Whistle> findAllCall() throws BusinessException;
+	
+	void createWhistle(Whistle whistle) throws BusinessException;
 
 
 	

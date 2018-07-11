@@ -54,6 +54,11 @@ public class WhistleServiceImpl implements WhistleService {
 		return whistleRepository.findByTipologia_whistle();
 	}
 	
+	@Override
+	public void createWhistle(Whistle whistle) throws BusinessException {
+		whistleRepository.save(whistle);		
+	}
+	
 	
 	
 
