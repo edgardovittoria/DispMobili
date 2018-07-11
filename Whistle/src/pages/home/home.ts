@@ -24,11 +24,11 @@ export class HomePage {
   }
 
   openDetails(w: Whistle) {
-    this.navCtrl.push(PAGES.WHISTLE_DETAILS, w.id);
+    this.navCtrl.push(PAGES.WHISTLE_DETAILS, {whistleId: w.id});
   }
 
-  openComments() {
-    this.navCtrl.push(PAGES.COMMENTS);
+  openComments(w: Whistle) {
+    this.navCtrl.push(PAGES.COMMENTS, {whistleId: w.id});
   }
 
   createWhistle() {

@@ -13,8 +13,8 @@ export interface Language {
 @Injectable()
 export class LanguageService {
 
-    italiano: Language = { name: "Italiano", code: "it" };
-    languages: Array<Language> = [this.italiano, { name: "English", code: "en" }];
+    english: Language = { name: "English", code: "en" };
+    languages: Array<Language> = [this.english, { name: "Italiano", code: "it" }];
 
     constructor(private storage: Storage) {
 
@@ -25,7 +25,7 @@ export class LanguageService {
     }
 
     getBestLang(): string {
-        return this.italiano.code;
+        return this.english.code;
     }
 
     getLangs(): Array<Language> {

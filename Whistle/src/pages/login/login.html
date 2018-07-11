@@ -6,22 +6,25 @@
       </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+
+    <ion-img cache="true" src="../../assets/imgs/Icon10.png" id="logo"></ion-img>
+
+    <form [formGroup]="todo" (ngSubmit)="logForm()">
 <ion-list>
 
     <ion-item>
       <ion-label floating>Username</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input formControlName="username" type="text"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input formControlName="password" type="password"></ion-input>
     </ion-item>
   
   </ion-list>
 
-  <div padding>
-    <button block>Login</button>
-  </div>
+    <button ion-button round class="submit" color="primary" [disabled]="!todo.valid" (click)="submit()">Login!</button>
+  </form>
 </ion-content>  

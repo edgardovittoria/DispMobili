@@ -2,11 +2,13 @@
   "name": "Whistle",
   "app_id": "",
   "type": "ionic-angular",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "proxies": [
     {
-        "path": "/api",
-        "proxyUrl": "http://localhost:8080/whistle/api"
+      "path": "/api",
+      "proxyUrl": "http://localhost:8080/whistle/api"
     }
-]
+  ]
 }

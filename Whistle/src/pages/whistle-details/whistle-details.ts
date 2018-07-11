@@ -10,7 +10,7 @@ import { WhistleService } from "../../services/whistle.service";
     templateUrl: 'whistle-details.html'
 })
 export class WhistleDetailsPage {
-    whistle: any;
+    whistle: Whistle;
 
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -19,12 +19,12 @@ export class WhistleDetailsPage {
     }
 
     newChat() {
-        this.navCtrl.push(PAGES.CHAT);
+        this.navCtrl.push(PAGES.CHAT, {userId: this.whistle.author.id});
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad WhistleDetailsPage');
-        this.whistleService.findById(this.navParams.data.id).subscribe((data: Whistle) => {
+        this.whistleService.findById(this.navParams.data.whistleId).subscribe((data: Whistle) => {
           this.whistle = data;
         });
       }

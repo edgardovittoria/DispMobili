@@ -1,3 +1,5 @@
+import './shared/rxjs-operators';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -13,6 +15,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { UserService } from '../services/user.service';
 import { LanguageService } from '../services/language.service';
 import { WhistleService } from '../services/whistle.service';
+import { ChatListService } from '../services/chat-list.service';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -34,10 +37,7 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    IonicStorageModule.forRoot({
-      name: 'db_whistle',  //nome del db sqlite (si trova sul dispositivo)
-      driverOrder: ['indexeddb', 'sqlite', 'websql']
-    }),
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -48,6 +48,7 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ChatListService,
     UserService,
     WhistleService,
     LanguageService

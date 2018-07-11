@@ -8,17 +8,18 @@
   </ion-header>
 
   <ion-content>
+    <div *ngIf="whistle">
 <ion-card>
     <ion-item>
       <ion-avatar item-start>
         <img src="../../assets/imgs/Jessica.jpg">
       </ion-avatar>
-      <h2>Jessica</h2>
-      <p>Fun Whistle</p>
+      <h2>{{whistle.author.name}} {{whistle.author.surname}}</h2>
+      <p>boh Whistle</p>
     </ion-item> 
   
     <ion-card-content>
-      <p>Truth is like poetry... and most ppl fuckin' hate poetry.</p>
+      <p>{{whistle.body}}</p>
     </ion-card-content>
   
     <ion-row>
@@ -37,19 +38,21 @@
     </ion-row>
     </ion-card>
   
-    <ion-card>
+    <div padding>
+    <ion-card *ngFor="let c of comments">
         <ion-item>
           <ion-avatar item-start>
             <img src="../../assets/imgs/Heisenberg.jpg">
           </ion-avatar>
-          <h2>Heisenberg</h2>         
+          <h2>{{c.author.name}} {{c.author.surname}}</h2>         
         </ion-item> 
       
         <ion-card-content>
-          <p>You're goddamn right.</p>
+          <p>{{c.body}}</p>
         </ion-card-content>
     </ion-card>
-    <ion-card>
+    </div> 
+    <!--<ion-card>
         <ion-item>
           <ion-avatar item-start>
             <img src="../../assets/imgs/Paolo.jpg">
@@ -72,7 +75,7 @@
         <ion-card-content>
           <p>Where i am, poetry doens't even exist lol</p>
         </ion-card-content>
-    </ion-card>              
-       
+    </ion-card>-->             
+  </div>      
  
 </ion-content>  

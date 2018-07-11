@@ -8,14 +8,15 @@
   </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="whistle">
+  <div *ngIf="whistle">
+  <ion-card>
     <img src="../../assets/imgs/Jessica.jpg"/>
     <ion-card-content>
       <ion-card-title>
-       {{whistle.pubblicatoDa.nome}}
+       {{whistle.author.name}} {{whistle.author.surname}}
         </ion-card-title>
       <p>
-        {{whistle.pubblicatoDa.description}}
+        {{whistle.author.description}}
       </p>
     </ion-card-content>
   </ion-card>
@@ -23,7 +24,7 @@
   <ion-card>
     <ion-card-content>{{whistle.body}}</ion-card-content>
   </ion-card>
-
+</div>
   <button ion-button round id="submit" color="primary" (click)="newChat()">Message!</button>
 
 </ion-content>

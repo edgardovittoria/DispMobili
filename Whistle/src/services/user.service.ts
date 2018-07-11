@@ -34,7 +34,7 @@ export class UserService {
                 //profilo dell'utente stesso non si fa una chiamata REST. 
                 this.storage.set(UTENTE_STORAGE, resp.body);
                 return resp.body;
-            });        
+            });       
     }
 
     logout() {
@@ -49,11 +49,16 @@ export class UserService {
         return fromPromise(this.storage.get(UTENTE_STORAGE));
     }
 
+    findById(userId: number): Observable<User> {
+        let apiURL = `${URL.USERS}/${userId}`;
+        return this.http.get<User>(apiURL);
+    }
+
     getUserToken(): string {
         return this.userToken;
     }
 
-    updateProfilo(nuovoUser: User): Observable<User> {
+    /*updateProfilo(nuovoUser: User): Observable<User> {
         return this.http.post<User>(URL.UPDATE_PROFILO, nuovoUser, { observe: 'response' })
             .map((resp: HttpResponse<User>) => {
                 //Aggiornamento dell'utente nello storage.
@@ -62,7 +67,7 @@ export class UserService {
                 this.storage.set(UTENTE_STORAGE, resp.body);
                 return resp.body;
             });
-    }
+    }*/
 
 
 }

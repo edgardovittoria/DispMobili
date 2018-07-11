@@ -11,12 +11,12 @@ export class ChatListService {
     constructor(private http: HttpClient) {
     }
 
-    list(): Observable<Array<Chat>> {
+    /*list(): Observable<Array<Chat>> {
         return this.http.get<Array<Chat>>(URL.CHATLIST);
-    }
+    }*/
 
-    findById(chatId: number): Observable<Chat> {
-        let apiURL = `${URL.CHATLIST}/${chatId}`;
-        return this.http.get<Chat>(apiURL);
+    list(user: number): Observable<Array<Chat>> {
+        let apiURL = `${URL.CHATLIST}/${user}`;
+        return this.http.get<Array<Chat>>(apiURL);
     }
 }

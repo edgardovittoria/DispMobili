@@ -7,7 +7,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
   <ion-card *ngFor="let w of whistles">
 
@@ -32,7 +32,7 @@
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button color="secondary" icon-start clear small>
+        <button ion-button color="secondary" icon-start clear small (click)="openComments(w)">
           <ion-icon name="ios-chatboxes-outline"></ion-icon>
           <div>x Comments</div>
         </button>

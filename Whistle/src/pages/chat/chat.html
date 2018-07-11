@@ -3,7 +3,9 @@
         <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Jessica</ion-title>
+        <div *ngIf="user">
+        <ion-title>{{user.name}} {{user.name}}</ion-title>
+        </div>
       </ion-navbar>
 </ion-header>
 

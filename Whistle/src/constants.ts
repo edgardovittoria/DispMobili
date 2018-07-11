@@ -6,14 +6,15 @@ export const STORE_PATH = URL_BASE + '/store';
 
 export const URL = {
     WHISTLES: URL_BASE + "/whistle",
+    USERS: URL_BASE + "/user",
     LOGIN: URL_BASE + "/login",
     LOGOUT: URL_BASE + "/logout",
-    CHATLIST: URL_BASE + "/chat-list",
+    CHATLIST: URL_BASE + "/chatlist",
+    COMMENTS: URL_BASE + "/comments",
     STORE: {
         WHISTLE: STORE_PATH + '/whistle',
         MESSAGE: STORE_PATH + '/message'
     },
-    STORE_WHISTLE: URL_BASE + "/store/whistle",
     UPDATE_PROFILO: URL_BASE + "/utente/updateprofilo"
 }
 
