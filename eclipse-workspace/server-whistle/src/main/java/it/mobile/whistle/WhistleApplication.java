@@ -14,10 +14,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import it.mobile.whistle.domain.Call;
 import it.mobile.whistle.domain.CallsType;
+import it.mobile.whistle.domain.Commento;
 import it.mobile.whistle.domain.Utente;
 import it.mobile.whistle.domain.Whistle;
 
 import it.mobile.whistle.business.impl.repositories.WhistleRepository;
+import it.mobile.whistle.business.impl.repositories.CommentoRepository;
 import it.mobile.whistle.business.impl.repositories.UtenteRepository;
 
 @SpringBootApplication
@@ -27,7 +29,7 @@ public class WhistleApplication {
 	private PasswordEncoder passwordEncoder;
 
 	@Bean
-	public CommandLineRunner loadData(UtenteRepository utenteRepository, WhistleRepository whistleRepository) {
+	public CommandLineRunner loadData(UtenteRepository utenteRepository, WhistleRepository whistleRepository, CommentoRepository commentoRepository) {
 		return (args) -> {
 			
 			Utente federico = new Utente();
@@ -87,7 +89,19 @@ public class WhistleApplication {
 			call1.setAuthor(edgardo);
 			call1 = whistleRepository.save(call1);
 			
+			Commento commento1 = new Commento();
+			commento1.setBody("come stai?");
+			commento1.setAuthor(edgardo);
+			commento1.setDate(today);
+			commento1.setId_whistle(whistle);
+			commento1 = commentoRepository.save(commento1);
 			
+			Commento commento2 = new Commento();
+			commento2.setBody("Bestia");
+			commento2.setAuthor(edgardo);
+			commento2.setDate(today);
+			commento2.setId_whistle(whistle);
+			commento2 = commentoRepository.save(commento2);
 			
 			/*TipologiaNotizia tipologiaDidattica = new TipologiaNotizia();
 			tipologiaDidattica.setNome("Didattica");

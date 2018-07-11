@@ -1,8 +1,7 @@
 package it.mobile.whistle.domain;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -35,11 +32,19 @@ public class Commento {
 	@JoinColumn(name = "ID_UTENTE", nullable = false)
 	private Utente author;
 	
-	@ManyToMany
-	@JoinTable(name="COMMENTI_WHISTLE",
-	    joinColumns={@JoinColumn(name="ID_COMMENTO")},
-	    inverseJoinColumns={@JoinColumn(name="ID_WHISTLE")})
-	private Set<Commento> commenti = new HashSet<Commento>();
+	@ManyToOne
+	@JoinColumn(name = "ID_WHISTLE", nullable = false)
+	private Whistle whistle;
+	
+	
+
+	public Whistle getId_whistle() {
+		return whistle;
+	}
+
+	public void setId_whistle(Whistle id_whistle) {
+		this.whistle = id_whistle;
+	}
 
 	public Long getId() {
 		return id;
@@ -49,13 +54,6 @@ public class Commento {
 		this.id = id;
 	}
 
-	public Date getDataCommento() {
-		return date;
-	}
-
-	public void setDataCommento(Date date) {
-		this.date = date;
-	}
 
 	public String getBody() {
 		return body;
@@ -65,13 +63,21 @@ public class Commento {
 		this.body = body;
 	}
 
-	/*public Set<Whistle> getWhistleCommentati() {
-		return whistleCommentati;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setWhistleCommentati(Set<Whistle> whistleCommentati) {
-		this.whistleCommentati = whistleCommentati;
-	}*/
-	
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Utente getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Utente author) {
+		this.author = author;
+	}
+
 	
 }
