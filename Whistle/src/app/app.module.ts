@@ -12,6 +12,7 @@ import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 import { UserService } from '../services/user.service';
 import { LanguageService } from '../services/language.service';
+import { WhistleService } from '../services/whistle.service';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -25,6 +26,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -47,6 +49,7 @@ export function createTranslateLoader(http: HttpClient) {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserService,
+    WhistleService,
     LanguageService
   ]
 })

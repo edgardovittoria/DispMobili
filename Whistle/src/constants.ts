@@ -1,11 +1,19 @@
 export const USE_PROXY = true;
 
-export const URL_BASE = USE_PROXY ? 'api' : 'http://localhost:8080/Whistle/api';
+export const URL_BASE = USE_PROXY ? 'api' : 'localhost:8080/whistle/api';
+
+export const STORE_PATH = URL_BASE + '/store';
 
 export const URL = {
+    WHISTLES: URL_BASE + "/whistle",
     LOGIN: URL_BASE + "/login",
     LOGOUT: URL_BASE + "/logout",
     CHATLIST: URL_BASE + "/chat-list",
+    STORE: {
+        WHISTLE: STORE_PATH + '/whistle',
+        MESSAGE: STORE_PATH + '/message'
+    },
+    STORE_WHISTLE: URL_BASE + "/store/whistle",
     UPDATE_PROFILO: URL_BASE + "/utente/updateprofilo"
 }
 

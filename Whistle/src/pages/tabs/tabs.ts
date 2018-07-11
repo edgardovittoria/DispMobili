@@ -15,7 +15,6 @@ export class TabsPage {
     search: any;
     profile: string = PAGES.USER;
 
-
     constructor(public navCtrl: NavController) {
 
     }

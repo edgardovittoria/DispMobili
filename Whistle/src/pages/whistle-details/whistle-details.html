@@ -8,20 +8,20 @@
   </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngIf="whistle">
     <img src="../../assets/imgs/Jessica.jpg"/>
     <ion-card-content>
       <ion-card-title>
-       Jessica
+       {{whistle.pubblicatoDa.nome}}
         </ion-card-title>
       <p>
-        Happiness is real only when shared.
+        {{whistle.pubblicatoDa.description}}
       </p>
     </ion-card-content>
   </ion-card>
 
   <ion-card>
-    <ion-card-content>Truth is like poetry... and most ppl fuckin' hate poetry.</ion-card-content>
+    <ion-card-content>{{whistle.body}}</ion-card-content>
   </ion-card>
 
   <button ion-button round id="submit" color="primary" (click)="newChat()">Message!</button>

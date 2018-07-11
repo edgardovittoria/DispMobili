@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Refresher} from 'ionic-angular';
 import { PAGES } from '../pages';
+import { Whistle } from '../../model/whistle.model';
+import { WhistleService } from '../../services/whistle.service';
 
 @IonicPage()
 @Component({
@@ -8,14 +10,21 @@ import { PAGES } from '../pages';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  whistles: Array<Whistle>;
 
-
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public whistleService: WhistleService) {
 
   }
 
-  openDetails() {
-    this.navCtrl.push(PAGES.WHISTLE_DETAILS);
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad HomePage');
+    this.whistleService.list().subscribe((data: Array<Whistle>) => {
+      this.whistles = data;
+    });
+  }
+
+  openDetails(w: Whistle) {
+    this.navCtrl.push(PAGES.WHISTLE_DETAILS, w.id);
   }
 
   openComments() {

@@ -1,8 +1,11 @@
 import { Chat } from "./chat.model";
 
 export class User {
+    id: number;
     name: string;
-    mail: string;
+    surname: string;
+    username: string;
+    email: string;
     password: string;
     photo: string; //?????
     description: string;
@@ -11,7 +14,7 @@ export class User {
 
     constructor(name: string, mail: string, password: string) {
         this.name = name;
-        this.mail = mail;
+        this.email = mail;
         this.password = password;
     }
 }
