@@ -1,7 +1,7 @@
 package it.mobile.whistle.business.impl;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort.Direction;
@@ -14,10 +14,12 @@ import it.mobile.whistle.business.BusinessException;
 
 import it.mobile.whistle.domain.Whistle;
 import it.mobile.whistle.domain.Commento;
+import it.mobile.whistle.domain.Reactions;
 import it.mobile.whistle.domain.Utente;
 
 import it.mobile.whistle.business.impl.repositories.WhistleRepository;
 import it.mobile.whistle.business.impl.repositories.CommentoRepository;
+import it.mobile.whistle.business.impl.repositories.ReactionsRepository;
 import it.mobile.whistle.business.impl.repositories.UtenteRepository;
 
 @Service
@@ -32,6 +34,10 @@ public class WhistleServiceImpl implements WhistleService {
 	
 	@Autowired
 	private CommentoRepository commentoRepository;
+	
+	@Autowired
+	private ReactionsRepository reactionsRepository;
+
 
 	@Override
 	public Utente findUtenteByUsername(String username) throws BusinessException {
@@ -75,6 +81,19 @@ public class WhistleServiceImpl implements WhistleService {
 		return commentoRepository.findCommentiBywhistleId(idWhistle);
 	}
 	
+	@Override
+	public void createCommento(Commento commento) throws BusinessException {
+		commentoRepository.save(commento);		
+	}
+	@Override
+	public List<Reactions> findAllReactions(long idWhistle) throws BusinessException {
+		return reactionsRepository.findReactionsBywhistleId(idWhistle);
+	}
+	
+	@Override
+	public void createReaction(Reactions reactions) throws BusinessException {
+		reactionsRepository.save(reactions);		
+	}
 	
 	
 

@@ -10,6 +10,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +28,9 @@ public class RESTUtenteController {
 
 	@Value("${jwt.header}")
 	private String tokenHeader;
+	
+	@Autowired
+	private WhistleService service;
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -36,7 +41,7 @@ public class RESTUtenteController {
 	@Autowired
 	private WhistleService whistleService;
 
-	@PostMapping("/login")
+	@PostMapping("whistle/api/login")
 	public UtenteResponse login(@RequestBody AuthenticationRequest authenticationRequest, HttpServletResponse response) throws AuthenticationException {
 		// Effettuo l'autenticazione
 		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
@@ -51,10 +56,14 @@ public class RESTUtenteController {
 		return new UtenteResponse(((UserDetailsImpl) userDetails).getUtente());
 	}
 
-	@PostMapping("/utente/updateprofilo")
+	@PostMapping("whistle/api/utente/updateprofilo")
 	public UtenteResponse updateProfilo(@RequestBody Utente utente) {
 		Utente nuovoUtente = whistleService.updateProfilo(utente);		
 		return new UtenteResponse(nuovoUtente);
 	}
 	
+	/*@GetMapping("whistle/api/utente/{idUtente}")
+	public Utente findUtenteById(@PathVariable Long id) {
+		return service.findUtenteById(id);
+	}*/
 }

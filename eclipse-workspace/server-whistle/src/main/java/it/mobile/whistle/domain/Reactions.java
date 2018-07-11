@@ -30,10 +30,42 @@ public class Reactions {
 	@Column(name = "TYPE", nullable = false)
 	private String type;
 	
-	@ManyToMany
-	@JoinTable(name="REACTIONS_WHISTLE",
-	    joinColumns={@JoinColumn(name="ID_REACTIONS")},
-	    inverseJoinColumns={@JoinColumn(name="ID_WHISTLE")})
-	private Set<Reactions> reatctions = new HashSet<Reactions>();
+	@ManyToOne
+	@JoinColumn(name = "ID_WHISTLE", nullable = false)
+	private Whistle whistle;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Utente getReactionsOf() {
+		return reactionsOf;
+	}
+
+	public void setReactionsOf(Utente reactionsOf) {
+		this.reactionsOf = reactionsOf;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Whistle getWhistle() {
+		return whistle;
+	}
+
+	public void setWhistle(Whistle whistle) {
+		this.whistle = whistle;
+	}
+	
+	
 	
 }

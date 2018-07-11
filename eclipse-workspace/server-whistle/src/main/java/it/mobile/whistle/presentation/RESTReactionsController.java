@@ -11,23 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.mobile.whistle.business.WhistleService;
-import it.mobile.whistle.domain.Commento;
-
-
+import it.mobile.whistle.domain.Reactions;
 
 @RestController
 @RequestMapping("/api")
-public class RESTCommentoController {
+public class RESTReactionsController {
 
 	@Autowired
 	private WhistleService service;
 	
-	@GetMapping("/comments/{idWhistle}")
-	public List<Commento> list(@PathVariable long idWhistle) {
-		return service.findAllCommenti(idWhistle);
+	@GetMapping("/reactions/{idWhistle}")
+	public List<Reactions> list(@PathVariable long idWhistle) {
+		return service.findAllReactions(idWhistle);
 	}
-	@PostMapping("/store/comment")
-	public void storeCommento(@RequestBody Commento commento) {
-		service.createCommento(commento);
+	@PostMapping("/store/reaction")
+	public void storeReaction(@RequestBody Reactions reactions) {
+		service.createReaction(reactions);
 	}
 }

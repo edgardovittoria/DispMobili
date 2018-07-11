@@ -2,10 +2,10 @@ package it.mobile.whistle.business;
 
 import java.util.List;
 
-
 import it.mobile.whistle.domain.Whistle;
 
 import it.mobile.whistle.domain.Commento;
+import it.mobile.whistle.domain.Reactions;
 import it.mobile.whistle.domain.Utente;
 
 
@@ -13,7 +13,7 @@ public interface WhistleService {
 
 	Utente findUtenteByUsername(String username) throws BusinessException;
 	
-	//Utente findUtenteById(Long id) throws BusinessException;
+	//Optional<Utente> findUtenteById(Long id) throws BusinessException;
 
 	Utente updateProfilo(Utente utente) throws BusinessException;
 
@@ -26,8 +26,12 @@ public interface WhistleService {
 	void createWhistle(Whistle whistle) throws BusinessException;
 	
 	List<Commento> findAllCommenti(long idWhistle) throws BusinessException;
+	
+	void createCommento(Commento commento) throws BusinessException;
 
-
+    List<Reactions> findAllReactions(long idWhistle) throws BusinessException;
+	
+	void createReaction(Reactions reactions) throws BusinessException;
 
 	
 

@@ -15,11 +15,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import it.mobile.whistle.domain.Call;
 import it.mobile.whistle.domain.CallsType;
 import it.mobile.whistle.domain.Commento;
+import it.mobile.whistle.domain.Reactions;
 import it.mobile.whistle.domain.Utente;
 import it.mobile.whistle.domain.Whistle;
 
 import it.mobile.whistle.business.impl.repositories.WhistleRepository;
 import it.mobile.whistle.business.impl.repositories.CommentoRepository;
+import it.mobile.whistle.business.impl.repositories.ReactionsRepository;
 import it.mobile.whistle.business.impl.repositories.UtenteRepository;
 
 @SpringBootApplication
@@ -29,7 +31,7 @@ public class WhistleApplication {
 	private PasswordEncoder passwordEncoder;
 
 	@Bean
-	public CommandLineRunner loadData(UtenteRepository utenteRepository, WhistleRepository whistleRepository, CommentoRepository commentoRepository) {
+	public CommandLineRunner loadData(UtenteRepository utenteRepository, WhistleRepository whistleRepository, CommentoRepository commentoRepository, ReactionsRepository reactionsRepository) {
 		return (args) -> {
 			
 			Utente federico = new Utente();
@@ -102,6 +104,19 @@ public class WhistleApplication {
 			commento2.setDate(today);
 			commento2.setId_whistle(whistle);
 			commento2 = commentoRepository.save(commento2);
+			
+			Reactions reaction1 = new Reactions();
+			reaction1.setReactionsOf(edgardo);
+			reaction1.setType("LIKE");
+			reaction1.setWhistle(whistle2);
+			reaction1 = reactionsRepository.save(reaction1);
+			
+			
+			Reactions reaction2 = new Reactions();
+			reaction2.setReactionsOf(edgardo);
+			reaction2.setType("LIKE");
+			reaction2.setWhistle(whistle);
+			reaction2 = reactionsRepository.save(reaction2);
 			
 			/*TipologiaNotizia tipologiaDidattica = new TipologiaNotizia();
 			tipologiaDidattica.setNome("Didattica");
