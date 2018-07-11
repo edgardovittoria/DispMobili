@@ -41,7 +41,7 @@ public class WhistleServiceImpl implements WhistleService {
 
 	@Override
 	public List<Whistle> findAllWhistle() throws BusinessException {
-		return whistleRepository.findAll(JpaSort.unsafe(Direction.DESC, "dataPubblicazione"));
+		return whistleRepository.findAll(JpaSort.unsafe(Direction.DESC, "date"));
 	}
 
 	@Override
