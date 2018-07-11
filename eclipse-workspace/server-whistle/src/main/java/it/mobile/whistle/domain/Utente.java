@@ -23,10 +23,10 @@ public class Utente {
 	@Column(name = "EMAIL", nullable = false, length = 255)
 	private String email;
 
-	@Column(name = "name", nullable = false, length = 255)
+	@Column(name = "NAME", nullable = false, length = 255)
 	private String name;
 
-	@Column(name = "surname", nullable = false, length = 255)
+	@Column(name = "SURNAME", nullable = false, length = 255)
 	private String surname;
 
 	@Column(name = "USERNAME", nullable = false, length = 16, updatable = false, unique = true)
@@ -63,19 +63,19 @@ public class Utente {
 		this.email = email;
 	}
 
-	public String getNome() {
+	public String getName() {
 		return name;
 	}
 
-	public void setNome(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getCognome() {
+	public String getSurname() {
 		return surname;
 	}
 
-	public void setCognome(String surname) {
+	public void setSurname(String surname) {
 		this.surname = surname;
 	}
 

@@ -68,6 +68,22 @@ public class Messaggio {
 	public void setRelativoA(Chat relativoA) {
 		this.relativoA = relativoA;
 	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Utente getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Utente author) {
+		this.author = author;
+	}
 	
 	
 	

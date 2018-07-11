@@ -31,8 +31,8 @@ public class WhistleApplication {
 		return (args) -> {
 			
 			Utente federico = new Utente();
-			federico.setCognome("Raparelli");
-			federico.setNome("Federico");
+			federico.setSurname("Raparelli");
+			federico.setName("Federico");
 			federico.setEmail("federap@hotmail.it");
 			federico.setPassword(passwordEncoder.encode("pluto"));
 			federico.setUsername("federap");
@@ -42,8 +42,8 @@ public class WhistleApplication {
 			federico = utenteRepository.save(federico);
 			
 			Utente edgardo = new Utente();
-			edgardo.setCognome("Vittoria");
-			edgardo.setNome("Edgardo");
+			edgardo.setSurname("Vittoria");
+			edgardo.setName("Edgardo");
 			edgardo.setEmail("edgardovittoria@hotmail.it");
 			edgardo.setPassword(passwordEncoder.encode("pippo"));
 			edgardo.setUsername("edgvit");
@@ -58,33 +58,33 @@ public class WhistleApplication {
 			
 			Whistle whistle = new Whistle();
 			whistle.setBody("Ciao");
-			whistle.setDataPubblicazione(today);
+			whistle.setDate(today);
 			whistle.setLocation("Roma");
-			whistle.setPubblicatoDa(federico);
+			whistle.setAuthor(federico);
 			whistle = whistleRepository.save(whistle);
 			
 			
 			Whistle whistle2 = new Whistle();
 			whistle2.setBody("Forza Inter");
-			whistle2.setDataPubblicazione(today);
+			whistle2.setDate(today);
 			whistle2.setLocation("Palena");
-			whistle2.setPubblicatoDa(edgardo);
+			whistle2.setAuthor(edgardo);
 			whistle2 = whistleRepository.save(whistle2);
 			
 			Call call = new Call();
 			call.setBody("Ciao...qualcuno è disposto a prendere un caffe al tropical??");
 			call.setCallsType(CallsType.CAFFE);
-			call.setDataPubblicazione(today);
+			call.setDate(today);
 			call.setLocation("L'Aquila");
-			call.setPubblicatoDa(federico);
+			call.setAuthor(federico);
 			call = whistleRepository.save(call);
 			
 			Call call1 = new Call();
 			call1.setBody("Ciao...qualcuno può gentilmente darmi un oki...mi scoppia la testa dopo aver usato spring boot XD?");
 			call1.setCallsType(CallsType.MEDICINALI);
-			call1.setDataPubblicazione(today);
+			call1.setDate(today);
 			call1.setLocation("L'Aquila");
-			call1.setPubblicatoDa(edgardo);
+			call1.setAuthor(edgardo);
 			call1 = whistleRepository.save(call1);
 			
 			

@@ -33,7 +33,7 @@ public class Whistle {
 	private String body;
 
 
-	@Column(name = "DATA_PUBBLICAZIONE", nullable = false)
+	@Column(name = "DATE", nullable = false)
 	private Date date;
 
 	@ManyToOne
@@ -64,19 +64,19 @@ public class Whistle {
 		this.body = body;
 	}
 
-	public Date getDataPubblicazione() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDataPubblicazione(Date date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
-	public Utente getPubblicatoDa() {
+	public Utente getAuthor() {
 		return author;
 	}
 
-	public void setPubblicatoDa(Utente author) {
+	public void setAuthor(Utente author) {
 		this.author = author;
 	}
 
