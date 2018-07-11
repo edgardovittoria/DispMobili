@@ -1,5 +1,7 @@
 package it.mobile.whistle.domain;
 
+//import java.util.List;
+
 /*import java.util.HashSet;
 import java.util.Set;*/
 
@@ -27,12 +29,46 @@ public class Chat {
 
 	@ManyToOne
 	@JoinColumn(name = "ID_USER", nullable = false)
-	private Utente apertaDa;
+	private Utente opener;
 	
 	@ManyToOne
-	@JoinColumn(name = "PARTECIPANTE", nullable = false)
-	private Utente partecipante;
+	@JoinColumn(name = "partecipant", nullable = false)
+	private Utente partecipant;
 	
-	//private Set<Messaggio> Messaggi = new HashSet<Messaggio>();
+	//private List<Messaggio> messages;
+	
+	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Utente getOpener() {
+		return opener;
+	}
+
+	public void setOpener(Utente opener) {
+		this.opener = opener;
+	}
+
+	public Utente getPartecipant() {
+		return partecipant;
+	}
+
+	public void setPartecipant(Utente partecipant) {
+		this.partecipant = partecipant;
+	}
+
+	/*public List<Messaggio> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(List<Messaggio> messages) {
+		this.messages = messages;
+	}*/
 	
 }

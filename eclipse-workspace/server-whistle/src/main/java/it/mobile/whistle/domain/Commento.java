@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,10 +26,14 @@ public class Commento {
 	private Long id;
 	
 	@Column(name = "DATA_COMMENTO", nullable = false)
-	private Date dataCommento;
+	private Date date;
 	
 	@Column(name = "body", nullable = false, length = 255)
 	private String body;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_UTENTE", nullable = false)
+	private Utente author;
 	
 	@ManyToMany
 	@JoinTable(name="COMMENTI_WHISTLE",
@@ -45,11 +50,11 @@ public class Commento {
 	}
 
 	public Date getDataCommento() {
-		return dataCommento;
+		return date;
 	}
 
-	public void setDataCommento(Date dataCommento) {
-		this.dataCommento = dataCommento;
+	public void setDataCommento(Date date) {
+		this.date = date;
 	}
 
 	public String getBody() {

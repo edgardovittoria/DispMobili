@@ -1,6 +1,7 @@
 package it.mobile.whistle.domain;
 
 import java.util.Date;
+//import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -33,15 +34,19 @@ public class Whistle {
 
 
 	@Column(name = "DATA_PUBBLICAZIONE", nullable = false)
-	private Date dataPubblicazione;
+	private Date date;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_USER", nullable = false)
-	private Utente pubblicatoDa;
+	private Utente author;
 	
 	
 	@Column(name = "LOCATION", nullable = false, length = 255)
 	private String location;
+	
+	//private List<Utente> reactions;
+	
+	//private List<Commento> comments;
 
 	public Long getId() {
 		return id;
@@ -60,19 +65,19 @@ public class Whistle {
 	}
 
 	public Date getDataPubblicazione() {
-		return dataPubblicazione;
+		return date;
 	}
 
-	public void setDataPubblicazione(Date dataPubblicazione) {
-		this.dataPubblicazione = dataPubblicazione;
+	public void setDataPubblicazione(Date date) {
+		this.date = date;
 	}
 
 	public Utente getPubblicatoDa() {
-		return pubblicatoDa;
+		return author;
 	}
 
-	public void setPubblicatoDa(Utente pubblicatoDa) {
-		this.pubblicatoDa = pubblicatoDa;
+	public void setPubblicatoDa(Utente author) {
+		this.author = author;
 	}
 
 	public String getLocation() {
@@ -82,6 +87,22 @@ public class Whistle {
 	public void setLocation(String location) {
 		this.location = location;
 	}
+
+	/*public List<Utente> getReactions() {
+		return reactions;
+	}
+
+	public void setReactions(List<Utente> reactions) {
+		this.reactions = reactions;
+	}
+
+	public List<Commento> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Commento> comments) {
+		this.comments = comments;
+	}*/
 
 	
 	

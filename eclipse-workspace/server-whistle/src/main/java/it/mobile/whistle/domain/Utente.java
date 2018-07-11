@@ -1,5 +1,7 @@
 package it.mobile.whistle.domain;
 
+//import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,11 +23,11 @@ public class Utente {
 	@Column(name = "EMAIL", nullable = false, length = 255)
 	private String email;
 
-	@Column(name = "NOME", nullable = false, length = 255)
-	private String nome;
+	@Column(name = "name", nullable = false, length = 255)
+	private String name;
 
-	@Column(name = "COGNOME", nullable = false, length = 255)
-	private String cognome;
+	@Column(name = "surname", nullable = false, length = 255)
+	private String surname;
 
 	@Column(name = "USERNAME", nullable = false, length = 16, updatable = false, unique = true)
 	private String username;
@@ -42,6 +44,8 @@ public class Utente {
 	
 	@Column(name = "SOLVED_CALLS", nullable = false, length = 255)
 	private int solved_calls;
+	
+	//private List<Chat> chats;
 
 	public Long getId() {
 		return id;
@@ -60,19 +64,19 @@ public class Utente {
 	}
 
 	public String getNome() {
-		return nome;
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNome(String name) {
+		this.name = name;
 	}
 
 	public String getCognome() {
-		return cognome;
+		return surname;
 	}
 
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
+	public void setCognome(String surname) {
+		this.surname = surname;
 	}
 
 	public String getPassword() {
@@ -114,6 +118,14 @@ public class Utente {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
+	/*public List<Chat> getChats() {
+		return chats;
+	}
+
+	public void setChats(List<Chat> chats) {
+		this.chats = chats;
+	}*/
 	
 
 	
