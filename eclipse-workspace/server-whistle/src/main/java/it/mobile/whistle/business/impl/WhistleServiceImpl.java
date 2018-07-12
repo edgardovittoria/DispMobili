@@ -1,7 +1,6 @@
 package it.mobile.whistle.business.impl;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort.Direction;
@@ -44,11 +43,6 @@ public class WhistleServiceImpl implements WhistleService {
 		return utenteRepository.findByUsername(username);
 	}
 	
-	/*@Override
-	public Utente findUtenteById(Long id) throws BusinessException {
-		return utenteRepository.findById(id);
-	}*/
-	
 	@Override
 	public Utente updateProfilo(Utente profilo) throws BusinessException {
 		Utente utente = utenteRepository.findByUsername(profilo.getUsername());
@@ -69,6 +63,11 @@ public class WhistleServiceImpl implements WhistleService {
 	@Override
 	public List<Whistle> findAllCall() throws BusinessException {
 		return whistleRepository.findByTipologia_whistle();
+	}
+	
+	@Override
+	public List<Whistle> findWhistle() throws BusinessException {
+		return whistleRepository.findBylonlat();
 	}
 	
 	@Override

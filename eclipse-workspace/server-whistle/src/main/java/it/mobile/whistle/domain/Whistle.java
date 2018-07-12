@@ -40,14 +40,12 @@ public class Whistle {
 	@JoinColumn(name = "ID_USER", nullable = false)
 	private Utente author;
 	
+	@Column(name = "LATITUDE", nullable = false, length = 255)
+	private double latitude;
 	
-	@Column(name = "LOCATION", nullable = false, length = 255)
-	private String location;
+	@Column(name = "LONGITUDE", nullable = false, length = 255)
+	private double longitude;
 	
-	//private List<Utente> reactions;
-	
-	//private List<Commento> comments;
-
 	public Long getId() {
 		return id;
 	}
@@ -80,29 +78,21 @@ public class Whistle {
 		this.author = author;
 	}
 
-	public String getLocation() {
-		return location;
+	public double getLatitude() {
+		return latitude;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
 	}
 
-	/*public List<Utente> getReactions() {
-		return reactions;
+	public double getLongitude() {
+		return longitude;
 	}
 
-	public void setReactions(List<Utente> reactions) {
-		this.reactions = reactions;
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
 	}
-
-	public List<Commento> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Commento> comments) {
-		this.comments = comments;
-	}*/
 
 	
 	

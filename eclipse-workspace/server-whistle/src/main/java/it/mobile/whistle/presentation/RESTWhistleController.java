@@ -22,7 +22,7 @@ public class RESTWhistleController {
 	
 	@GetMapping("/whistle")
 	public List<Whistle> list() {
-		return service.findAllWhistle();
+		return service.findWhistle();
 	}
 	
 	@GetMapping("/Call")

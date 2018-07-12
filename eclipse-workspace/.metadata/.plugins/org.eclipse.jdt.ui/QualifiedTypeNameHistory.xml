@@ -2,4 +2,26 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
 <fullyQualifiedTypeName name="it.mobile.whistle.business.WhistleService"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+<fullyQualifiedTypeName name="org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker"/>
+<fullyQualifiedTypeName name="org.springframework.web.socket.config.annotation.StompEndpointRegistry"/>
+<fullyQualifiedTypeName name="org.springframework.messaging.simp.config.MessageBrokerRegistry"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.messaging.handler.annotation.MessageMapping"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="org.springframework.web.socket.config.annotation.AbstractWebSocketMessageBrokerConfigurer"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.business.impl.repositories.MessageRepository"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.business.impl.repositories.MessageRepositoryImpl"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.domain.Messaggio"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.business.MessageService"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.domain.Commento"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.business.impl.repositories.CommentoRepository"/>
+<fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.domain.Reactions"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.business.impl.repositories.ReactionsRepository"/>
 </qualifiedTypeNameHistroy>

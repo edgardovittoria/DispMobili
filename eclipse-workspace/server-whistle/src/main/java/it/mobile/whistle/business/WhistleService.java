@@ -23,6 +23,8 @@ public interface WhistleService {
 
 	List<Whistle> findAllCall() throws BusinessException;
 	
+	List<Whistle> findWhistle() throws BusinessException;
+	
 	void createWhistle(Whistle whistle) throws BusinessException;
 	
 	List<Commento> findAllCommenti(long idWhistle) throws BusinessException;
