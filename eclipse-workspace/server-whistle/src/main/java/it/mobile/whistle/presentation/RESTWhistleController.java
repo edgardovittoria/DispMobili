@@ -38,6 +38,8 @@ public class RESTWhistleController {
 	public void storeWhistle(@RequestBody Whistle whistle) {
 		service.createWhistle(whistle);
 	}
+	/*@GetMapping("/position")
+	public double getPosition*/
 	
 
 }

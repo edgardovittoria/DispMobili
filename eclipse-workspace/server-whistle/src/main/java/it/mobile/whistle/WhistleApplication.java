@@ -14,13 +14,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import it.mobile.whistle.domain.Call;
 import it.mobile.whistle.domain.CallsType;
+import it.mobile.whistle.domain.Chat;
 import it.mobile.whistle.domain.Commento;
+import it.mobile.whistle.domain.Messaggio;
 import it.mobile.whistle.domain.Reactions;
 import it.mobile.whistle.domain.Utente;
 import it.mobile.whistle.domain.Whistle;
 
 import it.mobile.whistle.business.impl.repositories.WhistleRepository;
+import it.mobile.whistle.business.impl.repositories.ChatRepository;
 import it.mobile.whistle.business.impl.repositories.CommentoRepository;
+import it.mobile.whistle.business.impl.repositories.MessageRepository;
 import it.mobile.whistle.business.impl.repositories.ReactionsRepository;
 import it.mobile.whistle.business.impl.repositories.UtenteRepository;
 
@@ -31,7 +35,7 @@ public class WhistleApplication {
 	private PasswordEncoder passwordEncoder;
 
 	@Bean
-	public CommandLineRunner loadData(UtenteRepository utenteRepository, WhistleRepository whistleRepository, CommentoRepository commentoRepository, ReactionsRepository reactionsRepository) {
+	public CommandLineRunner loadData(UtenteRepository utenteRepository, WhistleRepository whistleRepository, CommentoRepository commentoRepository, ReactionsRepository reactionsRepository, ChatRepository chatRepository, MessageRepository messageRepository) {
 		return (args) -> {
 			
 			Utente federico = new Utente();
@@ -121,6 +125,18 @@ public class WhistleApplication {
 			reaction2.setType("LIKE");
 			reaction2.setWhistle(whistle);
 			reaction2 = reactionsRepository.save(reaction2);
+			
+			Chat chat = new Chat();
+			chat.setOpener(edgardo);
+			chat.setPartecipant(federico);
+			chat = chatRepository.save(chat);
+			
+			Messaggio mex = new Messaggio();
+			mex.setAuthor(edgardo);
+			mex.setBody("isiyafyigaiusfgiuha");
+			mex.setDate(today);
+		    mex.setRelativoA(chat);
+		    mex = messageRepository.save(mex);;
 			
 
 		};
