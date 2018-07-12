@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import it.mobile.whistle.domain.Utente;
+import it.mobile.whistle.common.spring.security.GrantedAuthorityImpl;
 
 @SuppressWarnings("serial")
 public class UserDetailsImpl implements UserDetails {
@@ -53,8 +54,8 @@ public class UserDetailsImpl implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> result = new ArrayList<>();
-
-		result.add((GrantedAuthority) this.utente);
+		GrantedAuthorityImpl authorityImpl = new GrantedAuthorityImpl("utente");
+		result.add(authorityImpl);
 		return result;
 	}
 

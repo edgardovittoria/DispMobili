@@ -12,7 +12,7 @@ import { PAGES } from "../pages";
     templateUrl: 'login.html'
 })
 export class LoginPage {
-    account: Account = {username: "pippo", password: "password"};
+    account: Account = {username: "federap", password: "pluto"};
     todo : FormGroup;
 
     constructor( private formBuilder: FormBuilder,

@@ -36,7 +36,7 @@ public class RESTUtenteController {
 	@Autowired
 	private WhistleService whistleService;
 
-	@PostMapping("whistle/api/login")
+	@PostMapping("/login")
 	public UtenteResponse login(@RequestBody AuthenticationRequest authenticationRequest, HttpServletResponse response) throws AuthenticationException {
 		// Effettuo l'autenticazione
 		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
