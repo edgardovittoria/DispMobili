@@ -10,21 +10,22 @@
 
     <ion-img cache="true" src="../../assets/imgs/Icon10.png" id="logo"></ion-img>
 
-    <form [formGroup]="todo" (ngSubmit)="logForm()">
+    <form #loginForm="ngForm">
 <ion-list>
 
     <ion-item>
       <ion-label floating>Username</ion-label>
-      <ion-input formControlName="username" type="text"></ion-input>
+      <ion-input [(ngModel)]="account.username" name="username" type="text" #username="ngModel"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input formControlName="password" type="password"></ion-input>
+      <ion-input [(ngModel)]="account.password" name="password" type="password"
+      #password="ngModel"></ion-input>
     </ion-item>
   
   </ion-list>
 
-    <button ion-button round class="submit" color="primary" [disabled]="!todo.valid" (click)="submit()">Login!</button>
+    <button ion-button round class="submit" color="primary" [disabled]="!loginForm.form.valid" (click)="submit(loginForm)">Login!</button>
   </form>
 </ion-content>  

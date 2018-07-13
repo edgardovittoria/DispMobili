@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams, ModalController, AlertController } from "ionic-angular/umd";
+import { IonicPage, Events } from "ionic-angular";
 import { TranslateService } from "@ngx-translate/core";
+import { UserService } from "../../services/user.service";
+import { PAGES } from "../pages";
 
 @IonicPage()
 @Component({
@@ -8,5 +10,9 @@ import { TranslateService } from "@ngx-translate/core";
     templateUrl: 'user.html'
 })
 export class UserPage {
+
+    constructor(public events: Events) {
+
+    }
 
 }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { URL, URL_BASE } from '../constants';
+import { URL } from '../constants';
 import { Whistle } from '../model/whistle.model';
 import { Comment } from '../model/comment.model';
 
@@ -13,6 +13,7 @@ export class WhistleService {
     }
 
     list(): Observable<Array<Whistle>> {
+        //qui ci vuole il controllo della posizione
         return this.http.get<Array<Whistle>>(URL.WHISTLES);
     }
 

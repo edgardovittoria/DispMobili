@@ -1,17 +1,17 @@
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>New Whistle</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="back"></ion-icon>
+    </button>
+    <ion-title>New Whistle</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content>
 
     <div padding>
 
-    <ion-segment [(ngModel)]="type">
+    <ion-segment [(ngModel)]="postType">
         <ion-segment-button value="Fun">
           Fun
         </ion-segment-button>
@@ -20,12 +20,12 @@
         </ion-segment-button>
       </ion-segment>    
   
-    <form [formGroup]="todo" (ngSubmit)="logForm()">
+    <form #whistleForm="ngForm">
 
-          <div [ngSwitch]="type">
+          <div [ngSwitch]="postType">
       
         <div class="form" *ngSwitchCase="'Fun'">  
-            <ion-input hidden type="text" readonly="true" formControlName="type" value="Fun"></ion-input>
+            <ion-input hidden type="text" readonly="true" [(ngModel)]="postType" name="postType" value="Fun"></ion-input>
 
         <ion-card>
             <ion-item>
@@ -36,7 +36,7 @@
             </ion-item>
             <ion-card-content>
                 <ion-item>
-                    <ion-input type="text" formControlName="body" placeholder="Write here.."></ion-input>
+                    <ion-input [(ngModel)]="whistle.body" name="body" type="text" #body="ngModel" placeholder="Write here.."></ion-input>
                   </ion-item>             
             </ion-card-content>     
       </ion-card>
@@ -44,7 +44,7 @@
       
 
       <div class="form" *ngSwitchCase="'Call'">
-          <ion-input hidden type="text" readonly="true" formControlName="type" value="Call"></ion-input>
+          <ion-input hidden readonly="true" [(ngModel)]="postType" name="postType" type="text" value="Call"></ion-input>
           <ion-card>
               <ion-item>
                 <ion-avatar item-start>
@@ -54,12 +54,12 @@
               </ion-item>
               <ion-card-content>
                   <ion-item>
-                      <ion-input type="text" formControlName="body" placeholder="Write here.."></ion-input>
+                      <ion-input [(ngModel)]="call.body" name="body" type="text" #body="ngModel" placeholder="Write here.."></ion-input>
                     </ion-item>             
               </ion-card-content>
               <ion-item>
                   <ion-label color="primary">Type</ion-label>
-                  <ion-select formControlName="callsType">
+                  <ion-select [(ngModel)]="call.callsType" name="call.callsType">
                     <ion-option value="Passage">Passage</ion-option>
                     <ion-option value="Break">Break</ion-option>
                     <ion-option value="Information">Information</ion-option>
@@ -68,8 +68,9 @@
         </ion-card> 
       </div>
     </div>
+    <button ion-button round color="primary" type="submit" [disabled]="!whistleForm.form.valid" class="submit" (click)="submit()">Submit</button>
   </form>
     </div>
 
-<button ion-button round color="primary" type="submit" [disabled]="!todo.valid" class="submit" (click)="submit()">Submit</button>
+
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, Events, AlertController } from 'ionic-angular';
+import { Platform, Nav, Events, AlertController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { User } from '../model/user.model';
@@ -9,6 +9,7 @@ import { PAGES } from '../pages/pages';
 import { UserService } from '../services/user.service';
 import { LanguageService } from '../services/language.service';
 import { HttpErrorResponse } from '../../node_modules/@angular/common/http';
+//import { PositionService } from '../services/position.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,6 +24,7 @@ export class MyApp {
               platform: Platform, 
               statusBar: StatusBar, 
               splashScreen: SplashScreen,
+              private menu: MenuController,
               private alertCtrl: AlertController,
               private translate: TranslateService,
               private userService: UserService, 
@@ -36,6 +38,7 @@ export class MyApp {
       userService.getUser().subscribe((user: User) => {
         if (user != null) {
           this.user = user;
+          this.enableMenu(true);
           this.rootPage = PAGES.TABS;
         } else {
           this.rootPage = PAGES.LOGIN;
@@ -62,16 +65,25 @@ export class MyApp {
   }*/
 
   logout() {
-    this.userService.logout(); 
+    this.userService.logout();
+    this.enableMenu(false); 
     this.nav.setRoot(PAGES.LOGIN);
+  }
+
+  openPage(page) {
+    this.nav.push(page.component);
   }
 
   subscribeToEvents() {
     this.events.subscribe('login', (user: User) => {
       this.user = user;
-      
+      this.enableMenu(true);    
       this.nav.setRoot(PAGES.TABS);
     });
+  }
+
+  enableMenu(loggedIn: boolean) {
+    this.menu.enable(loggedIn);
   }
 
   showMessageServerError(err: HttpErrorResponse) {

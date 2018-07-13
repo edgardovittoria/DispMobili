@@ -13,7 +13,8 @@ export const URL = {
     COMMENTS: URL_BASE + "/comments",
     STORE: {
         WHISTLE: STORE_PATH + '/whistle',
-        MESSAGE: STORE_PATH + '/message'
+        MESSAGE: STORE_PATH + '/message',
+        POSITION: STORE_PATH + '/position'
     },
     UPDATE_PROFILO: URL_BASE + "/utente/updateprofilo"
 }

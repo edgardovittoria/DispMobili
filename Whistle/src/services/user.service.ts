@@ -25,14 +25,11 @@ export class UserService {
     }
 
     login(account: Account): Observable<User> {
-        console.log("pippo1");
         return this.http.post<User>(URL.LOGIN, account, { observe: 'response' })
             .map((resp: HttpResponse<User>) => {
-                console.log("pippo2");
                 const token = resp.headers.get(X_AUTH);
                 this.storage.set(AUTH_TOKEN, token);
                 this.userToken = token;
-                console.log("pippo3");
                 //User memorizzato nello storage in modo tale che se si vuole cambiare il
                 //profilo dell'utente stesso non si fa una chiamata REST. 
                 this.storage.set(UTENTE_STORAGE, resp.body);

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, AlertController, NavParams, NavController } from 'ionic-angular';
+import { IonicPage, AlertController, NavController } from 'ionic-angular';
 import { WhistleService } from '../../services/whistle.service';
 import { Whistle } from '../../model/whistle.model';
-import { FormBuilder, FormGroup, Validators } from '../../../node_modules/@angular/forms';
 import { User } from '../../model/user.model';
 import { Call } from '../../model/call.model';
+import { UserService } from '../../services/user.service';
 
 @IonicPage()
 @Component({
@@ -13,10 +13,11 @@ import { Call } from '../../model/call.model';
 })
 
 export class WhistlePage {
-  type: string = 'Fun';
-  todo : FormGroup;
+  postType: string = 'Fun';
   user: User;
-  whistle: any;
+  whistle: Whistle = new Whistle();
+  call: Call = new Call();
+
 
   alert = this.alertCtrl.create({
     title: 'Type selection',
@@ -24,23 +25,20 @@ export class WhistlePage {
     buttons: ['OK']
   });
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, 
-    public whistleService: WhistleService, public navParams: NavParams, private formBuilder: FormBuilder) { 
-      
-      this.user = new User('pippo','baudo','password');
-      
-      this.todo = this.formBuilder.group({
-        body: ['', Validators.required],
-        type: [''],
-        callsType: [''], 
-        author: this.user,
-      });
+  constructor(private navCtrl: NavController, 
+              private alertCtrl: AlertController, 
+              private whistleService: WhistleService,
+              private userService: UserService) { 
 
-      
   }
 
-  logForm(){
-    console.log(this.todo.value)
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad WhistlePage');
+    this.call.callsType = 'none';
+    this.userService.getUser().subscribe((user: User) => {
+      this.whistle.author = user;
+      this.call.author = user;
+  });
   }
 
   getLocation() {
@@ -48,31 +46,23 @@ export class WhistlePage {
   }
 
   submit() {
-    if(this.todo.get('callsType').value === '' && this.type != 'Fun') {
-      this.alert.present();
-    }else{
-      if(this.todo.get('type').value === 'Fun') {
-        this.whistle = new Whistle();
-
-        this.whistle.body = this.todo.get('body').value;
-        this.whistle.author = this.todo.get('author').value;
-        this.whistle.location = this.getLocation();
-      }else {
-        this.whistle = new Call();
-
-        this.whistle.body = this.todo.get('body').value;
-        this.whistle.author = this.todo.get('author').value;
-        this.whistle.location = this.getLocation();
-        this.whistle.callsType = this.todo.get('callsType').value;
+      if(this.postType === 'Fun') {
+        this.whistleService.newWhistle(this.whistle).subscribe(() => {
+          this.navCtrl.pop();
+        });          
+      }else{
+        if(this.call.callsType != 'none') {
+          this.whistleService.newWhistle(this.call).subscribe(() => {
+            this.navCtrl.pop();
+          }); 
+        }else{
+          this.alert.present();
+        }
       }
 
-        this.whistleService.newWhistle(this.whistle).subscribe(() => {
-          
-          this.navCtrl.pop();
-        });  
-     
     }
-  }
+    
+  
 
  
 }

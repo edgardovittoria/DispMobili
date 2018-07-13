@@ -12,9 +12,4 @@ export class User {
     solved_calls: number;
     chats: Array<Chat>;
 
-    constructor(name: string, mail: string, password: string) {
-        this.name = name;
-        this.email = mail;
-        this.password = password;
-    }
 }
