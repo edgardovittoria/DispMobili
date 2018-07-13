@@ -14,6 +14,10 @@ export class WhistleService {
 
     list(): Observable<Array<Whistle>> {
         //qui ci vuole il controllo della posizione
+        navigator.geolocation.getCurrentPosition((position) => {
+            //return this.http.get... qualcosa del genere
+        });
+        
         return this.http.get<Array<Whistle>>(URL.WHISTLES);
     }
 

@@ -46,4 +46,11 @@ export class HomePage {
   openProfile() {
     this.navCtrl.push(PAGES.USER);
   }
+
+  doRefresh(refresher: Refresher) {
+    this.whistleService.list().subscribe((data: Array<Whistle>) => {
+      this.whistles = data;
+      refresher.complete();
+    });
+  }
 }

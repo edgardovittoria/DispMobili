@@ -5,6 +5,7 @@ import { Whistle } from '../../model/whistle.model';
 import { User } from '../../model/user.model';
 import { Call } from '../../model/call.model';
 import { UserService } from '../../services/user.service';
+import { dateValueRange } from '../../../node_modules/ionic-angular/umd/util/datetime-util';
 
 @IonicPage()
 @Component({
@@ -47,11 +48,13 @@ export class WhistlePage {
 
   submit() {
       if(this.postType === 'Fun') {
+        this.whistle.date = new Date();
         this.whistleService.newWhistle(this.whistle).subscribe(() => {
           this.navCtrl.pop();
         });          
       }else{
         if(this.call.callsType != 'none') {
+          this.call.date = new Date();
           this.whistleService.newWhistle(this.call).subscribe(() => {
             this.navCtrl.pop();
           }); 
