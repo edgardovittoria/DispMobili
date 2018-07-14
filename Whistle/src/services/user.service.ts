@@ -58,8 +58,8 @@ export class UserService {
         return this.userToken;
     }
 
-    /*updateProfilo(nuovoUser: User): Observable<User> {
-        return this.http.post<User>(URL.UPDATE_PROFILO, nuovoUser, { observe: 'response' })
+    updateUser(newUser: User): Observable<User> {
+        return this.http.post<User>(URL.UPDATE.USER, newUser, { observe: 'response' })
             .map((resp: HttpResponse<User>) => {
                 //Aggiornamento dell'utente nello storage.
                 //User memorizzato nello storage per evitare chiamata REST quando si vuole modificare il profilo
@@ -67,7 +67,7 @@ export class UserService {
                 this.storage.set(UTENTE_STORAGE, resp.body);
                 return resp.body;
             });
-    }*/
+    }
 
 
 }

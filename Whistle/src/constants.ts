@@ -3,6 +3,7 @@ export const USE_PROXY = true;
 export const URL_BASE = USE_PROXY ? 'api' : 'localhost:8080/whistle/api';
 
 export const STORE_PATH = URL_BASE + '/store';
+export const UPDATE_PATH = URL_BASE + '/update';
 
 export const URL = {
     WHISTLES: URL_BASE + "/whistle",
@@ -16,7 +17,9 @@ export const URL = {
         MESSAGE: STORE_PATH + '/message',
         POSITION: STORE_PATH + '/position'
     },
-    UPDATE_PROFILO: URL_BASE + "/utente/updateprofilo"
+    UPDATE: {
+        USER: UPDATE_PATH + "/utente/update"
+    }
 }
 
 export const X_AUTH = "X-Auth";

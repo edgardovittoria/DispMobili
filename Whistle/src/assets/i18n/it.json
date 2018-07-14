@@ -1,4 +1,21 @@
 {
+  "NEW_WHISTLE": "Nuovo Whistle",
+  "WHISTLE_DETAILS": "Dettagli",
+  "COMMENTS": "Commenti",
+  "REACTIONS": "Reazioni",
+  "CHAT_LIST": "Le Mie Chat",
+  "USER": "Profilo",
+  "SETTINGS": "Impostazioni",
+
+  "CALL_TYPE": "Tipo",
+      "BREAK": "Caffè",
+      "INFORMATION": "Informazioni",
+      "PASSAGE": "Passaggio",
+  
+
+    "SEND_BUTTON": "Invia",
+    "MESSAGE_BUTTON": "Messaggia!",
+
   "BACK_BUTTON_TEXT":  "Indietro",
 
   "LOGIN_BUTTON": "Accedi",
@@ -16,9 +33,8 @@
  
   "USERNAME": "Username",
   "PASSWORD": "Password",
-  "TELEFONO": "Telefono",
   "USERNAME_REQUIRED": "Username obbligatorio",
   "PASSWORD_REQUIRED": "Password obbligatorio",
 
-  "USER_TITLE": "Utente"
+  "LANGUAGE": "Lingua"
 }

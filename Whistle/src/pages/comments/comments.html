@@ -1,9 +1,10 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Comments
-    </ion-title>
-  </ion-toolbar>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="back"></ion-icon>
+    </button>
+    <ion-title>{{ 'COMMENTS' | translate }}</ion-title>
+  </ion-navbar>
 </ion-header>
 
   <ion-content>
@@ -25,19 +26,19 @@
       <ion-col>
         <button ion-button color="secondary" icon-start clear small>
           <ion-icon name="heart-outline"></ion-icon>
-          <div>237 Reacts</div>
+          <div>237 {{'REACTIONS' | translate }}</div>
         </button>
       </ion-col>
       <ion-col>
         <button ion-button color="secondary" icon-start clear small>
           <ion-icon name="ios-chatboxes-outline"></ion-icon>
-          <div>3 Comments</div>
+          <div>3 {{'COMMENTS' | translate }}</div>
         </button>
       </ion-col>
     </ion-row>
     </ion-card>
   
-    <div padding>
+    <div>
     <ion-card *ngFor="let c of comments">
         <ion-item>
           <ion-avatar item-start>

@@ -3,6 +3,7 @@ import { Component } from "@angular/core";
 import { Account, UserService } from '../../services/user.service';
 import { User } from "../../model/user.model";
 import { HttpErrorResponse } from "../../../node_modules/@angular/common/http";
+import { TranslateService } from "../../../node_modules/@ngx-translate/core";
 
 @IonicPage()
 @Component({
@@ -12,10 +13,24 @@ import { HttpErrorResponse } from "../../../node_modules/@angular/common/http";
 export class LoginPage {
     account: Account = {username: "federap", password: "pluto"};
 
+    loginTitle: string;
+    loginSubTitle: string;
+
     constructor(public userService: UserService,
                 public events: Events,
-                public alertCtrl: AlertController) {
+                public alertCtrl: AlertController,
+                private translateService: TranslateService) {
            
+    }
+
+    ionViewDidLoad() {
+      console.log('ionViewDidLoad LoginPage');
+      this.translateService.get('LOGIN_ERROR_SUB_TITLE').subscribe((data) => {
+        this.loginSubTitle = data;
+      });
+      this.translateService.get('LOGIN_ERROR_TITLE').subscribe((data) => {
+        this.loginTitle = data;
+      });
     }
 
     submit() {
@@ -34,8 +49,8 @@ export class LoginPage {
 
     showLoginError() {
       let alert = this.alertCtrl.create({
-        title: "Error",
-        subTitle: "invalid password and/or username",
+        title: this.loginTitle,
+        subTitle: this.loginSubTitle,
         buttons: ['OK']
       });
       alert.present();

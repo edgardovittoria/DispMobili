@@ -31,7 +31,7 @@ export class MyApp {
               private langService: LanguageService) {
     
     console.log("constructor MyApp");
-    //this.initTranslate();
+    this.initTranslate();
     this.subscribeToEvents();
     
     platform.ready().then(() => {
@@ -50,9 +50,10 @@ export class MyApp {
 
   }
 
-  /*initTranslate() {
+  initTranslate() {
     // Set the default language for translation strings, and the current language.
     let BestLang = this.langService.getBestLang();
+    console.log("pippo");
     this.translate.setDefaultLang(BestLang);
     this.langService.getCurrLang().subscribe((lang: string) => {
       if (lang != null) {
@@ -62,7 +63,7 @@ export class MyApp {
         this.langService.updateLang(BestLang);
       }
     });
-  }*/
+  } 
 
   logout() {
     this.userService.logout();
@@ -71,7 +72,8 @@ export class MyApp {
   }
 
   openPage(page) {
-    this.nav.push(page.component);
+    this.nav.push(page);
+    this.menu.close();
   }
 
   subscribeToEvents() {

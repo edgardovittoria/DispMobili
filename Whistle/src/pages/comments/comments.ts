@@ -22,7 +22,7 @@ export class CommentsPage {
         this.whistleService.findById(this.navParams.data.whistleId).subscribe((data: Whistle) => {
             this.whistle = data;
         });
-        this.whistleService.getComments().subscribe((data: Array<Comment>) => {
+        this.whistleService.getComments(this.navParams.data.whistleId).subscribe((data: Array<Comment>) => {
             this.comments = data;
         });
     }

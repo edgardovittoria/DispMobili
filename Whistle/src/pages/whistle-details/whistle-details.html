@@ -3,7 +3,7 @@
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-title>Details</ion-title>
+      <ion-title>{{'WHISTLE_DETAILS' | translate }}</ion-title>
     </ion-navbar>
   </ion-header>
 
@@ -25,6 +25,6 @@
     <ion-card-content>{{whistle.body}}</ion-card-content>
   </ion-card>
 </div>
-  <button ion-button round id="submit" color="primary" (click)="newChat()">Message!</button>
+  <button ion-button round id="submit" color="primary" (click)="newChat()">{{'MESSAGE_BUTTON' | translate }}</button>
 
 </ion-content>

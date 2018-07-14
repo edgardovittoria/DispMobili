@@ -1,0 +1,30 @@
+<ion-header>
+        <ion-navbar>
+          <button ion-button menuToggle>
+            <ion-icon name="back"></ion-icon>
+          </button>
+          <ion-title>{{ 'SETTINGS' | translate }}</ion-title>
+        </ion-navbar>
+    </ion-header>
+      
+    <ion-content>
+
+            <form #langForm="ngForm">
+            <ion-list>  
+                <ion-item>
+                    <ion-label>{{ 'LANGUAGE' | translate }}</ion-label>
+                    <ion-select [(ngModel)]="bestLang" name="bestLang" cancelText="{{ 'CANCEL_BUTTON' | translate }}">
+                        <ion-option *ngFor="let l of langs" [value]="l.code">{{l.name}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Audio</ion-label>
+                    <ion-toggle color="primary" [(ngModel)]="audio" name="audio" checked="false"></ion-toggle>
+                  </ion-item>
+                  
+            </ion-list>
+            <button ion-button round color="primary" type="submit" [disabled]="!langForm.form.valid" class="submit" (click)="submit()">Submit</button>
+            </form>
+
+
+    </ion-content>

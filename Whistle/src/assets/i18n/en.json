@@ -1,4 +1,22 @@
 {
+  "NEW_WHISTLE": "New Whistle",
+  "WHISTLE_DETAILS": "Details",
+  "COMMENTS": "Comments",
+  "REACTIONS": "Reacts",
+  "CHAT_LIST": "Chat List",
+  "USER": "Profile",
+  "SETTINGS": "Settings",
+
+  "CALL_TYPE": "Tipo",
+      "BREAK": "Break",
+      "INFORMATION": "Informations",
+      "PASSAGE": "Passage",
+  
+
+    "SEND_BUTTON": "Send",
+    "MESSAGE_BUTTON": "Message!",
+
+
   "BACK_BUTTON_TEXT":  "Indietro",
 
   "LOGIN_BUTTON": "Enter",
@@ -9,7 +27,7 @@
 
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Login error",
-  "LOGIN_ERROR_SUB_TITLE": "Wrong username and/or password",
+  "LOGIN_ERROR_SUB_TITLE": "invalid username and/or password",
 
   "PAGINA_COSTRUZIONE": "Page under construction!!!!!",
 
@@ -18,5 +36,5 @@
   "USERNAME_REQUIRED": "Username required",
   "PASSWORD_REQUIRED": "Password required",
 
-  "USER_TITLE": "User"
+  "LANGUAGE": "Language"
 }  

@@ -7,5 +7,6 @@ export const PAGES = {  HOME: 'HomePage',
                         WHISTLE_DETAILS: 'WhistleDetailsPage',
                         CHAT_LIST: 'ChatListPage',
                         CHAT: 'ChatPage',
-                        COMMENTS: 'CommentsPage'
+                        COMMENTS: 'CommentsPage',
+                        SETTINGS: 'SettingsPage'
                         };

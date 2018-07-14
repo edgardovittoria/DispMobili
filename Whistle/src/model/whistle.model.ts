@@ -6,7 +6,8 @@ export class Whistle {
     author: User;
     body: string;
     date: Date;
-    location: string;
+    latitude: number;
+    longitude: number;
     reactions: Array<User>;
-    comments: Array<Comment>;
+    //comments: Array<Comment>;
 }

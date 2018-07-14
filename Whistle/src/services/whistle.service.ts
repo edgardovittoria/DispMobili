@@ -30,7 +30,8 @@ export class WhistleService {
         return this.http.get<Whistle>(apiURL);
     }
 
-    getComments() {
-        return this.http.get<Array<Comment>>(URL.COMMENTS);
+    getComments(whistleId: number): Observable<Array<Comment>> {
+        let apiURL = `${URL.COMMENTS}/${whistleId}`;
+        return this.http.get<Array<Comment>>(apiURL);
     }
 }
