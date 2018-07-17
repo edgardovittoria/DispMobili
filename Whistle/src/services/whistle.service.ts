@@ -12,13 +12,14 @@ export class WhistleService {
     constructor(private http: HttpClient) {
     }
 
-    list(): Observable<Array<Whistle>> {
+    list(position): Observable<Array<Whistle>> {
         //qui ci vuole il controllo della posizione
-        navigator.geolocation.getCurrentPosition((position) => {
-            //return this.http.get... qualcosa del genere
-        });
         
-        return this.http.get<Array<Whistle>>(URL.WHISTLES);
+            let apiURL = `${URL.WHISTLES}/${position.coords.latitude}/${position.coords.longitude}`;
+            return this.http.get<Array<Whistle>>(apiURL);
+
+        
+        //return this.http.get<Array<Whistle>>(apiURL);
     }
 
     newWhistle(whistle: Whistle) {

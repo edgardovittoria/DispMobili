@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Refresher} from 'ionic-angular';
 import { PAGES } from '../pages';
+import { URL } from '../../constants';
 import { Whistle } from '../../model/whistle.model';
 import { WhistleService } from '../../services/whistle.service';
 
@@ -18,9 +19,12 @@ export class HomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
-    this.whistleService.list().subscribe((data: Array<Whistle>) => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log("èoèèp");
+    this.whistleService.list(position).subscribe((data: Array<Whistle>) => {
       this.whistles = data;
     });
+  });
   }
 
   openDetails(w: Whistle) {
@@ -48,9 +52,13 @@ export class HomePage {
   }
 
   doRefresh(refresher: Refresher) {
-    this.whistleService.list().subscribe((data: Array<Whistle>) => {
+    navigator.geolocation.getCurrentPosition((position) => {
+    this.whistleService.list(position).subscribe((data: Array<Whistle>) => {
       this.whistles = data;
       refresher.complete();
     });
+  });
   }
 }
+
+
