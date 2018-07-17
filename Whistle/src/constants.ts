@@ -18,7 +18,7 @@ export const URL = {
         POSITION: STORE_PATH + '/position'
     },
     UPDATE: {
-        USER: UPDATE_PATH + "/utente/update"
+        USER: UPDATE_PATH + "/utente"
     }
 }
 
