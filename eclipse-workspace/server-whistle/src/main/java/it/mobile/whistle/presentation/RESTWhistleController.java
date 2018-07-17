@@ -2,6 +2,7 @@ package it.mobile.whistle.presentation;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.mobile.whistle.business.WhistleService;
+import it.mobile.whistle.domain.Commento;
+import it.mobile.whistle.domain.Reactions;
 import it.mobile.whistle.domain.Whistle;
 
 @RestController
@@ -22,7 +25,17 @@ public class RESTWhistleController {
 	
 	@GetMapping("/whistle/{latitude}/{longitude}")
 	public List<Whistle> list(@PathVariable double latitude, @PathVariable double longitude) {
-		return service.findWhistle(latitude, longitude);
+		List<Whistle> whistle = service.findWhistle(latitude, longitude);
+		for(int i = 0;whistle.size()>i;i++) {
+			List<Reactions> reactions = service.findAllReactions(whistle.get(i).getId());
+			List<Commento> comments = service.findAllCommenti(whistle.get(i).getId());
+			int r = reactions.size();
+			int c = comments.size();
+			whistle.get(i).setReactions(r);
+			whistle.get(i).setComments(c);
+		}
+		
+		return whistle;
 	}
 	
 	@GetMapping("/Call")
@@ -38,8 +51,6 @@ public class RESTWhistleController {
 	public void storeWhistle(@RequestBody Whistle whistle) {
 		service.createWhistle(whistle);
 	}
-	/*@GetMapping("/position")
-	public double getPosition*/
 	
 
 }

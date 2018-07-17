@@ -81,6 +81,14 @@ public class WhistleApplication {
 			whistle2.setAuthor(edgardo);
 			whistle2 = whistleRepository.save(whistle2);
 			
+			Whistle whistle3 = new Whistle();
+			whistle3.setBody("pippo");
+			whistle3.setDate(today);
+			whistle3.setLatitude(15.763816);
+			whistle3.setLongitude(5.084336);
+			whistle3.setAuthor(edgardo);
+			whistle3 = whistleRepository.save(whistle3);
+			
 			Call call = new Call();
 			call.setBody("Ciao...qualcuno è disposto a prendere un caffe al tropical??");
 			call.setCallsType(CallsType.CAFFE);
@@ -115,16 +123,19 @@ public class WhistleApplication {
 			
 			Reactions reaction1 = new Reactions();
 			reaction1.setReactionsOf(edgardo);
-			reaction1.setType("LIKE");
 			reaction1.setWhistle(whistle2);
 			reaction1 = reactionsRepository.save(reaction1);
 			
 			
 			Reactions reaction2 = new Reactions();
 			reaction2.setReactionsOf(edgardo);
-			reaction2.setType("LIKE");
 			reaction2.setWhistle(whistle);
 			reaction2 = reactionsRepository.save(reaction2);
+			
+			Reactions reaction3 = new Reactions();
+			reaction3.setReactionsOf(edgardo);
+			reaction3.setWhistle(whistle);
+			reaction3 = reactionsRepository.save(reaction3);
 			
 			Chat chat = new Chat();
 			chat.setOpener(edgardo);

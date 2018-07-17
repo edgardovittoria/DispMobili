@@ -16,14 +16,12 @@ public interface WhistleService {
 	//Optional<Utente> findUtenteById(Long id) throws BusinessException;
 
 	Utente updateProfilo(Utente utente) throws BusinessException;
-
-	List<Whistle> findAllWhistle() throws BusinessException;
+    
+	List<Whistle> findWhistle(double latitude, double longitude) throws BusinessException;
 
 	Whistle findWhistleById(Long id) throws BusinessException;
 
 	List<Whistle> findAllCall() throws BusinessException;
-	
-	List<Whistle> findWhistle(double latitude, double longitude) throws BusinessException;
 	
 	void createWhistle(Whistle whistle) throws BusinessException;
 	
@@ -34,6 +32,8 @@ public interface WhistleService {
     List<Reactions> findAllReactions(long idWhistle) throws BusinessException;
 	
 	void createReaction(Reactions reactions) throws BusinessException;
+	
+	//int countReactionsByIdWhistle(long idWhistle);
 
 	
 

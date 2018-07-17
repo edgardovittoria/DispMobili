@@ -9,4 +9,5 @@ import it.mobile.whistle.domain.Reactions;
 public interface ReactionsRepository extends JpaRepository<Reactions, Long> {
 
 	List<Reactions> findReactionsBywhistleId(long idWhistle);
+	
 }

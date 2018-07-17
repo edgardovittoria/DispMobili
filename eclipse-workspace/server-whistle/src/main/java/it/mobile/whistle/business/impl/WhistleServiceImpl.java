@@ -3,8 +3,6 @@ package it.mobile.whistle.business.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort.Direction;
-import org.springframework.data.jpa.domain.JpaSort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,10 +48,6 @@ public class WhistleServiceImpl implements WhistleService {
 		return utente;
 	}
 
-	@Override
-	public List<Whistle> findAllWhistle() throws BusinessException {
-		return whistleRepository.findAll(JpaSort.unsafe(Direction.DESC, "date"));
-	}
 
 	@Override
 	public Whistle findWhistleById(Long id) throws BusinessException {
@@ -93,6 +87,10 @@ public class WhistleServiceImpl implements WhistleService {
 	public void createReaction(Reactions reactions) throws BusinessException {
 		reactionsRepository.save(reactions);		
 	}
+	/*@Override
+	public List<Reactions> countReactionsByIdWhistle(long idWhistle) {
+		return reactionsRepository.findReactionsBywhistleId(idWhistle);
+	}*/
 	
 	
 

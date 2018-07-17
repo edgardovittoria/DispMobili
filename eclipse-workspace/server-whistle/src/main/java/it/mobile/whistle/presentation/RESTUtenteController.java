@@ -51,7 +51,7 @@ public class RESTUtenteController {
 		return new UtenteResponse(((UserDetailsImpl) userDetails).getUtente());
 	}
 
-	@PostMapping("whistle/api/utente/updateprofilo")
+	@PostMapping("/update/utente")
 	public UtenteResponse updateProfilo(@RequestBody Utente utente) {
 		Utente nuovoUtente = whistleService.updateProfilo(utente);		
 		return new UtenteResponse(nuovoUtente);

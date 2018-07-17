@@ -16,8 +16,6 @@ public interface WhistleRepository extends JpaRepository<Whistle, Long>{
 	@Query(FIND_BY_TYPE_QUERY)
 	public List<Whistle> findByTipologia_whistle();
 	
-	float x=0;
-    float y=0;
     
     public final static String FIND_BY_LON_LAT_QUERY = "SELECT w "
     		+ "FROM Whistle w "

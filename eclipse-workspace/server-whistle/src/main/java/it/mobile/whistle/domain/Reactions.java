@@ -23,9 +23,6 @@ public class Reactions {
 	@JoinColumn(name = "ID_USER", nullable = false)
 	private Utente reactionsOf;
 	
-	@Column(name = "TYPE", nullable = false)
-	private String type;
-	
 	@ManyToOne
 	@JoinColumn(name = "ID_WHISTLE", nullable = false)
 	private Whistle whistle;
@@ -44,14 +41,6 @@ public class Reactions {
 
 	public void setReactionsOf(Utente reactionsOf) {
 		this.reactionsOf = reactionsOf;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 	public Whistle getWhistle() {

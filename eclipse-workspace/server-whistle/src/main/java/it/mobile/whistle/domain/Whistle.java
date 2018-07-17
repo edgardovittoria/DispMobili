@@ -46,6 +46,12 @@ public class Whistle {
 	@Column(name = "LONGITUDE", nullable = false, length = 255)
 	private double longitude;
 	
+	@Column(name = "COMMENTS", nullable = false)
+	private int comments;
+	
+	@Column(name = "REACTIONS", nullable = false)
+	private int reactions;
+	
 	public Long getId() {
 		return id;
 	}
@@ -94,6 +100,23 @@ public class Whistle {
 		this.longitude = longitude;
 	}
 
+	public int getComments() {
+		return comments;
+	}
+
+	public void setComments(int comments) {
+		this.comments = comments;
+	}
+
+	public int getReactions() {
+		return reactions;
+	}
+
+	public void setReactions(int reactions) {
+		this.reactions = reactions;
+	}
+
+	
 	
 	
 }
