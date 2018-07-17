@@ -66,8 +66,8 @@ public class WhistleServiceImpl implements WhistleService {
 	}
 	
 	@Override
-	public List<Whistle> findWhistle() throws BusinessException {
-		return whistleRepository.findBylonlat();
+	public List<Whistle> findWhistle(double latitude, double longitude) throws BusinessException {
+		return whistleRepository.findBylonlat(latitude, longitude);
 	}
 	
 	@Override

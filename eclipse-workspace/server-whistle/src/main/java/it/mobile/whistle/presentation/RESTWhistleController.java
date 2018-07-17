@@ -20,9 +20,9 @@ public class RESTWhistleController {
 	@Autowired
 	private WhistleService service;
 	
-	@GetMapping("/whistle")
-	public List<Whistle> list() {
-		return service.findWhistle();
+	@GetMapping("/whistle/{latitude}/{longitude}")
+	public List<Whistle> list(@PathVariable double latitude, @PathVariable double longitude) {
+		return service.findWhistle(latitude, longitude);
 	}
 	
 	@GetMapping("/Call")

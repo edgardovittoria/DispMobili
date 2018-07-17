@@ -23,7 +23,7 @@ public interface WhistleService {
 
 	List<Whistle> findAllCall() throws BusinessException;
 	
-	List<Whistle> findWhistle() throws BusinessException;
+	List<Whistle> findWhistle(double latitude, double longitude) throws BusinessException;
 	
 	void createWhistle(Whistle whistle) throws BusinessException;
 	

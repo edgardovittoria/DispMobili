@@ -21,9 +21,9 @@ public interface WhistleRepository extends JpaRepository<Whistle, Long>{
     
     public final static String FIND_BY_LON_LAT_QUERY = "SELECT w "
     		+ "FROM Whistle w "
-    		+ "WHERE w.longitude >= 14.094336 - 0.01 AND w.longitude <= 14.094336 + 0.01  AND w.latitude >= 41.762816 - 0.01 AND w.latitude <= 41.762816 + 0.01";
+    		+ "WHERE w.longitude >= :longitude - 5.01 AND w.longitude <= :longitude + 5.01  AND w.latitude >= :latitude - 5.01 AND w.latitude <= :latitude + 5.01";
     @Query(FIND_BY_LON_LAT_QUERY)
-    public List<Whistle> findBylonlat(/*@Param("x") float x, @Param("y") float y*/);
+    public List<Whistle> findBylonlat(@Param("latitude") double latitude, @Param("longitude") double longitude);
 
 }
 
