@@ -36,10 +36,16 @@ export class WhistlePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad WhistlePage');
     this.call.callsType = 'none';
+    navigator.geolocation.getCurrentPosition((position) => {
     this.userService.getUser().subscribe((user: User) => {
       this.whistle.author = user;
+      this.whistle.latitude = position.coords.latitude;
+      this.whistle.longitude = position.coords.longitude;
       this.call.author = user;
-  });
+      this.call.latitude = position.coords.latitude;
+      this.call.longitude = position.coords.longitude;
+      });
+    });
   }
 
   getLocation() {

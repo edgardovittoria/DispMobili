@@ -2,8 +2,8 @@ import { Chat } from "./chat.model";
 
 export class User {
     id: number;
-    name: string;
-    surname: string;
+    nome: string;
+    cognome: string;
     username: string;
     email: string;
     password: string;

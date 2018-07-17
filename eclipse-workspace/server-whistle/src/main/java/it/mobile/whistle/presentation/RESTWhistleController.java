@@ -19,7 +19,7 @@ import it.mobile.whistle.domain.Whistle;
 @RestController
 @RequestMapping("/api")
 public class RESTWhistleController {
-	
+
 	@Autowired
 	private WhistleService service;
 	
