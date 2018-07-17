@@ -8,11 +8,11 @@
   </ion-header>
 
 <ion-content>
-<ion-card>
+<ion-card *ngIf="user">
     <img src="../../assets/imgs/Paolo.jpg"/>
     <ion-card-content>
       <ion-card-title>
-       Paolo Capulli
+       {{user.name}} {{user.surname}}
         </ion-card-title>
       <p>
         Hello darkness my old friend...

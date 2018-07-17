@@ -26,19 +26,35 @@
       <ion-col>
         <button ion-button color="secondary" icon-start clear small>
           <ion-icon name="heart-outline"></ion-icon>
-          <div>237 {{'REACTIONS' | translate }}</div>
+          <div>{{whistle.reactions}} {{'REACTIONS' | translate }}</div>
         </button>
       </ion-col>
       <ion-col>
         <button ion-button color="secondary" icon-start clear small>
           <ion-icon name="ios-chatboxes-outline"></ion-icon>
-          <div>3 {{'COMMENTS' | translate }}</div>
+          <div>{{whistle.comments}} {{'COMMENTS' | translate }}</div>
         </button>
       </ion-col>
     </ion-row>
     </ion-card>
   
     <div>
+      <form #commentForm="ngForm">
+        <ion-card *ngIf="self">
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="../../assets/imgs/Paolo.jpg">
+              </ion-avatar>
+              <h2>{{self.name}} {{self.surname}}</h2>
+            </ion-item>
+            <ion-card-content>
+                <ion-item>
+                    <ion-input [(ngModel)]="comment.body" name="body" type="text" #body="ngModel" placeholder="Write here.."></ion-input>
+                  </ion-item>             
+            </ion-card-content>     
+      </ion-card>
+    </form>  
+
     <ion-card *ngFor="let c of comments">
         <ion-item>
           <ion-avatar item-start>
@@ -52,30 +68,11 @@
         </ion-card-content>
     </ion-card>
     </div> 
-    <!--<ion-card>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="../../assets/imgs/Paolo.jpg">
-          </ion-avatar>
-          <h2>Paolo Capulli</h2>         
-        </ion-item> 
-      
-        <ion-card-content>
-          <p>You're so deep i can see Adele rollin' around...</p>
-        </ion-card-content>
-    </ion-card>  
-    <ion-card>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="../../assets/imgs/Marty-Mcfly.jpg">
-          </ion-avatar>
-          <h2>Marty Mcfly</h2>         
-        </ion-item> 
-      
-        <ion-card-content>
-          <p>Where i am, poetry doens't even exist lol</p>
-        </ion-card-content>
-    </ion-card>-->             
+
+    <!--<ion-infinite-scroll (ionInfinite)="loadMoreComments($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>-->
+    
   </div>      
  
 </ion-content>  

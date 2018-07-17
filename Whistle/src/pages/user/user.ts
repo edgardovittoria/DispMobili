@@ -13,28 +13,20 @@ import { User } from "../../model/user.model";
 })
 export class UserPage {
     user: User;
-    bestLang: string;
-    langs: Array<Language>;
 
     constructor(public events: Events, 
-                private userService: UserService,
-                private translateService: TranslateService,
-                private languageService: LanguageService) {
+                private userService: UserService) {
 
     }
 
-    /*ionViewDidLoad() {
+    ionViewDidLoad() {
         console.log("ionViewDidLoad UserPage");
-        this.langs = this.languageService.getLangs();
-        this.languageService.getCurrLang().subscribe((lang: string) => {
-          this.bestLang = lang;
-        });
         this.userService.getUser().subscribe((user: User) => {
           this.user = user;
         });
       }
 
-      onSubmit(form: NgForm) {
+      /*onSubmit(form: NgForm) {
         if (form.valid) {
           this.translateService.use(this.bestLang);
           this.languageService.updateLang(this.bestLang);

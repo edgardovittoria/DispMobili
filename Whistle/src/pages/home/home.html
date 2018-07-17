@@ -31,13 +31,13 @@
       <ion-col>
         <button ion-button color="secondary" icon-start clear small>
           <ion-icon name="heart-outline"></ion-icon>
-          <div>x {{'REACTIONS' | translate }}</div>
+          <div>{{w.reactions}} {{'REACTIONS' | translate }}</div>
         </button>
       </ion-col>
       <ion-col>
         <button ion-button color="secondary" icon-start clear small (click)="openComments(w)">
           <ion-icon name="ios-chatboxes-outline"></ion-icon>
-          <div>x {{'COMMENTS' | translate }}</div>
+          <div>{{w.comments}} {{'COMMENTS' | translate }}</div>
         </button>
       </ion-col>
       <ion-col center text-center>
@@ -52,5 +52,9 @@
   <ion-fab bottom right id="whistle-btn">
     <ion-img cache="true" src="../../assets/imgs/Icon10.png" id="new-whistle" (click)="createWhistle()"></ion-img>
   </ion-fab>
+
+  <!--<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>-->
 
 </ion-content>

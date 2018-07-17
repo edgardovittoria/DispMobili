@@ -5,21 +5,18 @@ import { Observable } from 'rxjs/Observable';
 import { URL } from '../constants';
 import { Whistle } from '../model/whistle.model';
 import { Comment } from '../model/comment.model';
+import { Reaction } from '../model/reaction.model';
+import { UserService } from './user.service';
 
 @Injectable()
 export class WhistleService {
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private userService: UserService) {
     }
 
     list(position): Observable<Array<Whistle>> {
-        //qui ci vuole il controllo della posizione
-        
-            let apiURL = `${URL.WHISTLES}/${position.coords.latitude}/${position.coords.longitude}`;
-            return this.http.get<Array<Whistle>>(apiURL);
-
-        
-        //return this.http.get<Array<Whistle>>(apiURL);
+        let apiURL = `${URL.WHISTLES}/${position.coords.latitude}/${position.coords.longitude}`;
+        return this.http.get<Array<Whistle>>(apiURL);
     }
 
     newWhistle(whistle: Whistle) {
@@ -29,6 +26,19 @@ export class WhistleService {
     findById(whistleId: number): Observable<Whistle> {
         let apiURL = `${URL.WHISTLES}/${whistleId}`;
         return this.http.get<Whistle>(apiURL);
+    }
+
+    setReaction(r: Reaction) {
+        return this.http.post(URL.STORE.REACTION, r);
+    }
+
+    countReactions(whistleId: number): Observable<Array<Reaction>> {
+        let apiURL = `${URL.REACTIONS}/${whistleId}`;
+        return this.http.get<Array<Reaction>>(apiURL);
+    }
+
+    countComments() {
+
     }
 
     getComments(whistleId: number): Observable<Array<Comment>> {

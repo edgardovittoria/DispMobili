@@ -12,9 +12,11 @@ export const URL = {
     LOGOUT: URL_BASE + "/logout",
     CHATLIST: URL_BASE + "/chatlist",
     COMMENTS: URL_BASE + "/comments",
+    REACTIONS: URL_BASE + "/reactions",
     STORE: {
         WHISTLE: STORE_PATH + '/whistle',
         MESSAGE: STORE_PATH + '/message',
+        REACTION: STORE_PATH + '/reaction',
         POSITION: STORE_PATH + '/position'
     },
     UPDATE: {

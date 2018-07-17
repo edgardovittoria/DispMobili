@@ -8,6 +8,8 @@ export class Whistle {
     date: Date;
     latitude: number;
     longitude: number;
-    reactions: Array<User>;
+    reactions: number;
+    comments: number;
+
     //comments: Array<Comment>;
 }
