@@ -53,6 +53,14 @@
     <ion-img cache="true" src="../../assets/imgs/Icon10.png" id="new-whistle" (click)="createWhistle()"></ion-img>
   </ion-fab>
 
+  <ion-fab bottom left id="filter-btn">
+    <button ion-fab mini color="primary"><ion-icon name="arrow-dropright"></ion-icon></button>
+    <ion-fab-list>
+      <button ion-fab><ion-icon name="happy"></ion-icon></button>
+      <button ion-fab><ion-icon name="hand"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
   <!--<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>-->

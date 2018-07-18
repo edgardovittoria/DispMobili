@@ -29,13 +29,7 @@
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Login error",
   "LOGIN_ERROR_SUB_TITLE": "invalid username and/or password",
-
-  "PAGINA_COSTRUZIONE": "Page under construction!!!!!",
-
-  "USERNAME": "Username",
-  "PASSWORD": "Password",
-  "USERNAME_REQUIRED": "Username required",
-  "PASSWORD_REQUIRED": "Password required",
+  "POSITION_DENIED_ERROR": "Request for Geolocation denied. Geolocation is mandatory for the correct work of the application... If you want to use Whistle, please close and open the application again.",
 
   "LANGUAGE": "Language"
 }  

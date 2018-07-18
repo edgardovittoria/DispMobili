@@ -41,8 +41,12 @@ export class WhistleService {
 
     }
 
-    getComments(whistleId: number): Observable<Array<Comment>> {
-        let apiURL = `${URL.COMMENTS}/${whistleId}`;
+    getComments(whistleId: number, page: number): Observable<Array<Comment>> {
+        let apiURL = `${URL.COMMENTS}/${whistleId}/${page}`;
         return this.http.get<Array<Comment>>(apiURL);
+    }
+
+    newComment(comment: Comment) {    
+        return this.http.post(URL.STORE.COMMENT, comment);
     }
 }

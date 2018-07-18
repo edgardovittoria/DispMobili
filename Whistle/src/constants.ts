@@ -17,6 +17,7 @@ export const URL = {
         WHISTLE: STORE_PATH + '/whistle',
         MESSAGE: STORE_PATH + '/message',
         REACTION: STORE_PATH + '/reaction',
+        COMMENT: STORE_PATH + '/comment',
         POSITION: STORE_PATH + '/position'
     },
     UPDATE: {

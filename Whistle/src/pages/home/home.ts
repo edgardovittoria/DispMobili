@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Refresher, ToastController, LoadingController} from 'ionic-angular';
+import { IonicPage, Nav, NavController, NavParams, Refresher, ToastController, LoadingController} from 'ionic-angular';
 import { PAGES } from '../pages';
 import { URL } from '../../constants';
 import { Whistle } from '../../model/whistle.model';
@@ -7,6 +7,7 @@ import { WhistleService } from '../../services/whistle.service';
 import { Reaction } from '../../model/reaction.model';
 import { UserService } from '../../services/user.service';
 import { User } from '../../model/user.model';
+import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -16,17 +17,23 @@ import { User } from '../../model/user.model';
 export class HomePage {
   whistles: Array<Whistle>;
   reactions: Array<Reaction>;
+  position_error: string;
 
   constructor(public navCtrl: NavController,
+              private nav: Nav,
               public whistleService: WhistleService,
               private toastCtrl: ToastController,
               private userService: UserService,
-              public loadingCtrl: LoadingController) {
+              public loadingCtrl: LoadingController,
+              private translateService: TranslateService) {
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
+    this.translateService.get('POSITION_DENIED_ERROR').subscribe((data) => {
+      this.position_error = data;
+    });
       const loader = this.loadingCtrl.create({
         content: "Please wait...",
         duration: 15000
@@ -38,6 +45,7 @@ export class HomePage {
       this.whistles = data;
     });
   }, (error) => {
+    loader.dismiss();
     this.showError(error);
   });
   }
@@ -88,9 +96,7 @@ export class HomePage {
     let err;
     switch(error.code) {            
         case error.PERMISSION_DENIED:
-            err = "User denied the request for Geolocation." + 
-            " Geolocation is mandatory for the correct work of the application..."+ 
-            " If you want to use Whistle, close and open the application again."
+            err = this.position_error;
             break;
         case error.POSITION_UNAVAILABLE:
             err = "Location information is unavailable."
@@ -108,9 +114,11 @@ export class HomePage {
         message: err,
         duration: 10000
       });
-      toast.present().then(() => {
+      /*toast.present().then(() => {
         this.navCtrl.setRoot(PAGES.LOGIN);
-      });
+      });*/
+      this.nav.setRoot(PAGES.LOGIN);
+      toast.present();
     } 
 
     /*doInfinite(infiniteScroll) {

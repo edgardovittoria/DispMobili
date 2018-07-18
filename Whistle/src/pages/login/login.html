@@ -15,13 +15,13 @@
 
     <ion-item>
       <ion-label floating>Username</ion-label>
-      <ion-input [(ngModel)]="account.username" name="username" type="text" #username="ngModel"></ion-input>
+      <ion-input [(ngModel)]="account.username" name="username" type="text" #username="ngModel" required></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label floating>Password</ion-label>
       <ion-input [(ngModel)]="account.password" name="password" type="password"
-      #password="ngModel"></ion-input>
+      #password="ngModel" required></ion-input>
     </ion-item>
   
   </ion-list>

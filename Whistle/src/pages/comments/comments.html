@@ -49,9 +49,11 @@
             </ion-item>
             <ion-card-content>
                 <ion-item>
-                    <ion-input [(ngModel)]="comment.body" name="body" type="text" #body="ngModel" placeholder="Write here.."></ion-input>
+                    <ion-input [(ngModel)]="comment.body" name="body" type="text" #body="ngModel" placeholder="Write here.." required></ion-input>
                   </ion-item>             
-            </ion-card-content>     
+            </ion-card-content>    
+            <button ion-button round id="submit" [disabled]="!commentForm.form.valid" (click)="submit()">{{ 'SEND_BUTTON' | translate}}</button>
+ 
       </ion-card>
     </form>  
 
@@ -69,9 +71,9 @@
     </ion-card>
     </div> 
 
-    <!--<ion-infinite-scroll (ionInfinite)="loadMoreComments($event)">
+    <ion-infinite-scroll (ionInfinite)="loadMoreComments($event)">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
-    </ion-infinite-scroll>-->
+    </ion-infinite-scroll>
     
   </div>      
  

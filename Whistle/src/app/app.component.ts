@@ -9,7 +9,6 @@ import { PAGES } from '../pages/pages';
 import { UserService } from '../services/user.service';
 import { LanguageService } from '../services/language.service';
 import { HttpErrorResponse } from '../../node_modules/@angular/common/http';
-//import { PositionService } from '../services/position.service';
 
 @Component({
   templateUrl: 'app.html'
