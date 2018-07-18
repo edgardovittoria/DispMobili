@@ -14,8 +14,8 @@ export class WhistleService {
     constructor(private http: HttpClient, private userService: UserService) {
     }
 
-    list(position): Observable<Array<Whistle>> {
-        let apiURL = `${URL.WHISTLES}/${position.coords.latitude}/${position.coords.longitude}`;
+    list(position, page: number): Observable<Array<Whistle>> {
+        let apiURL = `${URL.WHISTLES}/${position.coords.latitude}/${position.coords.longitude}/${page}`;
         return this.http.get<Array<Whistle>>(apiURL);
     }
 

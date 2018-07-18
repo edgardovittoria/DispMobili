@@ -12,7 +12,6 @@ export class TabsPage {
 
     home: string = PAGES.HOME;
     notifications: string = PAGES.CHAT_LIST;
-    search: any;
     profile: string = PAGES.USER;
 
     constructor(public navCtrl: NavController) {

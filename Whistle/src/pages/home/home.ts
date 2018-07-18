@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, Nav, NavController, NavParams, Refresher, ToastController, LoadingController} from 'ionic-angular';
+import { IonicPage, Nav, NavController, NavParams, Refresher, ToastController, LoadingController, InfiniteScroll} from 'ionic-angular';
 import { PAGES } from '../pages';
 import { URL } from '../../constants';
 import { Whistle } from '../../model/whistle.model';
@@ -18,6 +18,7 @@ export class HomePage {
   whistles: Array<Whistle>;
   reactions: Array<Reaction>;
   position_error: string;
+  page = 0;
 
   constructor(public navCtrl: NavController,
               private nav: Nav,
@@ -40,7 +41,7 @@ export class HomePage {
       });
       loader.present();
     navigator.geolocation.getCurrentPosition((position) => {
-    this.whistleService.list(position).subscribe((data: Array<Whistle>) => {
+    this.whistleService.list(position, this.page).subscribe((data: Array<Whistle>) => {
       loader.dismiss();
       this.whistles = data;
     });
@@ -71,21 +72,10 @@ export class HomePage {
     });
   }
 
-  openNots() {
-    this.navCtrl.push(PAGES.CHAT_LIST);
-  }
-
-  search() {
-
-  }
-
-  openProfile() {
-    this.navCtrl.push(PAGES.USER);
-  }
-
   doRefresh(refresher: Refresher) {
     navigator.geolocation.getCurrentPosition((position) => {
-    this.whistleService.list(position).subscribe((data: Array<Whistle>) => {
+      this.page = 0;
+      this.whistleService.list(position, this.page).subscribe((data: Array<Whistle>) => {
       this.whistles = data;
       refresher.complete();
     });
@@ -120,6 +110,21 @@ export class HomePage {
       this.nav.setRoot(PAGES.LOGIN);
       toast.present();
     } 
+
+    loadMoreWhistles(infiniteScroll: InfiniteScroll) {
+      console.log("load more");
+      this.page ++;
+      navigator.geolocation.getCurrentPosition((position) => {
+      this.whistleService.list(position, this.page).subscribe((data: Array<Whistle>) => {
+          this.whistles = this.whistles.concat(data);
+          if(data.length == 0) {
+              this.page --;
+          }
+          infiniteScroll.complete();       
+      });
+    });
+  }
+
 
     /*doInfinite(infiniteScroll) {
       console.log('Begin async operation');

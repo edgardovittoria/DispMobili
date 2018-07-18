@@ -6,5 +6,5 @@ export class Comment {
     author: User;
     date: Date;
     body: string;
-    whistle: Whistle;
+    id_whistle: Whistle;
 }
