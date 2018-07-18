@@ -78,6 +78,12 @@ public class WhistleServiceImpl implements WhistleService {
 	public void createCommento(Commento commento) throws BusinessException {
 		commentoRepository.save(commento);		
 	}
+	
+	@Override
+	public void deleteCommento(Commento commento) throws BusinessException {
+		commentoRepository.delete(commento);		
+	}
+	
 	@Override
 	public List<Reactions> findAllReactions(long idWhistle) throws BusinessException {
 		return reactionsRepository.findReactionsBywhistleId(idWhistle);

@@ -28,12 +28,16 @@ public interface WhistleService {
 	List<Commento> findAllCommenti(long idWhistle) throws BusinessException;
 	
 	void createCommento(Commento commento) throws BusinessException;
+	
+	void deleteCommento(Commento commento) throws BusinessException;
 
     List<Reactions> findAllReactions(long idWhistle) throws BusinessException;
 	
 	void createReaction(Reactions reactions) throws BusinessException;
 
 	List<Reactions> findUtenteById(Long idUser) throws BusinessException;
+	
+	
 
 	
 	
