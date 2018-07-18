@@ -44,8 +44,8 @@ public class RESTCommentoController {
 		service.createCommento(commento);
 	}
 	
-	@DeleteMapping("/delete/comment")
-	public void deleteCommento(@RequestBody Commento commento) {
-		
+	@DeleteMapping("/delete/comment/{idComment}")
+	public void deleteCommento(@PathVariable long idComment) {
+		service.deleteCommento(idComment);
 	}
 }

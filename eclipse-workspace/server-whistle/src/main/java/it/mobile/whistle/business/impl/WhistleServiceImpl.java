@@ -80,8 +80,8 @@ public class WhistleServiceImpl implements WhistleService {
 	}
 	
 	@Override
-	public void deleteCommento(Commento commento) throws BusinessException {
-		commentoRepository.delete(commento);		
+	public void deleteCommento(long idComment) throws BusinessException {
+		commentoRepository.deleteById(idComment);;		
 	}
 	
 	@Override

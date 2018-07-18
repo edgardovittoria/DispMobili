@@ -53,6 +53,13 @@ export class CommentsPage {
         });
     }
 
+    delete(c: Comment){
+         this.whistleService.deleteComment(c).subscribe(()=>{
+            let index = this.comments.indexOf(c);
+            this.comments.splice(index);
+        });
+    }
+
 
     loadMoreComments(infiniteScroll: InfiniteScroll) {
         console.log("load more");

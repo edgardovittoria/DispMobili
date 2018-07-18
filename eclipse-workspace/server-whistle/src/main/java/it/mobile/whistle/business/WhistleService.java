@@ -29,7 +29,7 @@ public interface WhistleService {
 	
 	void createCommento(Commento commento) throws BusinessException;
 	
-	void deleteCommento(Commento commento) throws BusinessException;
+	void deleteCommento(long idComment) throws BusinessException;
 
     List<Reactions> findAllReactions(long idWhistle) throws BusinessException;
 	

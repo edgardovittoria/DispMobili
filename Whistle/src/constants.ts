@@ -4,6 +4,7 @@ export const URL_BASE = USE_PROXY ? 'api' : 'localhost:8080/whistle/api';
 
 export const STORE_PATH = URL_BASE + '/store';
 export const UPDATE_PATH = URL_BASE + '/update';
+export const DELETE_PATH = URL_BASE + '/delete';
 
 export const URL = {
     WHISTLES: URL_BASE + "/whistle",
@@ -22,6 +23,9 @@ export const URL = {
     },
     UPDATE: {
         USER: UPDATE_PATH + "/utente"
+    },
+    DELETE:{
+        COMMENT: DELETE_PATH + '/comment'
     }
 }
 

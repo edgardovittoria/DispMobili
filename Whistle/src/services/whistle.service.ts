@@ -49,4 +49,9 @@ export class WhistleService {
     newComment(comment: Comment) {    
         return this.http.post(URL.STORE.COMMENT, comment);
     }
+
+    deleteComment(comment: Comment){
+        let deletUrl = `${URL.DELETE.COMMENT}/${comment.id}`;
+        return this.http.delete(deletUrl);
+    }
 }
