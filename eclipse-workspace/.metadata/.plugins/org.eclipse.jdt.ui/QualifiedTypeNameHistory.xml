@@ -16,10 +16,8 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="it.mobile.whistle.business.impl.repositories.MessageRepositoryImpl"/>
 <fullyQualifiedTypeName name="it.mobile.whistle.business.MessageService"/>
-<fullyQualifiedTypeName name="it.mobile.whistle.domain.Commento"/>
 <fullyQualifiedTypeName name="it.mobile.whistle.business.impl.repositories.CommentoRepository"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-<fullyQualifiedTypeName name="it.mobile.whistle.domain.Reactions"/>
 <fullyQualifiedTypeName name="it.mobile.whistle.business.impl.repositories.ReactionsRepository"/>
 <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
 <fullyQualifiedTypeName name="it.mobile.whistle.common.spring.security.GrantedAuthorityImpl"/>
@@ -27,4 +25,9 @@
 <fullyQualifiedTypeName name="it.mobile.whistle.domain.Chat"/>
 <fullyQualifiedTypeName name="it.mobile.whistle.business.impl.repositories.ChatRepository"/>
 <fullyQualifiedTypeName name="it.mobile.whistle.business.impl.repositories.MessageRepository"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.domain.Reactions"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.domain.Commento"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.domain.Utente"/>
+<fullyQualifiedTypeName name="org.springframework.boot.actuate.trace.http.HttpTrace.Request"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>

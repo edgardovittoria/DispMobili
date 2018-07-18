@@ -66,6 +66,7 @@ public class WhistleApplication {
 			
 			Whistle whistle = new Whistle();
 			whistle.setBody("Ciao");
+			whistle.setType("Fun");
 			whistle.setDate(today);
 			whistle.setLatitude(41.762816);
 			whistle.setLongitude(14.094336);
@@ -75,6 +76,7 @@ public class WhistleApplication {
 			
 			Whistle whistle2 = new Whistle();
 			whistle2.setBody("Forza Inter");
+			whistle2.setType("Fun");
 			whistle2.setDate(today);
 			whistle2.setLatitude(41.763816);
 			whistle2.setLongitude(14.084336);
@@ -83,6 +85,7 @@ public class WhistleApplication {
 			
 			Whistle whistle3 = new Whistle();
 			whistle3.setBody("pippo");
+			whistle3.setType("Fun");
 			whistle3.setDate(today);
 			whistle3.setLatitude(15.763816);
 			whistle3.setLongitude(5.084336);
@@ -91,7 +94,8 @@ public class WhistleApplication {
 			
 			Call call = new Call();
 			call.setBody("Ciao...qualcuno è disposto a prendere un caffe al tropical??");
-			call.setCallsType(CallsType.CAFFE);
+			call.setType("Call");
+			call.setCallsType(CallsType.Break);
 			call.setDate(today);
 			call.setLatitude(41.753816);
 			call.setLongitude(14.084336);
@@ -100,7 +104,8 @@ public class WhistleApplication {
 			
 			Call call1 = new Call();
 			call1.setBody("Ciao...qualcuno può gentilmente darmi un oki...mi scoppia la testa dopo aver usato spring boot XD?");
-			call1.setCallsType(CallsType.MEDICINALI);
+			call1.setType("Call");
+			call1.setCallsType(CallsType.Medical);
 			call1.setDate(today);
 			call1.setLatitude(41.743816);
 			call1.setLongitude(14.074336);

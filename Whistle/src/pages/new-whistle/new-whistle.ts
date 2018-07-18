@@ -41,9 +41,11 @@ export class WhistlePage {
       this.whistle.author = user;
       this.whistle.latitude = position.coords.latitude;
       this.whistle.longitude = position.coords.longitude;
+      this.whistle.type = "Fun";
       this.call.author = user;
       this.call.latitude = position.coords.latitude;
       this.call.longitude = position.coords.longitude;
+      this.call.type = "Call";
       });
     });
   }

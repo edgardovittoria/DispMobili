@@ -2,5 +2,5 @@ package it.mobile.whistle.domain;
 
 public enum CallsType {
 
-	CAFFE, MEDICINALI;
+	Passage, Break, Information, Medical, Passaggio, Caffè, Informazioni, Medico;
 }

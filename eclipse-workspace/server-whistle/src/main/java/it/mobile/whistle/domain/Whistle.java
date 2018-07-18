@@ -31,7 +31,9 @@ public class Whistle {
 
 	@Column(name = "BODY", nullable = false, length = 255)
 	private String body;
-
+    
+	@Column(name = "TYPE", nullable = false, length = 255)
+	private String type;
 
 	@Column(name = "DATE", nullable = false)
 	private Date date;
@@ -66,6 +68,15 @@ public class Whistle {
 
 	public void setBody(String body) {
 		this.body = body;
+	}
+	
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public Date getDate() {
