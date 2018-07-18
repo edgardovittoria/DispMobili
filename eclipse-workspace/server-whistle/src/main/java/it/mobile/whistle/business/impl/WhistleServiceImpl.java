@@ -70,6 +70,11 @@ public class WhistleServiceImpl implements WhistleService {
 	}
 	
 	@Override
+	public void deleteWhistle(long idWhistle) throws BusinessException {
+		whistleRepository.deleteById(idWhistle);;		
+	}
+	
+	@Override
 	public List<Commento> findAllCommenti(long idWhistle) throws BusinessException {
 		return commentoRepository.findCommentiBywhistleId(idWhistle);
 	}
@@ -82,6 +87,11 @@ public class WhistleServiceImpl implements WhistleService {
 	@Override
 	public void deleteCommento(long idComment) throws BusinessException {
 		commentoRepository.deleteById(idComment);;		
+	}
+	
+	@Override
+	public void updateCommento(Commento commento) throws BusinessException {
+		commentoRepository.save(commento);		
 	}
 	
 	@Override

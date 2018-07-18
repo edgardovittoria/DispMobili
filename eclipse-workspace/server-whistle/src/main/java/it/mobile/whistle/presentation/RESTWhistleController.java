@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -65,6 +66,11 @@ public class RESTWhistleController {
 	public void storeWhistle(@RequestBody Whistle whistle) {
 		service.createWhistle(whistle);
 	}
+	@DeleteMapping("/delete/whistle/{idWhistle}")
+	public void deleteWhistle(@PathVariable long idWhistle) {
+		service.deleteWhistle(idWhistle);
+	}
+	
 	
 
 }
