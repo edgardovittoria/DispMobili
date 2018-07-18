@@ -10,4 +10,6 @@ public interface ReactionsRepository extends JpaRepository<Reactions, Long> {
 
 	List<Reactions> findReactionsBywhistleId(long idWhistle);
 	
+	List<Reactions> findReactionsByreactionsOfId(Long idUser);
+	
 }

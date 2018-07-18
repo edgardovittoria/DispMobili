@@ -126,6 +126,21 @@ public class WhistleApplication {
 			commento2.setId_whistle(whistle);
 			commento2 = commentoRepository.save(commento2);
 			
+			Commento commento3 = new Commento();
+			commento3.setBody("BestiaoFNOUAHSOBFOUBAOUFBOUAHFOU");
+			commento3.setAuthor(edgardo);
+			commento3.setDate(today);
+			commento3.setId_whistle(whistle);
+			commento3 = commentoRepository.save(commento3);
+			
+			Commento commento4 = new Commento();
+			commento4.setBody("pipoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
+			commento4.setAuthor(edgardo);
+			commento4.setDate(today);
+			commento4.setId_whistle(whistle);
+			commento4 = commentoRepository.save(commento4);
+			
+			
 			Reactions reaction1 = new Reactions();
 			reaction1.setReactionsOf(edgardo);
 			reaction1.setWhistle(whistle2);

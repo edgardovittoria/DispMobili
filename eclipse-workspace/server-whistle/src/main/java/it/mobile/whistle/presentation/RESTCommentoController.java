@@ -22,10 +22,22 @@ public class RESTCommentoController {
 	@Autowired
 	private WhistleService service;
 	
-	@GetMapping("/comments/{idWhistle}")
-	public List<Commento> list(@PathVariable long idWhistle) {
-		return service.findAllCommenti(idWhistle);
+	@GetMapping("/comments/{idWhistle}/{number}")
+	public List<Commento> list(@PathVariable long idWhistle, @PathVariable int number) {
+		List<Commento> listcomments = service.findAllCommenti(idWhistle);
+		int size = listcomments.size();
+		
+		for(int j = size - 1;j >= 2*(number + 1);j--) {
+			Commento comment = listcomments.remove(j);
+			listcomments.remove(comment);
+		}
+		for(int i = 0; i < 2*number && i<size;i++) {
+				Commento comment2 = listcomments.remove(0);
+				listcomments.remove(comment2);
+		}
+		return listcomments;
 	}
+	
 	@PostMapping("/store/comment")
 	public void storeCommento(@RequestBody Commento commento) {
 		service.createCommento(commento);

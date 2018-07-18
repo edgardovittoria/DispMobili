@@ -87,6 +87,11 @@ public class WhistleServiceImpl implements WhistleService {
 	public void createReaction(Reactions reactions) throws BusinessException {
 		reactionsRepository.save(reactions);		
 	}
+	
+	@Override
+	public List<Reactions> findUtenteById(Long idUser) throws BusinessException {
+		return reactionsRepository.findReactionsByreactionsOfId(idUser);
+	}
 	/*@Override
 	public List<Reactions> countReactionsByIdWhistle(long idWhistle) {
 		return reactionsRepository.findReactionsBywhistleId(idWhistle);

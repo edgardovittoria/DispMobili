@@ -32,6 +32,10 @@ public interface WhistleService {
     List<Reactions> findAllReactions(long idWhistle) throws BusinessException;
 	
 	void createReaction(Reactions reactions) throws BusinessException;
+
+	List<Reactions> findUtenteById(Long idUser) throws BusinessException;
+
+	
 	
 	//int countReactionsByIdWhistle(long idWhistle);
 
