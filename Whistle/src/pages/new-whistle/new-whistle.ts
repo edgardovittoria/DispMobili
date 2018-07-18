@@ -5,7 +5,6 @@ import { Whistle } from '../../model/whistle.model';
 import { User } from '../../model/user.model';
 import { Call } from '../../model/call.model';
 import { UserService } from '../../services/user.service';
-import { dateValueRange } from '../../../node_modules/ionic-angular/umd/util/datetime-util';
 
 @IonicPage()
 @Component({
@@ -36,22 +35,22 @@ export class WhistlePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad WhistlePage');
     this.call.callsType = 'none';
-    navigator.geolocation.getCurrentPosition((position) => {
     this.userService.getUser().subscribe((user: User) => {
-      this.whistle.author = user;
+      this.user = user;
+      this.whistle.author = this.user;
+      this.call.author = this.user;
+    });
+    navigator.geolocation.getCurrentPosition((position) => {
+      
       this.whistle.latitude = position.coords.latitude;
       this.whistle.longitude = position.coords.longitude;
       this.whistle.type = "Fun";
-      this.call.author = user;
+      
       this.call.latitude = position.coords.latitude;
       this.call.longitude = position.coords.longitude;
       this.call.type = "Call";
-      });
+      
     });
-  }
-
-  getLocation() {
-    return "pippo";
   }
 
   submit() {

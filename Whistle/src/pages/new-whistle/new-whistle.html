@@ -27,16 +27,16 @@
         <div class="form" *ngSwitchCase="'Fun'">  
             <ion-input hidden type="text" readonly="true" [(ngModel)]="postType" name="postType" value="Fun"></ion-input>
 
-        <ion-card>
+        <ion-card *ngIf="user">
             <ion-item>
               <ion-avatar item-start>
                 <img src="../../assets/imgs/Paolo.jpg">
               </ion-avatar>
-              <h2>Paolo Capulli</h2>
+              <h2>{{ user.name }} {{ user.surname }}</h2>
             </ion-item>
             <ion-card-content>
                 <ion-item>
-                    <ion-input [(ngModel)]="whistle.body" name="body" type="text" #body="ngModel" placeholder="Write here.."></ion-input>
+                    <ion-input [(ngModel)]="whistle.body" name="body" type="text" #body="ngModel" required placeholder="Write here.."></ion-input>
                   </ion-item>             
             </ion-card-content>     
       </ion-card>
@@ -50,7 +50,7 @@
                 <ion-avatar item-start>
                   <img src="../../assets/imgs/Paolo.jpg">
                 </ion-avatar>
-                <h2>Paolo Capulli</h2>
+                <h2>{{ user.name }} {{ user.surname }}</h2>
               </ion-item>
               <ion-card-content>
                   <ion-item>

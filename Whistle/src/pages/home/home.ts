@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, Nav, NavController, NavParams, Refresher, ToastController, LoadingController, InfiniteScroll} from 'ionic-angular';
+import { IonicPage, Nav, NavController, NavParams, Refresher, ToastController, LoadingController, InfiniteScroll, FabContainer} from 'ionic-angular';
 import { PAGES } from '../pages';
 import { URL } from '../../constants';
 import { Whistle } from '../../model/whistle.model';
@@ -57,6 +57,44 @@ export class HomePage {
 
   openComments(w: Whistle) {
     this.navCtrl.push(PAGES.COMMENTS, {whistleId: w.id});
+  }
+
+  filter(type: string, fab?: FabContainer) {
+    console.log("filter");
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.whistleService.list(position, this.page).subscribe((data: Array<Whistle>) => {
+        switch(type) {
+          case "Fun": {
+            let result = Array<Whistle>();
+            data.map((whistle) => {
+              if(whistle.type === 'Fun') {
+                result.push(whistle);
+              }
+            });
+            this.whistles = result;
+            break;
+          }
+          case "Call": {
+            let result = Array<Whistle>();
+            data.map((call) => {
+              if(call.type === 'Call') {
+                result.push(call);
+              }
+            });
+            this.whistles = result;
+            break;
+          }
+          case "All": {
+            this.whistles = data;
+            break;
+          }
+            
+        }
+        if(fab !== undefined) {
+          fab.close();
+        }    
+      });
+    });
   }
 
   createWhistle() {
@@ -124,20 +162,6 @@ export class HomePage {
       });
     });
   }
-
-
-    /*doInfinite(infiniteScroll) {
-      console.log('Begin async operation');
-  
-      setTimeout(() => {
-        for (let i = 0; i < 3; i++) {
-          this.whistles.push( //... );
-        }
-  
-        console.log('Async operation has ended');
-        infiniteScroll.complete();
-      }, 500);
-    }*/
 
 
 }
