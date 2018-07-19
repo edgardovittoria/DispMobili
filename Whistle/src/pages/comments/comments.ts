@@ -1,4 +1,4 @@
-import { IonicPage, NavParams, InfiniteScroll, Refresher, NavController } from "ionic-angular";
+import { IonicPage, NavParams, InfiniteScroll, Refresher, NavController, AlertController, ItemSliding} from "ionic-angular";
 import { Component } from "@angular/core";
 import { Whistle } from "../../model/whistle.model";
 import { Comment } from "../../model/comment.model";
@@ -6,6 +6,7 @@ import { WhistleService } from "../../services/whistle.service";
 import { UserService } from "../../services/user.service";
 import { User } from "../../model/user.model";
 import { PAGES } from "../pages";
+//import { AlertController } from "ionic-angular";
 
 @IonicPage()
 @Component({
@@ -22,7 +23,8 @@ export class CommentsPage {
     constructor(public whistleService: WhistleService, 
                 public navParams: NavParams,
                 private userService: UserService,
-                private navCtrl: NavController
+                private navCtrl: NavController,
+                private alertCtrl: AlertController
                 /*private refresher: Refresher
                 /*private infiniteScroll: InfiniteScroll*/) {
 
@@ -46,19 +48,58 @@ export class CommentsPage {
 
     submit() {
         this.comment.date = new Date();
-        this.whistleService.newComment(this.comment).subscribe(() => {
-            let newComment = this.comment;
-            this.comments.push(newComment);
-            this.comment.body = '';
-        });
+            let confirm = this.alertCtrl.create({
+                title: "Comment inserted",
+                message: "To see the message, reload the page.",
+                buttons: [
+                  {
+                    text: "OK",
+                    handler: () => {
+                        this.whistleService.newComment(this.comment).subscribe(() => {
+                            let newComment = new Comment();
+                            newComment = this.comment;
+                            this.comments.push(newComment);
+                            this.comment.body = '';
+                      });
+          
+                    }
+                  }
+                ]
+              });
+              confirm.present();
+            
+    
     }
 
     delete(c: Comment){
-         this.whistleService.deleteComment(c).subscribe(()=>{
-            let index = this.comments.indexOf(c);
-            this.comments.splice(index);
+
+            let confirm = this.alertCtrl.create({
+                title: "Delete comment",
+                message: "Comment will be deleted. Proceed?.",
+                buttons: [
+                  {
+                        text: "CANCEL",
+                        handler: () => {
+                          //this.navCtrl.pop();
+                          console.log('Annulla clicked');
+                     }
+                    },
+                  {
+                    text: "OK",
+                    handler: () => {
+                        this.whistleService.deleteComment(c).subscribe(()=>{
+                            let index = this.comments.indexOf(c);
+                            this.comments.splice(index,1);
+                            //this.navCtrl.pop();
+                      });
+          
+                    }
+                  }
+                ]
+              });
+              confirm.present();
             
-        });
+        
     }
 
     update(c: Comment){
