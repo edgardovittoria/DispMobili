@@ -101,6 +101,13 @@ export class HomePage {
     this.navCtrl.push(PAGES.WHISTLE);
   }
 
+  delete(w: Whistle){
+    this.whistleService.deleteWhistle(w).subscribe(()=>{
+      let index = this.whistles.indexOf(w);
+      this.whistles.splice(index);
+    });
+  }
+
   react(w: Whistle) {
     this.userService.getUser().subscribe((user: User) => {
       let react = new Reaction();

@@ -57,7 +57,15 @@ export class CommentsPage {
          this.whistleService.deleteComment(c).subscribe(()=>{
             let index = this.comments.indexOf(c);
             this.comments.splice(index);
+            
         });
+    }
+
+    update(c: Comment){
+        /*this.comment.body = c.body;
+        this.whistleService.updateComment(c).subscribe(()=>{
+            //this.comment.body = c.body;
+        });*/
     }
 
 

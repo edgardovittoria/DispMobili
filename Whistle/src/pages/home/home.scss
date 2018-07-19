@@ -2,6 +2,7 @@
 
 ion-item h2 {
     color: #4636AD;
+    width: 130px;
 }
 
 .label-ios .Wtype {
@@ -43,4 +44,10 @@ ion-card-content p {
     width: 30px;
     margin-left: 12%;
     margin-top: 1%;
+}
+
+#delete{
+    margin-left: 30%;
+    width: 10px;
+    padding: 0%;
 }

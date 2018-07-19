@@ -22,10 +22,12 @@ export const URL = {
         POSITION: STORE_PATH + '/position'
     },
     UPDATE: {
-        USER: UPDATE_PATH + "/utente"
+        USER: UPDATE_PATH + "/utente",
+        COMMENT: UPDATE_PATH + '/comment'
     },
     DELETE:{
-        COMMENT: DELETE_PATH + '/comment'
+        COMMENT: DELETE_PATH + '/comment',
+        WHISTLE: DELETE_PATH + '/whistle'
     }
 }
 
