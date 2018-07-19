@@ -14,11 +14,11 @@
   </ion-refresher>
   <ion-card *ngFor="let w of whistles">
 
-    <ion-item>
+    <ion-item (click)="openDetails(w)">
       <ion-avatar item-start>
-        <img src="../../assets/imgs/Marty-Mcfly.jpg" (click)="openDetails(w)">
+        <img src="../../assets/imgs/Marty-Mcfly.jpg">
       </ion-avatar>
-      <h2>{{w.author.name}} {{w.author.surname}}<button id="delete" (click)="delete(w)"><ion-icon ios="ios-trash" md="md-trash"></ion-icon></button></h2>
+      <h2>{{w.author.name}} {{w.author.surname}}</h2>
       <p class="Wtype">{{w.type}} Whistle</p>
     </ion-item>
   
@@ -43,7 +43,7 @@
       </ion-col>
       <ion-col center text-center>
         <ion-note>
-          {{w.date}}
+          {{w.date}}<button id="delete" (click)="delete(w)"><ion-icon ios="ios-trash" md="md-trash"></ion-icon></button>
         </ion-note>
       </ion-col>
     </ion-row>
