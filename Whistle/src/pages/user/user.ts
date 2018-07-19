@@ -1,9 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, Events } from "ionic-angular";
-import { TranslateService } from "@ngx-translate/core";
 import { UserService } from "../../services/user.service";
-import { PAGES } from "../pages";
-import { LanguageService, Language } from "../../services/language.service";
 import { User } from "../../model/user.model";
 
 @IonicPage()
@@ -13,6 +10,7 @@ import { User } from "../../model/user.model";
 })
 export class UserPage {
     user: User;
+    hide: boolean = true;
 
     constructor(public events: Events, 
                 private userService: UserService) {
@@ -26,16 +24,26 @@ export class UserPage {
         });
       }
 
-      /*onSubmit(form: NgForm) {
-        if (form.valid) {
-          this.translateService.use(this.bestLang);
-          this.languageService.updateLang(this.bestLang);
-          this.userService.updateProfilo(this.utente).subscribe((newUser: User) => {
-            this.user = newUser;
-            this.navCtrl.pop();
-          });
-    
+      fabControl() {
+        if(!this.hide) {
+          this.hide = true;
         }
-      }  */
+      }
+
+
+      setImage() {
+
+      }
+
+      setDescription() {
+        this.hide = false;
+        document.getElementById('input').focus();
+      }
+
+      update() {
+        this.userService.updateUser(this.user).subscribe(()=> {
+          this.hide = true;
+        });
+      }
 
 }

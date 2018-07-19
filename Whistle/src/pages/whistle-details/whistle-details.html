@@ -25,6 +25,15 @@
     <ion-card-content>{{whistle.body}}</ion-card-content>
   </ion-card>
 </div>
-  <button ion-button round id="submit" color="primary" (click)="newChat()">{{'MESSAGE_BUTTON' | translate }}</button>
+
+<ion-fab top right id="settings-btn" [hidden]="!hide" #fab> 
+  <button ion-fab mini color="primary"><ion-icon name="hammer"></ion-icon></button>
+  <ion-fab-list>
+    <button ion-fab (click)="update()"><ion-icon color="primary" name="create"></ion-icon></button>
+    <button ion-fab (click)="delete()"><ion-icon color="danger" name="trash"></ion-icon></button>
+  </ion-fab-list>
+</ion-fab>
+
+  <button ion-button round id="submit" color="primary" [hidden]="hide" (click)="newChat()">{{'MESSAGE_BUTTON' | translate }}</button>
 
 </ion-content>

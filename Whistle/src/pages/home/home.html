@@ -31,7 +31,10 @@
     <ion-row>
       <ion-col>
         <button ion-button color="secondary" icon-start clear small>
-          <ion-icon name="heart-outline"></ion-icon>
+            <div [ngSwitch]="w.type">
+          <ion-icon name="heart-outline" *ngSwitchCase="'Fun'"></ion-icon>
+          <ion-icon name="bulb" *ngSwitchCase="'Call'"></ion-icon>
+            </div>
           <div>{{w.reactions}} {{'REACTIONS' | translate }}</div>
         </button>
       </ion-col>
@@ -43,7 +46,7 @@
       </ion-col>
       <ion-col center text-center>
         <ion-note>
-          {{w.date}}<button id="delete" (click)="delete(w)"><ion-icon ios="ios-trash" md="md-trash"></ion-icon></button>
+          {{w.date}}
         </ion-note>
       </ion-col>
     </ion-row>
