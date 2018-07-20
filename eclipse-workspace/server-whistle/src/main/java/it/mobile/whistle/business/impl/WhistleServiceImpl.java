@@ -112,6 +112,12 @@ public class WhistleServiceImpl implements WhistleService {
 	public List<Reactions> countReactionsByIdWhistle(long idWhistle) {
 		return reactionsRepository.findReactionsBywhistleId(idWhistle);
 	}*/
+
+	@Override
+	public void deleteReaction(long reactionsId) throws BusinessException {
+		reactionsRepository.deleteById(reactionsId);
+		
+	}
 	
 	
 

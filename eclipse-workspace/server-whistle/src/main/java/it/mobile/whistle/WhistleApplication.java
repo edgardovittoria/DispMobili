@@ -153,8 +153,8 @@ public class WhistleApplication {
 			reaction2 = reactionsRepository.save(reaction2);
 			
 			Reactions reaction3 = new Reactions();
-			reaction3.setReactionsOf(edgardo);
-			reaction3.setWhistle(whistle);
+			reaction3.setReactionsOf(federico);
+			reaction3.setWhistle(call);
 			reaction3 = reactionsRepository.save(reaction3);
 			
 			Chat chat = new Chat();
