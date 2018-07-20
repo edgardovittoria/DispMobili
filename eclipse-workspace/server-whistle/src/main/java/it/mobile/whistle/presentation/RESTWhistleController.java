@@ -2,9 +2,6 @@ package it.mobile.whistle.presentation;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.mobile.whistle.business.WhistleService;
+import it.mobile.whistle.common.Utility;
 import it.mobile.whistle.domain.Commento;
 import it.mobile.whistle.domain.Reactions;
+import it.mobile.whistle.domain.Utente;
 import it.mobile.whistle.domain.Whistle;
 
 @RestController
@@ -31,6 +30,7 @@ public class RESTWhistleController {
 		
 		List<Whistle> whistle = service.findWhistle(latitude, longitude);
 		int size = whistle.size();
+		Utente utente = Utility.getUtente();
 		for(int i = 0;whistle.size()>i;i++) {
 			List<Reactions> reactions = service.findAllReactions(whistle.get(i).getId());
 			List<Commento> comments = service.findAllCommenti(whistle.get(i).getId());
@@ -38,6 +38,13 @@ public class RESTWhistleController {
 			int c = comments.size();
 			whistle.get(i).setReactions(r);
 			whistle.get(i).setComments(c);
+			for(int j = 0;j<reactions.size();j++) {
+				if(reactions.get(j).getReactionsOf().getId() == utente.getId()) {
+					whistle.get(i).setReacted(true);
+				}
+			}
+				
+			
 		}
 		
 		for(int j = size - 1;j >= 4*(number + 1);j--) {

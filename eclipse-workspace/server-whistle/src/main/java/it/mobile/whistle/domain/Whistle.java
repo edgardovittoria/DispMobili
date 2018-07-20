@@ -54,6 +54,9 @@ public class Whistle {
 	@Column(name = "REACTIONS", nullable = false)
 	private int reactions;
 	
+	@Column(name = "REACTED", nullable = false)
+	private boolean reacted = false;
+	
 	public Long getId() {
 		return id;
 	}
@@ -127,6 +130,15 @@ public class Whistle {
 		this.reactions = reactions;
 	}
 
+	public boolean isReacted() {
+		return reacted;
+	}
+
+	public void setReacted(boolean reacted) {
+		this.reacted = reacted;
+	}
+
+	
 
 	
 	

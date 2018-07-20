@@ -16,6 +16,7 @@ import { UserService } from '../services/user.service';
 import { LanguageService } from '../services/language.service';
 import { WhistleService } from '../services/whistle.service';
 import { ChatListService } from '../services/chat-list.service';
+import { httpInterceptorProviders } from '../interceptors';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -51,7 +52,8 @@ export function createTranslateLoader(http: HttpClient) {
     ChatListService,
     UserService,
     WhistleService,
-    LanguageService
+    LanguageService,
+    httpInterceptorProviders
   ]
 })
 export class AppModule {}
