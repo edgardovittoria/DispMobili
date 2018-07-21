@@ -31,13 +31,12 @@ public class RESTWhistleController {
 		
 		List<Whistle> whistle = service.findWhistle(latitude, longitude);
 		int size = whistle.size();
-		
-		List<WhistleResponse> listwhistle = new ArrayList<WhistleResponse>();
+		WhistleResponse whistleResponse = new WhistleResponse();
+		List<WhistleResponse> listwhistle = new ArrayList<>();
 		//Utente utente = Utility.getUtente();
 		List<Long> id_reaction = new ArrayList<>();
 		
-		for(int i = 0;i<size;i++) {
-			WhistleResponse whistleResponse = new WhistleResponse();
+		for(int i = 0;2>i;i++) {
 			
 			whistleResponse.setId(whistle.get(i).getId());
 			whistleResponse.setAuthor(whistle.get(i).getAuthor());
@@ -59,12 +58,12 @@ public class RESTWhistleController {
 			whistleResponse.setComments(whistle.get(i).getComments());
 			whistleResponse.setReactions(whistle.get(i).getReactions());
 			
-			/*for(int j = 0;j<r;j++) {
+			for(int j = 0;j<r;j++) {
 				//id_reaction.add(reactions.get(j).getId());
-			}*/
+			}
 			
-			//whistleResponse.setId_reaction(id_reaction);
-			listwhistle.add(whistleResponse);
+			whistleResponse.setId_reaction(id_reaction);
+			//listwhistle.set(i, whistleResponse);	
 			
 		}
 		
