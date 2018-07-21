@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.mobile.whistle.domain.Messaggio;
-import it.mobile.whistle.business.impl.repositories.MessageRepository;
+import it.mobile.whistle.business.impl.repositories.MessaggioRepository;
 
 
 @Service
 public class MessageService {
     
-    private MessageRepository messageRepository;
+    private MessaggioRepository messageRepository;
 
     @Autowired
-    public MessageService(MessageRepository messageRepository) {
+    public MessageService(MessaggioRepository messageRepository) {
         this.messageRepository = messageRepository;
     }
     

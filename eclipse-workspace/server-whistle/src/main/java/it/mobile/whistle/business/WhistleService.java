@@ -3,7 +3,9 @@ package it.mobile.whistle.business;
 import java.util.List;
 
 import it.mobile.whistle.domain.Whistle;
+import it.mobile.whistle.domain.Chat;
 import it.mobile.whistle.domain.Commento;
+import it.mobile.whistle.domain.Messaggio;
 import it.mobile.whistle.domain.Reactions;
 import it.mobile.whistle.domain.Utente;
 
@@ -40,13 +42,27 @@ public interface WhistleService {
 
 	List<Reactions> findUtenteById(Long idUser) throws BusinessException;
 
-	void deleteReaction(long reactionsId) throws BusinessException;;
+	void deleteReaction(long reactionsId) throws BusinessException;
 	
+	Long getIdReaction(Long idUtente, Long idWhistle) throws BusinessException;
+	
+	List<Chat> findChatByUser(Long idUtente) throws BusinessException;
+	
+	void storeChat(Chat chat) throws BusinessException;
+	
+	void deleteChat(Long idChat) throws BusinessException;
+
+    List<Messaggio> findMessageByChat(Long idChat) throws BusinessException;
+    
+    void storeMessage(Messaggio messaggio) throws BusinessException;
+    
+    void deleteMessage(Long idMessage) throws BusinessException;
+    
 	
 
 	
 	
-	//int countReactionsByIdWhistle(long idWhistle);
+	
 
 	
 

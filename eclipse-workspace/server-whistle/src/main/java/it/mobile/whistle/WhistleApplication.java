@@ -24,7 +24,7 @@ import it.mobile.whistle.domain.Whistle;
 import it.mobile.whistle.business.impl.repositories.WhistleRepository;
 import it.mobile.whistle.business.impl.repositories.ChatRepository;
 import it.mobile.whistle.business.impl.repositories.CommentoRepository;
-import it.mobile.whistle.business.impl.repositories.MessageRepository;
+import it.mobile.whistle.business.impl.repositories.MessaggioRepository;
 import it.mobile.whistle.business.impl.repositories.ReactionsRepository;
 import it.mobile.whistle.business.impl.repositories.UtenteRepository;
 
@@ -35,7 +35,7 @@ public class WhistleApplication {
 	private PasswordEncoder passwordEncoder;
 
 	@Bean
-	public CommandLineRunner loadData(UtenteRepository utenteRepository, WhistleRepository whistleRepository, CommentoRepository commentoRepository, ReactionsRepository reactionsRepository, ChatRepository chatRepository, MessageRepository messageRepository) {
+	public CommandLineRunner loadData(UtenteRepository utenteRepository, WhistleRepository whistleRepository, CommentoRepository commentoRepository, ReactionsRepository reactionsRepository, ChatRepository chatRepository, MessaggioRepository messageRepository) {
 		return (args) -> {
 			
 			Utente federico = new Utente();
@@ -166,7 +166,7 @@ public class WhistleApplication {
 			mex.setAuthor(edgardo);
 			mex.setBody("isiyafyigaiusfgiuha");
 			mex.setDate(today);
-		    mex.setRelativoA(chat);
+		    mex.setRelativoa(chat);
 		    mex = messageRepository.save(mex);;
 			
 

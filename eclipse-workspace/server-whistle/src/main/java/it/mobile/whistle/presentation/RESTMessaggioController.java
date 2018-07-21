@@ -11,27 +11,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.mobile.whistle.business.WhistleService;
-import it.mobile.whistle.domain.Chat;
+import it.mobile.whistle.domain.Messaggio;
 
 @RestController
 @RequestMapping("/api")
-public class RESTChatController {
+public class RESTMessaggioController {
 
 	@Autowired
 	private WhistleService service;
 	
-	@GetMapping("/chatlist/{idUtente}")
-	public List<Chat> list(@PathVariable Long idUtente) {
-		return service.findChatByUser(idUtente);
+	@GetMapping("/chat/{idChat}")
+	public List<Messaggio> getMessage(@PathVariable Long idChat){
+		return service.findMessageByChat(idChat);
 	}
 	
-	@PostMapping("/store/chat")
-	public void storeChat(Chat chat) {
-		service.storeChat(chat);
+	@PostMapping("/store/message")
+	public void storeMessage(Messaggio messaggio) {
+		service.storeMessage(messaggio);
 	}
 	
-	@DeleteMapping("/delete/chat/{idChat}")
-	public void deleteMessagge(@PathVariable Long idChat){
-		service.deleteChat(idChat);
+	@DeleteMapping("/delete/message/{idMessage}")
+	public void deleteMessage(@PathVariable Long idMessage) {
+		
 	}
 }

@@ -31,7 +31,7 @@ public class Messaggio {
 
 	@ManyToOne
 	@JoinColumn(name = "ID_CHAT", nullable = false)
-	private Chat relativoA;
+	private Chat relativoa;
 	
 	@ManyToOne
 	@JoinColumn(name = "ID_USER", nullable = false)
@@ -61,12 +61,12 @@ public class Messaggio {
 		this.date = date;
 	}
 
-	public Chat getRelativoA() {
-		return relativoA;
+	public Chat getRelativoa() {
+		return relativoa;
 	}
 
-	public void setRelativoA(Chat relativoA) {
-		this.relativoA = relativoA;
+	public void setRelativoa(Chat relativoa) {
+		this.relativoa = relativoa;
 	}
 
 	public Date getDate() {
