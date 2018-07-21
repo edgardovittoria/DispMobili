@@ -6,7 +6,6 @@ export class User {
     surname: string;
     username: string;
     email: string;
-    password: string;
     photo: string; //?????
     description: string;
     solved_calls: number;

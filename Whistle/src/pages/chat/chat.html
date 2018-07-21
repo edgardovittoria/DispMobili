@@ -3,19 +3,26 @@
         <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-        <div *ngIf="user">
-        <ion-title>{{user.name}} {{user.name}}</ion-title>
+        <div *ngIf="partecipant">
+        <ion-title>{{partecipant.name}} {{partecipant.name}}</ion-title>
         </div>
       </ion-navbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+        <ion-card-content *ngFor="let m of messages">
+            <div [ngSwitch]="m.mine">
+                <p *ngSwitchCase="m.mine" id="mymessage">{{m.body}}</p>
+                <p *ngSwitchCase="!m.mine" id="message">{{m.body}}</p>
+            </div>    
+         </ion-card-content>   
+</ion-content>
 
 <ion-footer>
     <ion-toolbar color="light">
         <ion-input type="text" placeholder="Write here.."></ion-input>
         <ion-buttons end>
-            <ion-icon name="send" color="primary"></ion-icon>
+            <ion-icon name="send"></ion-icon>
         </ion-buttons>
       </ion-toolbar>
 </ion-footer>

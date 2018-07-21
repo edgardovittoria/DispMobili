@@ -5,4 +5,5 @@ export class Message {
     author: User;
     body: string;
     date: Date;
+    mine: boolean;
 }

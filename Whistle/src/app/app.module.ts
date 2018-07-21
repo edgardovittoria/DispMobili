@@ -15,7 +15,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { UserService } from '../services/user.service';
 import { LanguageService } from '../services/language.service';
 import { WhistleService } from '../services/whistle.service';
-import { ChatListService } from '../services/chat-list.service';
+import { ChatService } from '../services/chat.service';
 import { httpInterceptorProviders } from '../interceptors';
 
 // The translate loader needs to know where to load i18n files
@@ -49,7 +49,7 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ChatListService,
+    ChatService,
     UserService,
     WhistleService,
     LanguageService,

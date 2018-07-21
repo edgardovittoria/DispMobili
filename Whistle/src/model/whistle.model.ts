@@ -11,6 +11,7 @@ export class Whistle {
     longitude: number;
     reactions: number;
     comments: number;
+    reacted: boolean;
 
     //comments: Array<Comment>;
 }

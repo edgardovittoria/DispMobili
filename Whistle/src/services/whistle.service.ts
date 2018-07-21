@@ -32,6 +32,11 @@ export class WhistleService {
         return this.http.post(URL.STORE.REACTION, r);
     }
 
+    deleteReaction(r: Reaction) {
+        let deletUrl = `${URL.DELETE.REACTION}/${r.whistle.id}/${r.reactionsOf.id}`;
+        return this.http.delete(deletUrl);
+    }
+
     countReactions(whistleId: number): Observable<Array<Reaction>> {
         let apiURL = `${URL.REACTIONS}/${whistleId}`;
         return this.http.get<Array<Reaction>>(apiURL);

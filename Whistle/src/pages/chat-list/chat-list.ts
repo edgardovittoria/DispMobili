@@ -1,8 +1,10 @@
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { IonicPage, NavController } from "ionic-angular";
 import { Component } from "@angular/core";
 import { Chat } from "../../model/chat.model";
 import { PAGES } from "../pages";
-import { ChatListService } from "../../services/chat-list.service";
+import { ChatService } from "../../services/chat.service";
+import { UserService } from "../../services/user.service";
+import { User } from "../../model/user.model";
 
 @IonicPage()
 @Component({
@@ -12,22 +14,25 @@ import { ChatListService } from "../../services/chat-list.service";
 export class ChatListPage {
     chats: Array<Chat>;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams /*, public chatListService: ChatListService*/) {
+    constructor(private navCtrl: NavController,
+                private chatService: ChatService,
+                private userService: UserService) {
 
     }
 
-    /*loadData() {
-        //console.log('ionViewDidLoad NotiziePage');
-        this.chatListService.list().subscribe((data: Array<Chat>) => {
-          this.chats = data;
-        });
-      }*/
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad ChatListPage');
+        this.userService.getUser().subscribe((user: User) => {
+            this.chatService.getChatList(user.id).subscribe((data: Array<Chat>) => {
+                this.chats = data;
+              });
+        })
+        
+      }
 
     openChat(selectedChat: Chat) {
-        this.navCtrl.push(PAGES.CHAT, selectedChat);       
+        this.navCtrl.setRoot(PAGES.CHAT, {chat: selectedChat}); 
+        //this.navCtrl.push(PAGES.CHAT, {chat: selectedChat});          
     }
 
-    openChatprova() {
-        this.navCtrl.push(PAGES.CHAT);
-    }
 }

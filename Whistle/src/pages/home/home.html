@@ -30,10 +30,18 @@
   
     <ion-row>
       <ion-col>
-        <button ion-button color="secondary" icon-start clear small>
+        <button ion-button color="secondary" icon-start clear small (click)="react(w)">
+          <div *ngIf="w.reacted">
             <div [ngSwitch]="w.type">
-          <ion-icon name="heart-outline" *ngSwitchCase="'Fun'"></ion-icon>
-          <ion-icon name="bulb" *ngSwitchCase="'Call'"></ion-icon>
+          <ion-icon name="heart-outline" color="danger" *ngSwitchCase="'Fun'"></ion-icon>
+          <ion-icon name="bulb" color="bulb" *ngSwitchCase="'Call'"></ion-icon>
+            </div>
+          </div>
+          <div *ngIf="!w.reacted">
+              <div [ngSwitch]="w.type">
+            <ion-icon name="heart-outline" *ngSwitchCase="'Fun'"></ion-icon>
+            <ion-icon name="bulb" *ngSwitchCase="'Call'"></ion-icon>
+              </div>
             </div>
           <div>{{w.reactions}} {{'REACTIONS' | translate }}</div>
         </button>

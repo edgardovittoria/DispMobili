@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, Nav, NavController, NavParams, Refresher, ToastController, LoadingController, InfiniteScroll, FabContainer} from 'ionic-angular';
+import { IonicPage, Nav, NavController, Refresher, ToastController, LoadingController, InfiniteScroll, FabContainer} from 'ionic-angular';
 import { PAGES } from '../pages';
 import { URL } from '../../constants';
 import { Whistle } from '../../model/whistle.model';
@@ -44,6 +44,7 @@ export class HomePage {
     this.whistleService.list(position, this.page).subscribe((data: Array<Whistle>) => {
       loader.dismiss();
       this.whistles = data;
+      console.log(data);
     });
   }, (error) => {
     loader.dismiss();
@@ -103,10 +104,20 @@ export class HomePage {
 
   react(w: Whistle) {
     this.userService.getUser().subscribe((user: User) => {
-      let react = new Reaction();
-        react.whistle = w;
-        react.reactionsOf = user;
-        this.whistleService.setReaction(react);
+      let reaction = new Reaction();
+        reaction.whistle = w;
+        reaction.reactionsOf = user;
+      if(!w.reacted) {            
+        this.whistleService.setReaction(reaction).subscribe(() => {
+          w.reacted = true;
+          w.reactions++;
+        });    
+      }else{
+        this.whistleService.deleteReaction(reaction).subscribe(() => {
+          w.reacted = false;
+          w.reactions--;
+        });
+      }
     });
   }
 

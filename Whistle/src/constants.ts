@@ -12,6 +12,7 @@ export const URL = {
     LOGIN: URL_BASE + "/login",
     LOGOUT: URL_BASE + "/logout",
     CHATLIST: URL_BASE + "/chatlist",
+    CHAT: URL_BASE + "/chat",
     COMMENTS: URL_BASE + "/comments",
     REACTIONS: URL_BASE + "/reactions",
     STORE: {
@@ -27,7 +28,8 @@ export const URL = {
     },
     DELETE:{
         COMMENT: DELETE_PATH + '/comment',
-        WHISTLE: DELETE_PATH + '/whistle'
+        WHISTLE: DELETE_PATH + '/whistle',
+        REACTION: DELETE_PATH + '/reaction'
     }
 }
 
