@@ -1,5 +1,6 @@
 package it.mobile.whistle.presentation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,38 +27,57 @@ public class RESTWhistleController {
 	private WhistleService service;
 	
 	@GetMapping("/whistle/{latitude}/{longitude}/{number}")
-	public List<Whistle> list(@PathVariable double latitude, @PathVariable double longitude, @PathVariable int number) {
+	public List<WhistleResponse> list(@PathVariable double latitude, @PathVariable double longitude, @PathVariable int number) {
 		
 		List<Whistle> whistle = service.findWhistle(latitude, longitude);
 		int size = whistle.size();
-		Utente utente = Utility.getUtente();
-		for(int i = 0;whistle.size()>i;i++) {
+		WhistleResponse whistleResponse = new WhistleResponse();
+		List<WhistleResponse> listwhistle = new ArrayList<>();
+		//Utente utente = Utility.getUtente();
+		List<Long> id_reaction = new ArrayList<>();
+		
+		for(int i = 0;2>i;i++) {
+			
+			whistleResponse.setId(whistle.get(i).getId());
+			whistleResponse.setAuthor(whistle.get(i).getAuthor());
+			whistleResponse.setBody(whistle.get(i).getBody());
+			
+			whistleResponse.setDate(whistle.get(i).getDate());
+			whistleResponse.setLatitude(whistle.get(i).getLatitude());
+			whistleResponse.setLongitude(whistle.get(i).getLongitude());
+			
+			whistleResponse.setType(whistle.get(i).getType());
+			
+			
 			List<Reactions> reactions = service.findAllReactions(whistle.get(i).getId());
 			List<Commento> comments = service.findAllCommenti(whistle.get(i).getId());
 			int r = reactions.size();
 			int c = comments.size();
 			whistle.get(i).setReactions(r);
 			whistle.get(i).setComments(c);
-			for(int j = 0;j<reactions.size();j++) {
-				if(reactions.get(j).getReactionsOf().getId() == utente.getId()) {
-					whistle.get(i).setReacted(true);
-				}
+			whistleResponse.setComments(whistle.get(i).getComments());
+			whistleResponse.setReactions(whistle.get(i).getReactions());
+			
+			for(int j = 0;j<r;j++) {
+				//id_reaction.add(reactions.get(j).getId());
 			}
-				
+			
+			whistleResponse.setId_reaction(id_reaction);
+			//listwhistle.set(i, whistleResponse);	
 			
 		}
 		
 		for(int j = size - 1;j >= 4*(number + 1);j--) {
-			Whistle whistle1 = whistle.remove(j);
-			whistle.remove(whistle1);
+			WhistleResponse whistle1 = listwhistle.remove(j);
+			listwhistle.remove(whistle1);
 		}
 		for(int i = 0; i < 4*number && i<size;i++) {
-				Whistle whistle2 = whistle.remove(0);
-				whistle.remove(whistle2);
+				WhistleResponse whistle2 = listwhistle.remove(0);
+				listwhistle.remove(whistle2);
 		}
 		
 		
-		return whistle;
+		return listwhistle;
 	}
 	
 	@GetMapping("/Call")

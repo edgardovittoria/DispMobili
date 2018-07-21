@@ -2,6 +2,7 @@ package it.mobile.whistle.domain;
 
 import java.util.Date;
 //import java.util.List;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -54,8 +55,6 @@ public class Whistle {
 	@Column(name = "REACTIONS", nullable = false)
 	private int reactions;
 	
-	@Column(name = "REACTED", nullable = false)
-	private boolean reacted = false;
 	
 	public Long getId() {
 		return id;
@@ -130,13 +129,7 @@ public class Whistle {
 		this.reactions = reactions;
 	}
 
-	public boolean isReacted() {
-		return reacted;
-	}
 
-	public void setReacted(boolean reacted) {
-		this.reacted = reacted;
-	}
 
 	
 
