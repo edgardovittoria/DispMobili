@@ -136,7 +136,7 @@ public class WhistleServiceImpl implements WhistleService {
 	}
 	
 	@Override
-	public Long getIdReaction(Long idUtente, Long idWhistle) {
+	public Reactions getIdReaction(Long idUtente, Long idWhistle) {
 		return reactionsRepository.findReactionsByreactionsOfIdAndWhistleId(idUtente, idWhistle);
 	}
     

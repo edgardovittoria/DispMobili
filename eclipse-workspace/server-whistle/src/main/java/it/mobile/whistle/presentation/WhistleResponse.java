@@ -1,7 +1,6 @@
 package it.mobile.whistle.presentation;
 
 import java.util.Date;
-import java.util.List;
 
 import it.mobile.whistle.domain.Utente;
 
@@ -16,7 +15,7 @@ public class WhistleResponse {
 	private double longitude;
 	private int comments;
 	private int reactions;
-	private List<Long> id_reaction;
+	private Long id_reaction;
 	
 	public WhistleResponse() {}
 	
@@ -47,7 +46,7 @@ public class WhistleResponse {
 	public int getReactions() {
 		return reactions;
 	}
-	public List<Long> getId_reaction() {
+	public Long getId_reaction() {
 		return id_reaction;
 	}
 	public void setId(Long id) {
@@ -77,7 +76,7 @@ public class WhistleResponse {
 	public void setReactions(int reactions) {
 		this.reactions = reactions;
 	}
-	public void setId_reaction(List<Long> id_reaction) {
+	public void setId_reaction(Long id_reaction) {
 		this.id_reaction = id_reaction;
 	}
 	

@@ -25,6 +25,11 @@ public class RESTReactionsController {
 	public List<Reactions> list(@PathVariable long idWhistle) {
 		return service.findAllReactions(idWhistle);
 	}
+	
+	@GetMapping("/reactions/{idUtente}/{idWhistle}")
+	public Reactions list(@PathVariable long idUtente, @PathVariable long idWhistle) {
+		return service.getIdReaction(idUtente, idWhistle);
+	}
 	@PostMapping("/store/reaction")
 	public void storeReaction(@RequestBody Reactions reactions) {
 		service.createReaction(reactions);

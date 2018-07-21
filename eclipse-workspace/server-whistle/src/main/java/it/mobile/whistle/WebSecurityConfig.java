@@ -82,8 +82,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/api/update/**").authenticated()
 				.antMatchers("/api/delete/**").authenticated()
 				.antMatchers("/api/comments/**").authenticated()
-				.antMatchers("/api/Call/**").authenticated()
-				.antMatchers("/api/reactions/**").authenticated();
+				.antMatchers("/api/Call/**").authenticated();
+				//.antMatchers("/api/reactions/**").authenticated();
 			
 
 		// Filtro Custom JWT

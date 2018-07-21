@@ -44,7 +44,7 @@ public interface WhistleService {
 
 	void deleteReaction(long reactionsId) throws BusinessException;
 	
-	Long getIdReaction(Long idUtente, Long idWhistle) throws BusinessException;
+	Reactions getIdReaction(Long idUtente, Long idWhistle) throws BusinessException;
 	
 	List<Chat> findChatByUser(Long idUtente) throws BusinessException;
 	
