@@ -103,22 +103,25 @@ export class HomePage {
   }
 
   react(w: Whistle) {
-    this.userService.getUser().subscribe((user: User) => {
-      let reaction = new Reaction();
-        reaction.whistle = w;
-        reaction.reactionsOf = user;
-      if(!w.reacted) {            
-        this.whistleService.setReaction(reaction).subscribe(() => {
-          w.reacted = true;
-          w.reactions++;
-        });    
+    
+      if(!w.id_reaction) {           
+        this.userService.getUser().subscribe((user: User) => {
+          let reaction = new Reaction();
+            reaction.whistle = w;
+            reaction.reactionsOf = user; 
+            this.whistleService.setReaction(reaction).subscribe((id) => {
+              //w.reacted = true;
+              w.id_reaction = id;            
+              w.reactions++;
+            });   
+        }); 
       }else{
-        this.whistleService.deleteReaction(reaction).subscribe(() => {
-          w.reacted = false;
+        this.whistleService.deleteReaction(w.id_reaction).subscribe(() => {
+          //w.reacted = false;
           w.reactions--;
         });
       }
-    });
+    
   }
 
   doRefresh(refresher: Refresher) {

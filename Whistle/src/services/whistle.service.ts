@@ -6,12 +6,11 @@ import { URL } from '../constants';
 import { Whistle } from '../model/whistle.model';
 import { Comment } from '../model/comment.model';
 import { Reaction } from '../model/reaction.model';
-import { UserService } from './user.service';
 
 @Injectable()
 export class WhistleService {
 
-    constructor(private http: HttpClient, private userService: UserService) {
+    constructor(private http: HttpClient) {
     }
 
     list(position, page: number): Observable<Array<Whistle>> {
@@ -28,22 +27,18 @@ export class WhistleService {
         return this.http.get<Whistle>(apiURL);
     }
 
-    setReaction(r: Reaction) {
-        return this.http.post(URL.STORE.REACTION, r);
+    setReaction(r: Reaction): Observable<number> {
+        return this.http.post<number>(URL.STORE.REACTION, r);
     }
 
-    deleteReaction(r: Reaction) {
-        let deletUrl = `${URL.DELETE.REACTION}/${r.whistle.id}/${r.reactionsOf.id}`;
+    deleteReaction(idReact: number) {
+        let deletUrl = `${URL.DELETE.REACTION}/${idReact}`;
         return this.http.delete(deletUrl);
     }
 
     countReactions(whistleId: number): Observable<Array<Reaction>> {
         let apiURL = `${URL.REACTIONS}/${whistleId}`;
         return this.http.get<Array<Reaction>>(apiURL);
-    }
-
-    countComments() {
-
     }
 
     getComments(whistleId: number, page: number): Observable<Array<Comment>> {

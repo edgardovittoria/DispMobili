@@ -1,4 +1,4 @@
-import {Comment} from './comment.model';
+
 import { User } from './user.model';
 
 export class Whistle {
@@ -11,7 +11,7 @@ export class Whistle {
     longitude: number;
     reactions: number;
     comments: number;
-    reacted: boolean;
+    id_reaction: number;
 
     //comments: Array<Comment>;
 }

@@ -1,4 +1,4 @@
-import { IonicPage, NavController } from "ionic-angular";
+import { IonicPage, NavController, Nav } from "ionic-angular";
 import { Component } from "@angular/core";
 import { Chat } from "../../model/chat.model";
 import { PAGES } from "../pages";
@@ -15,6 +15,7 @@ export class ChatListPage {
     chats: Array<Chat>;
 
     constructor(private navCtrl: NavController,
+                private nav: Nav,
                 private chatService: ChatService,
                 private userService: UserService) {
 
@@ -31,7 +32,7 @@ export class ChatListPage {
       }
 
     openChat(selectedChat: Chat) {
-        this.navCtrl.setRoot(PAGES.CHAT, {chat: selectedChat}); 
+        this.nav.push(PAGES.CHAT, {chat: selectedChat}); 
         //this.navCtrl.push(PAGES.CHAT, {chat: selectedChat});          
     }
 
