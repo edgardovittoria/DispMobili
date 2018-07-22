@@ -124,6 +124,11 @@ public class WhistleServiceImpl implements WhistleService {
 	public void createReaction(Reactions reactions) throws BusinessException {
 		reactionsRepository.save(reactions);		
 	}
+
+	@Override
+	public Reactions getReactionById(Long idReaction) throws BusinessException {
+		return reactionsRepository.findById(idReaction).get();
+	}
 	
 	@Override
 	public List<Reactions> findUtenteById(Long idUser) throws BusinessException {
@@ -131,8 +136,8 @@ public class WhistleServiceImpl implements WhistleService {
 	}
 
 	@Override
-	public void deleteReaction(long reactionsId) throws BusinessException {
-		reactionsRepository.deleteById(reactionsId);
+	public void deleteReaction(Long idReaction) throws BusinessException {
+		reactionsRepository.deleteById(idReaction);
 	}
 	
 	@Override
@@ -181,6 +186,7 @@ public class WhistleServiceImpl implements WhistleService {
 	public void deleteMessage(Long idMessage) throws BusinessException {
 		messaggioRepository.deleteById(idMessage);
 	}
+
 
 	
 

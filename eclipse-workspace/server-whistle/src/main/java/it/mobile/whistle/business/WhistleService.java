@@ -42,7 +42,9 @@ public interface WhistleService {
 
 	List<Reactions> findUtenteById(Long idUser) throws BusinessException;
 
-	void deleteReaction(long reactionsId) throws BusinessException;
+	void deleteReaction(Long reactionsId) throws BusinessException;
+	
+	Reactions getReactionById(Long idReaction) throws BusinessException;
 	
 	Reactions getIdReaction(Long idUtente, Long idWhistle) throws BusinessException;
 	

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.mobile.whistle.business.WhistleService;
+import it.mobile.whistle.common.Utility;
 import it.mobile.whistle.domain.Reactions;
+import it.mobile.whistle.domain.Utente;
 
 @RestController
 @RequestMapping("/api")
@@ -31,11 +33,13 @@ public class RESTReactionsController {
 		return service.getIdReaction(idUtente, idWhistle);
 	}
 	@PostMapping("/store/reaction")
-	public void storeReaction(@RequestBody Reactions reactions) {
+	public Long storeReaction(@RequestBody Reactions reactions) {
 		service.createReaction(reactions);
+		Reactions react = service.getReactionById(reactions.getId());
+		return react.getId();
 	}
 	@DeleteMapping("/delete/reaction/{idReaction}")
-	public void deleteReaction(@PathVariable long reactions) {
-		service.deleteReaction(reactions);
+	public void deleteReaction(@PathVariable Long idReactions) {
+		service.deleteReaction(idReactions);
 	}
 }
