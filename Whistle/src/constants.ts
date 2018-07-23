@@ -18,6 +18,7 @@ export const URL = {
     STORE: {
         WHISTLE: STORE_PATH + '/whistle',
         MESSAGE: STORE_PATH + '/message',
+        CHAT: STORE_PATH + '/chat',
         REACTION: STORE_PATH + '/reaction',
         COMMENT: STORE_PATH + '/comment',
         POSITION: STORE_PATH + '/position'

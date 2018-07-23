@@ -25,8 +25,7 @@ export class CommentsPage {
                 private userService: UserService,
                 private navCtrl: NavController,
                 private alertCtrl: AlertController
-                /*private refresher: Refresher
-                /*private infiniteScroll: InfiniteScroll*/) {
+                /*private refresher: Refresher*/) {
 
     }
 
@@ -41,9 +40,19 @@ export class CommentsPage {
             this.comment.author = user;
         });
         this.whistleService.getComments(this.navParams.data.whistleId, this.page).subscribe((data: Array<Comment>) => {
-            this.comments = data;
+            this.comments = this.setAuthor(data);
         });
-        
+    }
+
+    setAuthor(array: Array<Comment>) {
+        array.map((c: Comment) => {
+            if (c.author.id === this.self.id) {
+                c.mine = true;
+            } else {
+                c.mine = false;
+            }
+        });
+        return array;
     }
 
     submit() {
@@ -80,7 +89,6 @@ export class CommentsPage {
                   {
                         text: "CANCEL",
                         handler: () => {
-                          //this.navCtrl.pop();
                           console.log('Annulla clicked');
                      }
                     },
@@ -90,7 +98,6 @@ export class CommentsPage {
                         this.whistleService.deleteComment(c).subscribe(()=>{
                             let index = this.comments.indexOf(c);
                             this.comments.splice(index,1);
-                            //this.navCtrl.pop();
                       });
           
                     }
@@ -112,18 +119,23 @@ export class CommentsPage {
 
     loadMoreComments(infiniteScroll: InfiniteScroll) {
         console.log("load more");
-        /*if(this.page === 5) {
-            infiniteScroll.enable(false);
-        }*/
         this.page ++;
         this.whistleService.getComments(this.navParams.data.whistleId, this.page).subscribe((data: Array<Comment>) => {
-            this.comments = this.comments.concat(data);
+            this.comments = this.comments.concat(this.setAuthor(data));
             if(data.length == 0) {
                 this.page --;
+                infiniteScroll.enable(false);
             }
             infiniteScroll.complete();
-            
-        })
+        });
+    }
+
+    doRefresh(refresher: Refresher) {
+        this.page = 0;
+        this.whistleService.getComments(this.whistle.id, this.page).subscribe((data: Array<Comment>) => {
+            this.comments = this.setAuthor(data);
+            refresher.complete();
+        });
     }
     
 }

@@ -24,13 +24,25 @@
             </ion-card>
         </div>
     </div>
+
+    <!--<ion-refresher position="bottom" (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>-->
+
+    <ion-infinite-scroll position="top" (ionInfinite)="loadMoreMessages($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
 </ion-content>
 
 <ion-footer>
     <ion-toolbar color="light">
-        <ion-input type="text" placeholder="Write here.."></ion-input>
-        <ion-buttons button round end>
-            <ion-icon name="send"></ion-icon>
-        </ion-buttons>
+        <form #sendForm="ngForm">
+            <ion-input [(ngModel)]="myMessage.body" name="body" type="text" #body="ngModel" required placeholder="Write here.."></ion-input>
+
+            <button ion-button round (click)="submit()">
+                <ion-icon name="send"></ion-icon>
+            </button>
+        </form>
     </ion-toolbar>
 </ion-footer>

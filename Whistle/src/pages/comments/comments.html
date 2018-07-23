@@ -7,75 +7,87 @@
   </ion-navbar>
 </ion-header>
 
-  <ion-content>
-    <div *ngIf="whistle">
-<ion-card>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="../../assets/imgs/Jessica.jpg">
-      </ion-avatar>
-      <h2>{{whistle.author.name}} {{whistle.author.surname}}</h2>
-      <p>boh Whistle</p>
-    </ion-item> 
-  
-    <ion-card-content>
-      <p>{{whistle.body}}</p>
-    </ion-card-content>
-  
-    <ion-row>
-      <ion-col>
-        <button ion-button color="secondary" icon-start clear small>
-          <ion-icon name="heart-outline"></ion-icon>
-          <div>{{whistle.reactions}} {{'REACTIONS' | translate }}</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button color="secondary" icon-start clear small>
-          <ion-icon name="ios-chatboxes-outline"></ion-icon>
-          <div>{{whistle.comments}} {{'COMMENTS' | translate }}</div>
-        </button>
-      </ion-col>
-    </ion-row>
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="whistle">
+    <ion-card>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/Jessica.jpg">
+        </ion-avatar>
+        <h2>{{whistle.author.name}} {{whistle.author.surname}}</h2>
+        <p>boh Whistle</p>
+      </ion-item>
+
+      <ion-card-content>
+        <p>{{whistle.body}}</p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button color="secondary" icon-start clear small>
+            <ion-icon name="heart-outline"></ion-icon>
+            <div>{{whistle.reactions}} {{'REACTIONS' | translate }}</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button color="secondary" icon-start clear small>
+            <ion-icon name="ios-chatboxes-outline"></ion-icon>
+            <div>{{whistle.comments}} {{'COMMENTS' | translate }}</div>
+          </button>
+        </ion-col>
+      </ion-row>
     </ion-card>
-  
+
     <div>
       <form #commentForm="ngForm">
         <ion-card *ngIf="self">
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="../../assets/imgs/Paolo.jpg">
+            </ion-avatar>
+            <h2>{{self.name}} {{self.surname}}</h2>
+          </ion-item>
+          <ion-card-content>
             <ion-item>
-              <ion-avatar item-start>
-                <img src="../../assets/imgs/Paolo.jpg">
-              </ion-avatar>
-              <h2>{{self.name}} {{self.surname}}</h2>
+              <ion-input [(ngModel)]="comment.body" name="body" type="text" #body="ngModel" placeholder="Write here.." required></ion-input>
             </ion-item>
-            <ion-card-content>
-                <ion-item>
-                    <ion-input [(ngModel)]="comment.body" name="body" type="text" #body="ngModel" placeholder="Write here.." required></ion-input>
-                  </ion-item>             
-            </ion-card-content>    
-            <button ion-button round id="submit" [disabled]="!commentForm.form.valid" (click)="submit()">{{ 'SEND_BUTTON' | translate}}</button>
- 
-      </ion-card>
-    </form>  
+          </ion-card-content>
+          <button ion-button round id="submit" [disabled]="!commentForm.form.valid" (click)="submit()">{{ 'SEND_BUTTON' | translate}}</button>
 
-    <ion-card *ngFor="let c of comments">
+        </ion-card>
+      </form>
+
+      <ion-card *ngFor="let c of comments">
         <ion-item>
           <ion-avatar item-start>
             <img src="../../assets/imgs/Heisenberg.jpg">
           </ion-avatar>
-          <h2>{{c.author.name}} {{c.author.surname}}<button id="deleteComment" (click)="delete(c)"><ion-icon ios="ios-trash" md="md-trash"></ion-icon></button><button (click)="update(c)"><ion-icon ios="ios-create" md="md-create"></ion-icon></button></h2>
-                 
-        </ion-item> 
-      
+          <h2>{{c.author.name}} {{c.author.surname}}
+            <button id="deleteComment" [hidden]="!c.mine" (click)="delete(c)">
+              <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+            </button>
+            <button [hidden]="!c.mine" (click)="update(c)">
+              <ion-icon ios="ios-create" md="md-create"></ion-icon>
+            </button>
+          </h2>
+
+        </ion-item>
+
         <ion-card-content>
           <p>{{c.body}}</p>
         </ion-card-content>
-    </ion-card>
-    </div> 
+      </ion-card>
+    </div>
 
     <ion-infinite-scroll (ionInfinite)="loadMoreComments($event)">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>
     </ion-infinite-scroll>
-    
-  </div>      
- 
-</ion-content>  
+
+  </div>
+
+</ion-content>

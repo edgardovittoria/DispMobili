@@ -12,9 +12,14 @@ export class ChatService {
     constructor(private http: HttpClient) {
     }
 
-    /*list(): Observable<Array<Chat>> {
-        return this.http.get<Array<Chat>>(URL.CHATLIST);
-    }*/
+    createChat(c: Chat): Observable<Chat> {
+        return this.http.post<Chat>(URL.STORE.CHAT, c);
+    }
+
+    sendMessage(m: Message) {
+        return this.http.post(URL.STORE.MESSAGE, m);
+    }
+
 
     getChatList(userId: number): Observable<Array<Chat>> {
         let apiURL = `${URL.CHATLIST}/${userId}`;

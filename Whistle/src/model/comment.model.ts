@@ -7,4 +7,5 @@ export class Comment {
     date: Date;
     body: string;
     id_whistle: Whistle;
+    mine: boolean;
 }
