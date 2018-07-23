@@ -56,6 +56,8 @@ public interface WhistleService {
 
     List<Messaggio> findMessageByChat(Long idChat) throws BusinessException;
     
+    List<Messaggio> findMessageByOpener_Partecipant(Long idOpener, Long idPartecipant) throws BusinessException;
+    
     void storeMessage(Messaggio messaggio) throws BusinessException;
     
     void deleteMessage(Long idMessage) throws BusinessException;

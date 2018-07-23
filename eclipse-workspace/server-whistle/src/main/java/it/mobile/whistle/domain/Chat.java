@@ -35,8 +35,6 @@ public class Chat {
 	@JoinColumn(name = "PARTECIPANT", nullable = false)
 	private Utente partecipant;
 	
-	//private List<Messaggio> messages;
-	
 	
 
 	public Long getId() {

@@ -20,9 +20,9 @@ public class RESTMessaggioController {
 	@Autowired
 	private WhistleService service;
 	
-	@GetMapping("/chat/{idChat}")
-	public List<Messaggio> getMessage(@PathVariable Long idChat){
-		return service.findMessageByChat(idChat);
+	@GetMapping("/chat/{idOpener}/{idPartecipant}")
+	public List<Messaggio> getMessage(@PathVariable Long idOpener, @PathVariable Long idPartecipant){
+		return service.findMessageByOpener_Partecipant(idOpener, idPartecipant);
 	}
 	
 	@PostMapping("/store/message")

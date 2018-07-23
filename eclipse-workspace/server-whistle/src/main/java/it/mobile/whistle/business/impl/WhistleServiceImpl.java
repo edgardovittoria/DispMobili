@@ -187,6 +187,11 @@ public class WhistleServiceImpl implements WhistleService {
 		messaggioRepository.deleteById(idMessage);
 	}
 
+	@Override
+	public List<Messaggio> findMessageByOpener_Partecipant(Long idOpener, Long idPartecipant) throws BusinessException {
+		return chatRepository.findByOpener_Partecipant(idOpener, idPartecipant);
+	}
+
 
 	
 
