@@ -26,6 +26,7 @@ export class ChatListPage {
         this.userService.getUser().subscribe((user: User) => {
             this.chatService.getChatList(user.id).subscribe((data: Array<Chat>) => {
                 this.chats = data;
+                console.log(data);
               });
         })
         

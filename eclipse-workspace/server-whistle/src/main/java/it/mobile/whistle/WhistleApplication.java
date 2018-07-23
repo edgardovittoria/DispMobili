@@ -169,7 +169,14 @@ public class WhistleApplication {
 					+ "fbihasbhfibjsabfkjbaskbfkbasjkfbhksabfjbhksabfjkbsakhfbkjsab");
 			mex.setDate(today);
 		    mex.setRelativoa(chat);
-		    mex = messageRepository.save(mex);;
+		    mex = messageRepository.save(mex);
+		    
+		    Messaggio mex1 = new Messaggio();
+			mex1.setAuthor(federico);
+			mex1.setBody("isiyafyigaiusfgiuhajvsabjobjnfasjkfbuwhfkjasbfjnjkbfsak");
+			mex1.setDate(today);
+		    mex1.setRelativoa(chat);
+		    mex1 = messageRepository.save(mex1);
 			
 
 		};

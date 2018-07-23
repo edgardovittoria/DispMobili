@@ -37,7 +37,9 @@ export class ChatPage {
             this.myMessage.author = user;
             this.myMessage.relativoa = this.navParams.data.chat;
             this.chatService.getMessages(this.chat.opener.id, this.chat.partecipant.id).subscribe((data: Array<Message>) => {                
+                console.log(data);
                 this.messages = this.setAuthor(data);
+                console.log(this.messages);
             });
             window.scrollTo(0,document.body.scrollHeight);
         });
@@ -56,11 +58,14 @@ export class ChatPage {
 
     submit() {
         this.myMessage.date = new Date();
+        this.myMessage.mine = true;
         if (this.messages.length > 0) {
+            console.log("Pippo");
             this.chatService.sendMessage(this.myMessage).subscribe(() => {
                 this.messages = this.messages.concat(this.myMessage);
             });
         } else {
+            
             this.chatService.createChat(this.chat).subscribe((c: Chat) => {
                 this.myMessage.relativoa = c;
                 this.chatService.sendMessage(this.myMessage).subscribe(() => {

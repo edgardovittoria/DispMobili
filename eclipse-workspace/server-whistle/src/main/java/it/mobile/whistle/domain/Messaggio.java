@@ -34,7 +34,7 @@ public class Messaggio {
 	private Chat relativoa;
 	
 	@ManyToOne
-	@JoinColumn(name = "ID_USER", nullable = false)
+	@JoinColumn(name = "ID_UTENTE", nullable = false)
 	private Utente author;
 
 	public Long getId() {

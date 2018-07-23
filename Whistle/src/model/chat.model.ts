@@ -2,7 +2,7 @@
 import { User } from "./user.model";
 
 export class Chat {
-    id_chat: string;
+    id: number;
     opener: User;
     partecipant: User;
 }

@@ -31,7 +31,7 @@ public class RESTChatController {
 		List<ChatResponse> listchatResponse = new ArrayList<ChatResponse>();
 		for(int i=0;i<size;i++) {
 			ChatResponse chat = new ChatResponse();
-			chat.setId_chat(chatlist.get(i).getId());
+			chat.setId(chatlist.get(i).getId());
 			if(utente.getId() == chatlist.get(i).getOpener().getId()) {
 				chat.setPartecipant(chatlist.get(i).getPartecipant());
 			}
