@@ -151,8 +151,8 @@ public class WhistleServiceImpl implements WhistleService {
 	
 	//Chat----------------------------------------------------------------------------------------------------------------
 	@Override
-	public List<Chat> findChatByUser(Long idUtente) throws BusinessException {
-		return chatRepository.findChatsByopenerId(idUtente);
+	public List<Chat> findChatByUserOrPartecipant(Long idUtente, Long idPartecipant) throws BusinessException {
+		return chatRepository.findChatsByopenerIdOrPartecipantId(idUtente, idPartecipant);
 	}
 	
 	@Override

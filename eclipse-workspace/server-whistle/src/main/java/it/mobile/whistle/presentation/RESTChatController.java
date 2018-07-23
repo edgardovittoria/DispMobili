@@ -22,7 +22,7 @@ public class RESTChatController {
 	
 	@GetMapping("/chatlist/{idUtente}")
 	public List<Chat> list(@PathVariable Long idUtente) {
-		return service.findChatByUser(idUtente);
+		return service.findChatByUserOrPartecipant(idUtente, idUtente);
 	}
 	
 	@PostMapping("/store/chat")

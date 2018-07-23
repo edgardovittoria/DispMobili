@@ -8,6 +8,6 @@ import it.mobile.whistle.domain.Chat;
 
 public interface ChatRepository extends JpaRepository<Chat, Long> {
 
-	List<Chat> findChatsByopenerId(Long idUtente);
+	List<Chat> findChatsByopenerIdOrPartecipantId(Long idUtente, Long idPartecipant);
 
 }

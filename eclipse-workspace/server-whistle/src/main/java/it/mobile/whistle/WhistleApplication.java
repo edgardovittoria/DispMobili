@@ -164,7 +164,9 @@ public class WhistleApplication {
 			
 			Messaggio mex = new Messaggio();
 			mex.setAuthor(edgardo);
-			mex.setBody("isiyafyigaiusfgiuha");
+			mex.setBody("isiyafyigaiusfgiuhajvsabjobjnfasjkfbuwhfkjasbfjnjkbfsak"
+					+ "ksbifbsabfjbsjafnsabjfnlasnfjksajfhvskac kvsakhbcjksakcbkj"
+					+ "fbihasbhfibjsabfkjbaskbfkbasjkfbhksabfjbhksabfjkbsakhfbkjsab");
 			mex.setDate(today);
 		    mex.setRelativoa(chat);
 		    mex = messageRepository.save(mex);;

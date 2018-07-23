@@ -32,7 +32,7 @@ public class Chat {
 	private Utente opener;
 	
 	@ManyToOne
-	@JoinColumn(name = "partecipant", nullable = false)
+	@JoinColumn(name = "PARTECIPANT", nullable = false)
 	private Utente partecipant;
 	
 	//private List<Messaggio> messages;
