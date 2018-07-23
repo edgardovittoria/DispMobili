@@ -57,6 +57,12 @@ public class WhistleServiceImpl implements WhistleService {
 		utente.setEmail(profilo.getEmail());
 		return utente;
 	}
+	
+	@Override
+	public Utente findUtenteById(Long idUser) throws BusinessException {
+		return utenteRepository.findUserById(idUser);
+	}
+
 
     
 	
@@ -131,11 +137,6 @@ public class WhistleServiceImpl implements WhistleService {
 	}
 	
 	@Override
-	public List<Reactions> findUtenteById(Long idUser) throws BusinessException {
-		return reactionsRepository.findReactionsByreactionsOfId(idUser);
-	}
-
-	@Override
 	public void deleteReaction(Long idReaction) throws BusinessException {
 		reactionsRepository.deleteById(idReaction);
 	}
@@ -188,8 +189,18 @@ public class WhistleServiceImpl implements WhistleService {
 	}
 
 	@Override
-	public List<Messaggio> findMessageByOpener_Partecipant(Long idOpener, Long idPartecipant) throws BusinessException {
-		return chatRepository.findByOpener_Partecipant(idOpener, idPartecipant);
+	public Chat findChat(Utente Opener, Utente Partecipant) throws BusinessException {
+		return chatRepository.findChat(Opener, Partecipant);
+	}
+
+	@Override
+	public Utente findPartecipant(Utente Opener, Utente Partecipant) throws BusinessException {
+		return chatRepository.findPartecipant(Opener, Partecipant);
+	}
+
+	@Override
+	public Utente findOpener(Utente Opener, Utente Partecipant) throws BusinessException {
+		return chatRepository.findOpener(Opener, Partecipant);
 	}
 
 

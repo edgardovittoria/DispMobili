@@ -14,7 +14,7 @@ public interface WhistleService {
 
 	Utente findUtenteByUsername(String username) throws BusinessException;
 	
-	//Optional<Utente> findUtenteById(Long id) throws BusinessException;
+	Utente findUtenteById(Long id) throws BusinessException;
 
 	Utente updateProfilo(Utente utente) throws BusinessException;
     
@@ -40,7 +40,7 @@ public interface WhistleService {
 	
 	void createReaction(Reactions reactions) throws BusinessException;
 
-	List<Reactions> findUtenteById(Long idUser) throws BusinessException;
+	//List<Reactions> findUtenteById(Long idUser) throws BusinessException;
 
 	void deleteReaction(Long reactionsId) throws BusinessException;
 	
@@ -56,7 +56,13 @@ public interface WhistleService {
 
     List<Messaggio> findMessageByChat(Long idChat) throws BusinessException;
     
-    List<Messaggio> findMessageByOpener_Partecipant(Long idOpener, Long idPartecipant) throws BusinessException;
+    //List<Messaggio> findMessageByOpener_Partecipant(Long idChat) throws BusinessException;
+    
+    Chat findChat(Utente Opener, Utente Partecipant) throws BusinessException;
+    
+    Utente findPartecipant(Utente Opener, Utente Partecipant) throws BusinessException;
+    
+    Utente findOpener(Utente Opener, Utente Partecipant) throws BusinessException;
     
     void storeMessage(Messaggio messaggio) throws BusinessException;
     

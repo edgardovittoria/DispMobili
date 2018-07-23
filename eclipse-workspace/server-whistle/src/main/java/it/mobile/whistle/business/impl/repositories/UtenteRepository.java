@@ -8,5 +8,7 @@ import it.mobile.whistle.domain.Utente;
 public interface UtenteRepository extends JpaRepository<Utente, Long> {
 
 	Utente findByUsername(String username);
+	
+	Utente findUserById(Long id);
 
 }

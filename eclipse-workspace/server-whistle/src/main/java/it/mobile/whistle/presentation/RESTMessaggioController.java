@@ -1,5 +1,6 @@
 package it.mobile.whistle.presentation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.mobile.whistle.business.WhistleService;
+import it.mobile.whistle.domain.Chat;
 import it.mobile.whistle.domain.Messaggio;
+import it.mobile.whistle.domain.Utente;
 
 @RestController
 @RequestMapping("/api")
@@ -20,9 +23,25 @@ public class RESTMessaggioController {
 	@Autowired
 	private WhistleService service;
 	
-	@GetMapping("/chat/{idOpener}/{idPartecipant}")
-	public List<Messaggio> getMessage(@PathVariable Long idOpener, @PathVariable Long idPartecipant){
-		return service.findMessageByOpener_Partecipant(idOpener, idPartecipant);
+	/*@GetMapping("/a/{idOpener}/{idP}")
+	public List<Utente> a(@PathVariable Long idOpener, @PathVariable Long idP) {
+		Utente opener = service.findUtenteById(idOpener);
+		Utente partecipant = service.findUtenteById(idP);
+		//Utente p = service.findPartecipant(opener, partecipant);
+		return service.findPartecipant(opener, partecipant);
+	}*/
+	
+	@GetMapping("/chat/{idOpener}/{idP}")
+	public List<Messaggio> getMessage(@PathVariable Long idOpener, @PathVariable Long idP){
+		Utente opener = service.findUtenteById(idOpener);
+		Utente partecipant = service.findUtenteById(idP);
+		Utente p = service.findPartecipant(opener, partecipant);
+		Utente o = service.findOpener(opener, partecipant);
+		Chat Chat = service.findChat(o,p);
+		return service.findMessageByChat(Chat.getId());
+		
+		/*List<Messaggio> messages = new ArrayList<Messaggio>();
+		return messages;*/
 	}
 	
 	@PostMapping("/store/message")
