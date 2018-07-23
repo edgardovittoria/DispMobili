@@ -45,8 +45,11 @@ public class RESTChatController {
 	}
 	
 	@PostMapping("/store/chat")
-	public void storeChat(Chat chat) {
+	public Chat storeChat(Chat chat) {
 		service.storeChat(chat);
+		Utente opener = chat.getOpener();
+		Utente partecipant = chat.getPartecipant();
+		return service.findChat(opener, partecipant);
 	}
 	
 	@DeleteMapping("/delete/chat/{idChat}")
