@@ -1,7 +1,7 @@
-#part-chat-card {
+#my-chat-card {
     margin-left: 20%;
     width: 70%;
-    ion-card-content {
+    #my-chat-content {
         background-color: color($colors, primary);
         p {
         color: whitesmoke;
@@ -9,10 +9,10 @@
     }
 }
 
-#my-chat-card {
+#part-chat-card {
     margin-right: 20%;
     width: 70%;
-    ion-card-content {
+    #part-chat-content {
         background-color: color($colors, backgr);
         p {
             color: rgb(72, 64, 64);

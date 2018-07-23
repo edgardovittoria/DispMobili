@@ -10,20 +10,19 @@
 </ion-header>
 
 <ion-content>
-    <div *ngFor="let m of messages">
-        <div [ngSwitch]="m.mine">
-            <ion-card id="my-chat-card" *ngSwitchCase="m.mine">
-                <ion-card-content>
+    <ion-list *ngFor="let m of messages">
+            <ion-card id="part-chat-card" *ngIf="!m.mine">
+                    <ion-card-content id="part-chat-content">
+                        <p>{{m.body}}</p>
+                    </ion-card-content>
+                </ion-card>
+            <ion-card id="my-chat-card" *ngIf="m.mine">
+                <ion-card-content id="my-chat-content">
                     <p>{{m.body}}</p>
                 </ion-card-content>
             </ion-card>
-            <ion-card id="part-chat-card" *ngSwitchCase="!m.mine">
-                <ion-card-content>
-                    <p>{{m.body}}</p>
-                </ion-card-content>
-            </ion-card>
-        </div>
-    </div>
+            
+        </ion-list>
 
     <!--<ion-refresher position="bottom" (ionRefresh)="doRefresh($event)">
             <ion-refresher-content></ion-refresher-content>
