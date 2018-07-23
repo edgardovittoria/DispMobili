@@ -10,7 +10,6 @@ public class UtenteResponse {
 	private String name;
 	private String surname;
 	private String email;
-	private String password;
 	private String photo;
 	private String description;
 	private int    solved_calls;
@@ -24,7 +23,6 @@ public class UtenteResponse {
 		this.surname = utente.getSurname();
 		this.username = utente.getUsername();
 		this.email = utente.getEmail();
-		this.password = utente.getPassword();
 		this.photo = utente.getPhoto();
 		this.description = utente.getDescription();
 		this.solved_calls = utente.getSolved_calls();
@@ -70,14 +68,6 @@ public class UtenteResponse {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getDescription() {
