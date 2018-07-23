@@ -28,7 +28,7 @@ public class Chat {
 	private Long id;
 
 	@ManyToOne
-	@JoinColumn(name = "ID_USER", nullable = false)
+	@JoinColumn(name = "OPENER", nullable = false)
 	private Utente opener;
 	
 	@ManyToOne

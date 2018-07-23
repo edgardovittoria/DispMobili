@@ -25,9 +25,12 @@ export class ChatPage {
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad ChatPage');
+        console.log(this.navParams.data.chat);
         this.partecipant = this.navParams.data.chat.partecipant;
-        this.chatService.getMessages(this.navParams.data.chat.id).subscribe((data: Array<Message>) => {
-            this.userService.getUser().subscribe((user: User) => {
+        this.userService.getUser().subscribe((user: User) => {
+            let chat = this.navParams.data.chat;
+            chat.opener = user;
+        this.chatService.getMessages(chat.opener.id,chat.partecipant.id).subscribe((data: Array<Message>) => {
                 data.map((message) => {
                     if(message.author.id === user.id) {
                         message.mine = true;

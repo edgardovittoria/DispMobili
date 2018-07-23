@@ -1,28 +1,36 @@
 <ion-header>
     <ion-navbar>
         <button ion-button menuToggle>
-          <ion-icon name="arrow-round-back"></ion-icon>
+            <ion-icon name="arrow-round-back"></ion-icon>
         </button>
         <div *ngIf="partecipant">
-        <ion-title>{{partecipant.name}} {{partecipant.name}}</ion-title>
+            <ion-title>{{partecipant.name}} {{partecipant.surname}}</ion-title>
         </div>
-      </ion-navbar>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
-        <ion-card-content *ngFor="let m of messages">
-            <div [ngSwitch]="m.mine">
-                <p *ngSwitchCase="m.mine" id="mymessage">{{m.body}}</p>
-                <p *ngSwitchCase="!m.mine" id="message">{{m.body}}</p>
-            </div>    
-         </ion-card-content>   
+    <div *ngFor="let m of messages">
+        <div [ngSwitch]="m.mine">
+            <ion-card id="my-chat-card" *ngSwitchCase="m.mine">
+                <ion-card-content>
+                    <p>{{m.body}}</p>
+                </ion-card-content>
+            </ion-card>
+            <ion-card id="part-chat-card" *ngSwitchCase="!m.mine">
+                <ion-card-content>
+                    <p>{{m.body}}</p>
+                </ion-card-content>
+            </ion-card>
+        </div>
+    </div>
 </ion-content>
 
 <ion-footer>
     <ion-toolbar color="light">
         <ion-input type="text" placeholder="Write here.."></ion-input>
-        <ion-buttons end>
+        <ion-buttons button round end>
             <ion-icon name="send"></ion-icon>
         </ion-buttons>
-      </ion-toolbar>
+    </ion-toolbar>
 </ion-footer>
