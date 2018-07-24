@@ -367,3 +367,9 @@ java.lang.NullPointerException
 
 !ENTRY org.eclipse.jface.text 2 0 2018-07-24 09:49:56.942
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-07-24 10:51:04.797
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-07-24 10:51:04.812
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'

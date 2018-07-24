@@ -55,6 +55,8 @@ public class WhistleServiceImpl implements WhistleService {
 	public Utente updateProfilo(Utente profilo) throws BusinessException {
 		Utente utente = utenteRepository.findByUsername(profilo.getUsername());
 		utente.setEmail(profilo.getEmail());
+		utente.setDescription(profilo.getDescription());
+		utente.setPhoto(profilo.getPhoto());
 		return utente;
 	}
 	

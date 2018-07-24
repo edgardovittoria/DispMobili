@@ -1,5 +1,7 @@
 package it.mobile.whistle.domain;
 
+import java.nio.file.Path;
+
 //import java.util.List;
 
 import javax.persistence.Column;
@@ -37,7 +39,7 @@ public class Utente {
 	private String password;
 	
 	@Column(name = "PHOTO", nullable = false, length = 255)
-	private String photo;
+	private byte[] photo;
 	
 	@Column(name = "DESCRIPTION", nullable = false, length = 255)
 	private String description;
@@ -87,11 +89,11 @@ public class Utente {
 		this.password = password;
 	}
 
-	public String getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(String photo) {
+	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
 

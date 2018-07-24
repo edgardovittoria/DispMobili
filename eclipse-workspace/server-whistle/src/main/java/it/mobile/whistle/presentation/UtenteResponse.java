@@ -1,6 +1,8 @@
 package it.mobile.whistle.presentation;
 
 
+import java.nio.file.Path;
+
 import it.mobile.whistle.domain.Utente;
 
 public class UtenteResponse {
@@ -10,7 +12,7 @@ public class UtenteResponse {
 	private String name;
 	private String surname;
 	private String email;
-	private String photo;
+	private byte[] photo;
 	private String description;
 	private int    solved_calls;
 	
@@ -62,11 +64,11 @@ public class UtenteResponse {
 		this.id = id;
 	}
 
-	public String getPhoto() {
+	public byte[] getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(String photo) {
+	public void setPhoto(byte[] photo) {
 		this.photo = photo;
 	}
 

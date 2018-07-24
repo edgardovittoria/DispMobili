@@ -38,6 +38,7 @@ public class WhistleApplication {
 	public CommandLineRunner loadData(UtenteRepository utenteRepository, WhistleRepository whistleRepository, CommentoRepository commentoRepository, ReactionsRepository reactionsRepository, ChatRepository chatRepository, MessaggioRepository messageRepository) {
 		return (args) -> {
 			
+			byte[] bytes = new byte[0];
 			Utente federico = new Utente();
 			federico.setSurname("Raparelli");
 			federico.setName("Federico");
@@ -45,7 +46,7 @@ public class WhistleApplication {
 			federico.setPassword(passwordEncoder.encode("pluto"));
 			federico.setUsername("federap");
 			federico.setDescription("");
-			federico.setPhoto("");
+			federico.setPhoto(bytes);
 			federico.setSolved_calls(2);
 			federico = utenteRepository.save(federico);
 			
@@ -56,7 +57,7 @@ public class WhistleApplication {
 			edgardo.setPassword(passwordEncoder.encode("pippo"));
 			edgardo.setUsername("edgvit");
 			edgardo.setDescription("");
-			edgardo.setPhoto("");
+			edgardo.setPhoto(bytes);
 			edgardo.setSolved_calls(1);
 			edgardo = utenteRepository.save(edgardo);
 			
