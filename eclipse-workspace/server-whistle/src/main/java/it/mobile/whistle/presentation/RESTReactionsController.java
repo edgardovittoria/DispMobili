@@ -39,7 +39,7 @@ public class RESTReactionsController {
 		return react.getId();
 	}
 	@DeleteMapping("/delete/reaction/{idReaction}")
-	public void deleteReaction(@PathVariable Long idReactions) {
-		service.deleteReaction(idReactions);
+	public void deleteReaction(@PathVariable Long idReaction) {
+		service.deleteReaction(idReaction);
 	}
 }

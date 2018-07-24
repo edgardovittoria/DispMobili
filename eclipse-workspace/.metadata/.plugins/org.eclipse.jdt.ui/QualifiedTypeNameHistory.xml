@@ -30,7 +30,6 @@
 <fullyQualifiedTypeName name="it.mobile.whistle.presentation.UtenteResponse"/>
 <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
-<fullyQualifiedTypeName name="it.mobile.whistle.domain.Chat"/>
 <fullyQualifiedTypeName name="it.mobile.whistle.business.impl.repositories.ChatRepository"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
@@ -39,7 +38,8 @@
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
 <fullyQualifiedTypeName name="it.mobile.whistle.common.Utility"/>
-<fullyQualifiedTypeName name="it.mobile.whistle.domain.Utente"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="it.mobile.whistle.domain.Messaggio"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.domain.Utente"/>
+<fullyQualifiedTypeName name="it.mobile.whistle.domain.Chat"/>
 </qualifiedTypeNameHistroy>
