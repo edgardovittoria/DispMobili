@@ -31,7 +31,8 @@ export const URL = {
         COMMENT: DELETE_PATH + '/comment',
         WHISTLE: DELETE_PATH + '/whistle',
         REACTION: DELETE_PATH + '/reaction'
-    }
+    },
+    UPLOAD: URL_BASE + '/upload'
 }
 
 export const X_AUTH = "X-Auth";

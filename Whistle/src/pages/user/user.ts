@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IonicPage, Events, ModalController } from "ionic-angular";
+import { IonicPage, Events, ModalController, Nav } from "ionic-angular";
 import { UserService } from "../../services/user.service";
 import { PAGES } from '../pages';
 import { User } from "../../model/user.model";
@@ -14,6 +14,7 @@ export class UserPage {
     hide: boolean = true;
 
     constructor(public events: Events, 
+                private nav: Nav,
                 public modalCtrl: ModalController,
                 private userService: UserService) {
 

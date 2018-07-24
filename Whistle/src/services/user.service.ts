@@ -69,5 +69,9 @@ export class UserService {
             });
     }
 
+    uploadProfileImg(img: File) {
+        return this.http.post(URL.UPLOAD, img);
+    }
+
 
 }

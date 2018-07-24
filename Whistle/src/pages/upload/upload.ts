@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { IonicPage } from "ionic-angular";
+import { IonicPage, AlertController, NavController } from "ionic-angular";
+import { UserService } from "../../services/user.service";
 
 
 @IonicPage()
@@ -10,7 +11,28 @@ import { IonicPage } from "ionic-angular";
 export class UploadPage {
     img: File;
 
-    upload() {
+    constructor(private userService: UserService,
+                private navCtrl: NavController,
+                private alertCtrl: AlertController) {
 
+    }
+
+    upload() {
+        this.userService.uploadProfileImg(this.img).subscribe(() => {
+            let confirm = this.alertCtrl.create({
+                title: "Image inserted",
+                message: "Image uploaded successfully",
+                buttons: [
+                    {
+                        text: "OK",
+                        handler: () => {
+                                this.navCtrl.pop();
+
+                        }
+                    }
+                ]
+            });
+            confirm.present();
+        });
     }
 }
