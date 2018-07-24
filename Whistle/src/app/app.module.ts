@@ -10,6 +10,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+import {Camera} from '@ionic-native/camera';
+import {File, FileEntry} from "@ionic-native/file";
+
+
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 import { UserService } from '../services/user.service';
@@ -49,6 +53,8 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera,
+    File,
     ChatService,
     UserService,
     WhistleService,
