@@ -5,6 +5,7 @@ import {Camera} from '@ionic-native/camera';
 import {File, FileEntry} from "@ionic-native/file";
 import {catchError, finalize} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
+import { URL } from '../../constants';
 
 @IonicPage()
 @Component({
@@ -28,7 +29,7 @@ export class UploadPage {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       sourceType: this.camera.PictureSourceType.CAMERA,
-      encodingType: this.camera.EncodingType.PNG
+      encodingType: this.camera.EncodingType.JPEG
     }).then(imageData => {
       this.myPhoto = imageData;
       this.uploadPhoto(imageData);
@@ -54,8 +55,7 @@ export class UploadPage {
   private uploadPhoto(imageFileUri: any): void {
     this.error = null;
     this.loading = this.loadingCtrl.create({
-      content: 'Uploading...',
-      duration: 5000
+      content: 'Uploading...'
     });
 
     this.loading.present();
@@ -71,18 +71,21 @@ export class UploadPage {
       const formData = new FormData();
       const imgBlob = new Blob([reader.result], {type: file.type});
       formData.append('file', imgBlob, file.name);
+      console.log("Onloadend");
       this.postData(formData);
     };
     reader.readAsArrayBuffer(file);
   }
 
   private postData(formData: FormData) {
-    this.http.post<boolean>("http://localhost:8080/whistle/api/upload", formData)
-      .pipe(
-        catchError(e => this.handleError(e)),
-        finalize(() => this.loading.dismiss())
-      )
-      .subscribe(ok => this.showToast(ok));
+      //let url = "http://localhost:8080/whistle/api/upload";
+      console.log("postData");
+      console.log(formData);
+    this.http.post<boolean>(URL.UPLOAD, formData).subscribe(ok => {
+        this.loading.dismiss();
+        this.showToast(ok)
+    },
+        catchError(e => this.handleError(e)));
   }
 
   private showToast(ok: any) {
