@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
-import { IonicPage, Events } from "ionic-angular";
+import { IonicPage, Events, ModalController } from "ionic-angular";
 import { UserService } from "../../services/user.service";
+import { PAGES } from '../pages';
 import { User } from "../../model/user.model";
 
 @IonicPage()
@@ -13,6 +14,7 @@ export class UserPage {
     hide: boolean = true;
 
     constructor(public events: Events, 
+                public modalCtrl: ModalController,
                 private userService: UserService) {
 
     }
@@ -32,8 +34,11 @@ export class UserPage {
 
 
       setImage() {
-
-      }
+        let modal = this.modalCtrl.create(PAGES.UPLOAD);
+        modal.onDidDismiss(() => {  
+        });
+        modal.present();
+        }
 
       setDescription() {
         this.hide = false;

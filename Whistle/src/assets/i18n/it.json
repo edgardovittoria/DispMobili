@@ -25,6 +25,7 @@
   "CANCEL_BUTTON": "Annulla",
   "DELETE_BUTTON": "Elimina",
   "UPDATE_BUTTON": "Modifica",
+  "UPLOAD_BUTTON": "Carica",
 
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Errore Login",

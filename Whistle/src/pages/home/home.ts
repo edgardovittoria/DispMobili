@@ -117,7 +117,7 @@ export class HomePage {
         }); 
       }else{
         this.whistleService.deleteReaction(w.id_reaction).subscribe(() => {
-          //w.reacted = false;
+          w.id_reaction = null;
           w.reactions--;
         });
       }

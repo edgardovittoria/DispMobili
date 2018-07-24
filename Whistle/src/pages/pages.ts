@@ -8,5 +8,6 @@ export const PAGES = {  HOME: 'HomePage',
                         CHAT_LIST: 'ChatListPage',
                         CHAT: 'ChatPage',
                         COMMENTS: 'CommentsPage',
-                        SETTINGS: 'SettingsPage'
+                        SETTINGS: 'SettingsPage',
+                        UPLOAD: 'UploadPage'
                         };
