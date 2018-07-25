@@ -1,8 +1,8 @@
 <ion-header>
     <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
+      <!--<button ion-button menuToggle>
+        <ion-icon name="menu" color="light"></ion-icon>
+      </button>!-->
       <ion-title>{{'WHISTLE_DETAILS' | translate }}</ion-title>
     </ion-navbar>
   </ion-header>
@@ -10,7 +10,7 @@
 <ion-content>
   <div *ngIf="whistle">
   <ion-card>
-    <img src="../../assets/imgs/Jessica.jpg"/>
+    <img src="../../assets/imgs/{{whistle.author.photo}}"/>
     <ion-card-content>
       <ion-card-title>
        {{whistle.author.name}} {{whistle.author.surname}}
