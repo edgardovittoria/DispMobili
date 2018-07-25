@@ -9,7 +9,7 @@ public class WhistleResponse {
 	private Long id;
 	private String body;
 	private String type;
-	private Date date;
+	private Long date;
 	private Utente author;
 	private double latitude;
 	private double longitude;
@@ -28,7 +28,7 @@ public class WhistleResponse {
 	public String getType() {
 		return type;
 	}
-	public Date getDate() {
+	public Long getDate() {
 		return date;
 	}
 	public Utente getAuthor() {
@@ -58,7 +58,7 @@ public class WhistleResponse {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public void setDate(Date date) {
+	public void setDate(Long date) {
 		this.date = date;
 	}
 	public void setAuthor(Utente author) {

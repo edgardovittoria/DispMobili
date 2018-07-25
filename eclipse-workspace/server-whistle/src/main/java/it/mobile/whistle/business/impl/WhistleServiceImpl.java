@@ -1,5 +1,6 @@
 package it.mobile.whistle.business.impl;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -176,6 +177,12 @@ public class WhistleServiceImpl implements WhistleService {
 	//Messaggio----------------------------------------------------------------------------------------------------------------
 	@Override
 	public List<Messaggio> findMessageByChat(Long idChat) throws BusinessException {
+		/*List<Messaggio> listmessage = messaggioRepository.findMessagesByrelativoaId(idChat);
+		int size = listmessage.size();
+		for(int i = 0;i<size;i++) {
+			listmessage.get(i).setDate(listmessage.get(i).getDate().toString());
+		}*/
+		
 		return messaggioRepository.findMessagesByrelativoaId(idChat);
 	}
 

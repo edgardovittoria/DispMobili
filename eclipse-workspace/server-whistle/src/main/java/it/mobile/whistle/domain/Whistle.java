@@ -35,7 +35,7 @@ public class Whistle {
 	private String type;
 
 	@Column(name = "DATE", nullable = false)
-	private Date date;
+	private Long date;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_USER", nullable = false)
@@ -79,11 +79,11 @@ public class Whistle {
 		this.type = type;
 	}
 
-	public Date getDate() {
+	public Long getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Long date) {
 		this.date = date;
 	}
 

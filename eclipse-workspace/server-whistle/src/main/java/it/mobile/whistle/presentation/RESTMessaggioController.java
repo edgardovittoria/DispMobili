@@ -33,15 +33,28 @@ public class RESTMessaggioController {
 		Chat Chat = service.findChat(o,p);
 		
 		List<Messaggio> listmessage = service.findMessageByChat(Chat.getId());
-		int size = listmessage.size();
-		for(int j = size - 1;j >= 40*(number + 1);j--) {
+		/*int size = listmessage.size();
+		
+		
+		for(int z = 0;z<size;z++) {
+			MessaggioResponse messaggioResponse = new MessaggioResponse();
+			
+			messaggioResponse.setAuthor(listmessage.get(z).getAuthor());
+			messaggioResponse.setBody(listmessage.get(z).getBody());
+			messaggioResponse.setId(listmessage.get(z).getId());
+			messaggioResponse.setRelativoa(listmessage.get(z).getRelativoa());
+			messaggioResponse.setTime(listmessage.get(z).getDate().getTime());
+			
+			listmessageresp.add(messaggioResponse);
+		}
+		/*for(int j = size - 1;j >= 40*(number + 1);j--) {
 			Messaggio mex1 = listmessage.remove(j);
 			listmessage.remove(mex1);
 		}
 		for(int i = 0; i < 40*number && i<size;i++) {
 				Messaggio mex2 = listmessage.remove(0);
 				listmessage.remove(mex2);
-		}
+		}*/
 		return listmessage;
 		
 		

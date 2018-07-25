@@ -63,7 +63,7 @@ public class WhistleApplication {
 			
 			
 			Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("Europe/Rome"),Locale.ITALY);
-			Date today = calendar.getTime();
+			Long today = calendar.getTimeInMillis();
 			
 			Whistle whistle = new Whistle();
 			whistle.setBody("Ciao");

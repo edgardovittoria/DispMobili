@@ -27,7 +27,7 @@ public class Messaggio {
 	private String body;
 
 	@Column(name = "DATA_MESSAGGIO", nullable = false)
-	private Date date;
+	private Long date;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_CHAT", nullable = false)
@@ -53,14 +53,6 @@ public class Messaggio {
 		this.body = body;
 	}
 
-	public Date getDataPubblicazione() {
-		return date;
-	}
-
-	public void setDataPubblicazione(Date date) {
-		this.date = date;
-	}
-
 	public Chat getRelativoa() {
 		return relativoa;
 	}
@@ -69,11 +61,11 @@ public class Messaggio {
 		this.relativoa = relativoa;
 	}
 
-	public Date getDate() {
+	public Long getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Long date) {
 		this.date = date;
 	}
 

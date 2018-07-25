@@ -23,7 +23,7 @@ public class Commento {
 	private Long id;
 	
 	@Column(name = "DATA_COMMENTO", nullable = false)
-	private Date date;
+	private Long date;
 	
 	@Column(name = "body", nullable = false, length = 255)
 	private String body;
@@ -63,11 +63,11 @@ public class Commento {
 		this.body = body;
 	}
 
-	public Date getDate() {
+	public Long getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Long date) {
 		this.date = date;
 	}
 
