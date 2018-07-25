@@ -49,7 +49,7 @@ public class RESTUploadController {
 	  }*/
 
 	//Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "..//src//main//resource";
+    private static String UPLOADED_FOLDER = "..//src//main//resources//";
     //"C://Users//Edgardo Vittoria//DispMobili
     
    /* @GetMapping("/getimg")
