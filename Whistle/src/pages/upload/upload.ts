@@ -79,15 +79,6 @@ export class UploadPage {
   }
 
   private postData(formData: FormData) {
-<<<<<<< HEAD
-    console.log("data");
-    this.http.post<boolean>("http://localhost:8282/whistle/api/upload", formData)
-      .pipe(
-        catchError(e => this.handleError(e)),
-        finalize(() => this.loading.dismiss())
-      )
-      .subscribe(ok => this.showToast(ok));
-=======
       //let url = "http://localhost:8080/whistle/api/upload";
       console.log("postData");
       console.log(formData);
@@ -96,7 +87,6 @@ export class UploadPage {
         this.showToast(ok)
     },
         catchError(e => this.handleError(e)));
->>>>>>> fa0262a400bba4cbeb06c59da21098f22c00361a
   }
 
   private showToast(ok: any) {
