@@ -69,7 +69,7 @@ export class UserService {
             });
     }
 
-    uploadProfileImg(img: File) {
+    uploadProfileImg(img: any) {
         return this.http.post(URL.UPLOAD, img);
     }
 

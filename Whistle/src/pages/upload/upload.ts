@@ -66,6 +66,7 @@ export class UploadPage {
   }
 
   private readFile(file: any) {
+    console.log("readFile");
     const reader = new FileReader();
     reader.onloadend = () => {
       const formData = new FormData();
@@ -77,7 +78,8 @@ export class UploadPage {
   }
 
   private postData(formData: FormData) {
-    this.http.post<boolean>("http://localhost:8080/whistle/api/upload", formData)
+    console.log("data");
+    this.http.post<boolean>("http://localhost:8282/whistle/api/upload", formData)
       .pipe(
         catchError(e => this.handleError(e)),
         finalize(() => this.loading.dismiss())
@@ -87,6 +89,7 @@ export class UploadPage {
 
   private showToast(ok: any) {
     if (ok) {
+        console.log(ok);
       const toast = this.toastCtrl.create({
         message: 'Upload successful',
         duration: 3000,

@@ -12,7 +12,7 @@ public class UtenteResponse {
 	private String name;
 	private String surname;
 	private String email;
-	private byte[] photo;
+	private String photo;
 	private String description;
 	private int    solved_calls;
 	
@@ -64,11 +64,11 @@ public class UtenteResponse {
 		this.id = id;
 	}
 
-	public byte[] getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(byte[] photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 

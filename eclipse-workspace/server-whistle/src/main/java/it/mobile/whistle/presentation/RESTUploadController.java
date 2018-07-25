@@ -1,5 +1,6 @@
 package it.mobile.whistle.presentation;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -22,6 +23,7 @@ import it.mobile.whistle.domain.Utente;
 @RestController
 @RequestMapping("/api")
 public class RESTUploadController {
+	
 	
 	  /*@CrossOrigin
 	  @PostMapping("/upload")
@@ -47,8 +49,14 @@ public class RESTUploadController {
 	  }*/
 
 	//Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "..//eclipse-workspace//server-whistle//src//main//java//it//mobile//whistle//img";
+    private static String UPLOADED_FOLDER = "..//src//main//resource";
     //"C://Users//Edgardo Vittoria//DispMobili
+    
+   /* @GetMapping("/getimg")
+	public File getimg(){
+		File file = file.
+	}*/
+    
     @GetMapping("/")
     public String upload(Model model) {
         return "upload";
@@ -64,7 +72,7 @@ public class RESTUploadController {
             byte[] bytes = file.getBytes();
             Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
             Utente utente = Utility.getUtente();
-            utente.setPhoto(bytes);
+            //utente.setPhoto(bytes);
             Files.write(path, bytes);
 
         } catch (IOException e) {

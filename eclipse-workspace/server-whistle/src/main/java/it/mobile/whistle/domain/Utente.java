@@ -39,7 +39,7 @@ public class Utente {
 	private String password;
 	
 	@Column(name = "PHOTO", nullable = false, length = 255)
-	private byte[] photo;
+	private String photo;
 	
 	@Column(name = "DESCRIPTION", nullable = false, length = 255)
 	private String description;
@@ -89,11 +89,11 @@ public class Utente {
 		this.password = password;
 	}
 
-	public byte[] getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
 
-	public void setPhoto(byte[] photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 
