@@ -6,6 +6,7 @@ export class Message {
     relativoa: Chat;
     author: User;
     body: string;
-    date: Date;
+    date: number;
+    hour: string;
     mine: boolean;
 }

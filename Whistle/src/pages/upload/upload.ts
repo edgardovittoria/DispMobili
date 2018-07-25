@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 //import {throwError} from "rxjs";
-import {Loading, LoadingController, ToastController, IonicPage} from "ionic-angular";
+import {Loading, LoadingController, ToastController, IonicPage, NavController} from "ionic-angular";
 import {Camera} from '@ionic-native/camera';
 import {File, FileEntry} from "@ionic-native/file";
-import {catchError, finalize} from "rxjs/operators";
+import { catchError } from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 import { URL } from '../../constants';
 
@@ -19,6 +19,7 @@ export class UploadPage {
 
   constructor(private readonly http: HttpClient,
               private readonly loadingCtrl: LoadingController,
+              private navCtrl: NavController,
               private readonly toastCtrl: ToastController,
               private readonly camera: Camera,
               private readonly file: File) {
@@ -114,5 +115,9 @@ export class UploadPage {
     this.error = errMsg;
     return errMsg;
   }
+
+  closeModal() {
+    this.navCtrl.pop();
+}
 
 }

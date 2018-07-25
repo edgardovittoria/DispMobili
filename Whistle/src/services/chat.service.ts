@@ -26,8 +26,8 @@ export class ChatService {
         return this.http.get<Array<Chat>>(apiURL);
     }
 
-    getMessages(opId: number, partId: number): Observable<Array<Message>> {
-        let apiURL = `${URL.CHAT}/${opId}/${partId}`;
+    getMessages(opId: number, partId: number, page: number): Observable<Array<Message>> {
+        let apiURL = `${URL.CHAT}/${opId}/${partId}/${page}`;
         return this.http.get<Array<Message>>(apiURL);
     }
 }

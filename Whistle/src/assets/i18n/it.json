@@ -30,6 +30,10 @@
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Errore Login",
   "LOGIN_ERROR_SUB_TITLE": "Username e/o password errate",
+  "NEWCALL_ERROR_TITLE": "Selezione tipo",
+  "NEWCALL_ERROR_SUB_TITLE": "Seleziona almeno un tipo!",
+  "DELETE_ALERT_TITLE": "Cancellazione commento",
+  "DELETE_ALERT_SUBTITLE": "Il commento sarà cancellato. Procedere?",
   "POSITION_DENIED_ERROR": "Permesso per la geolocalizzazione negato. La geolocalizzazione è necessaria per il corretto funzionamento dell'applicazione... Se vuoi usare Whistle, per favore chiudi e riapri l'applcazione.",
 
   "PAGINA_COSTRUZIONE": "Pagina in costruzione!!!!!",

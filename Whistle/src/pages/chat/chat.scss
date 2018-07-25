@@ -1,21 +1,51 @@
 #my-chat-card {
-    margin-left: 20%;
-    width: 70%;
+    margin-left: 17%;
+    width: 80%;
+    border-radius: 10px;
     #my-chat-content {
         background-color: color($colors, primary);
         p {
         color: whitesmoke;
         }
+        .m-date {
+            margin-left: 85%;
+            font-size: 11px;
+        }
     }
 }
 
 #part-chat-card {
-    margin-right: 20%;
-    width: 70%;
+    /*margin-right: 18%;*/
+    width: 80%;
+    border-radius: 10px;
     #part-chat-content {
         background-color: color($colors, backgr);
         p {
             color: rgb(72, 64, 64);
         }
+        .m-date {
+            margin-left: 85%;
+            font-size: 11px;
+        }
     }
 }
+
+#form {
+    align-content: flex-start;
+        .input {
+
+        width: 80%;
+        float: left;
+    }
+    
+    .button-round-md,
+    .button-round-ios {
+        padding: 15px;
+    }
+}
+
+.list-ios {
+    margin: 0;
+}
+
+

@@ -11,7 +11,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import {Camera} from '@ionic-native/camera';
-import {File, FileEntry} from "@ionic-native/file";
+import { File } from "@ionic-native/file";
 
 
 import { MyApp } from './app.component';

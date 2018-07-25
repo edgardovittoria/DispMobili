@@ -1,8 +1,5 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="back"></ion-icon>
-    </button>
     <ion-title>{{ 'COMMENTS' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
@@ -71,15 +68,13 @@
             <button id="deleteComment" [hidden]="!c.mine" (click)="delete(c)">
               <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
             </button>
-            <button [hidden]="!c.mine" (click)="update(c)">
-              <ion-icon ios="ios-create" md="md-create"></ion-icon>
-            </button>
           </h2>
-
+          <p class="c-time">{{c.time}}</p>
         </ion-item>
 
         <ion-card-content>
           <p>{{c.body}}</p>
+          
         </ion-card-content>
       </ion-card>
     </div>

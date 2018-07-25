@@ -6,7 +6,8 @@ export class Whistle {
     author: User;
     body: string;
     type: string;
-    date: Date;
+    date: number;
+    time: string;
     latitude: number;
     longitude: number;
     reactions: number;

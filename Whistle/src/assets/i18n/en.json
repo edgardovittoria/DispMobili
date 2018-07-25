@@ -7,7 +7,7 @@
   "USER": "Profile",
   "SETTINGS": "Settings",
 
-  "CALL_TYPE": "Tipo",
+  "CALL_TYPE": "Type",
       "BREAK": "Break",
       "INFORMATION": "Informations",
       "PASSAGE": "Passage",
@@ -30,6 +30,10 @@
   "LOGIN_TITLE": "Login",
   "LOGIN_ERROR_TITLE": "Login error",
   "LOGIN_ERROR_SUB_TITLE": "invalid username and/or password",
+  "NEWCALL_ERROR_TITLE": "Type selection",
+  "NEWCALL_ERROR_SUB_TITLE": "Please, select at least one type!",
+  "DELETE_ALERT_TITLE": "Delete comment",
+  "DELETE_ALERT_SUBTITLE": "Comment will be deleted. Proceed?",
   "POSITION_DENIED_ERROR": "Request for Geolocation denied. Geolocation is mandatory for the correct work of the application... If you want to use Whistle, please close and open the application again.",
 
   "LANGUAGE": "Language"

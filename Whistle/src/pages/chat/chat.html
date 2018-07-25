@@ -1,8 +1,5 @@
 <ion-header>
     <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon name="arrow-round-back"></ion-icon>
-        </button>
         <div *ngIf="partecipant">
             <ion-title>{{partecipant.name}} {{partecipant.surname}}</ion-title>
         </div>
@@ -10,33 +7,34 @@
 </ion-header>
 
 <ion-content>
+
+
     <ion-list *ngFor="let m of messages">
             <ion-card id="part-chat-card" *ngIf="!m.mine">
                     <ion-card-content id="part-chat-content">
                         <p>{{m.body}}</p>
+                        <p class="m-date">{{m.hour}}</p>
                     </ion-card-content>
                 </ion-card>
             <ion-card id="my-chat-card" *ngIf="m.mine">
                 <ion-card-content id="my-chat-content">
                     <p>{{m.body}}</p>
+                    <p class="m-date">{{m.hour}}</p>
                 </ion-card-content>
             </ion-card>
             
         </ion-list>
 
-    <!--<ion-refresher position="bottom" (ionRefresh)="doRefresh($event)">
-            <ion-refresher-content></ion-refresher-content>
-    </ion-refresher>-->
+        <ion-fab top right id="refresh-btn" #fab> 
+                <button ion-fab mini color="primary" (click)="doRefresh()"><ion-icon name="sync"></ion-icon></button>
+        </ion-fab>
 
-    <ion-infinite-scroll position="top" (ionInfinite)="loadMoreMessages($event)">
-            <ion-infinite-scroll-content></ion-infinite-scroll-content>
-    </ion-infinite-scroll>
 
 </ion-content>
 
 <ion-footer>
     <ion-toolbar color="light">
-        <form #sendForm="ngForm">
+        <form #sendForm="ngForm" id="form">
             <ion-input [(ngModel)]="myMessage.body" name="body" type="text" #body="ngModel" required placeholder="Write here.."></ion-input>
 
             <button ion-button round (click)="submit()">

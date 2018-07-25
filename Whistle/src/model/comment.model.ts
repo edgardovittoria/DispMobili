@@ -4,7 +4,8 @@ import { Whistle } from "./whistle.model";
 export class Comment {
     id: number;
     author: User;
-    date: Date;
+    date: number;
+    time: string;
     body: string;
     id_whistle: Whistle;
     mine: boolean;

@@ -37,14 +37,15 @@ export class HomePage {
     });
       const loader = this.loadingCtrl.create({
         content: "Please wait...",
-        duration: 15000
+        duration: 7000
       });
       loader.present();
     navigator.geolocation.getCurrentPosition((position) => {
     this.whistleService.list(position, this.page).subscribe((data: Array<Whistle>) => {
       loader.dismiss();
-      this.whistles = data;
-      console.log(data);
+      this.whistles = data.map((w) => {
+          return this.setTime(w);
+        });
     });
   }, (error) => {
     loader.dismiss();
@@ -68,6 +69,7 @@ export class HomePage {
           case "Fun": {
             let result = Array<Whistle>();
             data.map((whistle) => {
+              whistle = this.setTime(whistle);
               if(whistle.type === 'Fun') {
                 result.push(whistle);
               }
@@ -78,6 +80,7 @@ export class HomePage {
           case "Call": {
             let result = Array<Whistle>();
             data.map((call) => {
+              call = this.setTime(call);
               if(call.type === 'Call') {
                 result.push(call);
               }
@@ -86,7 +89,9 @@ export class HomePage {
             break;
           }
           case "All": {
-            this.whistles = data;
+            this.whistles = data.map((w) => {
+              return this.setTime(w);
+            });
             break;
           }
             
@@ -110,7 +115,6 @@ export class HomePage {
             reaction.whistle = w;
             reaction.reactionsOf = user; 
             this.whistleService.setReaction(reaction).subscribe((id) => {
-              //w.reacted = true;
               w.id_reaction = id;            
               w.reactions++;
             });   
@@ -128,7 +132,9 @@ export class HomePage {
     navigator.geolocation.getCurrentPosition((position) => {
       this.page = 0;
       this.whistleService.list(position, this.page).subscribe((data: Array<Whistle>) => {
-      this.whistles = data;
+        this.whistles = data.map((w) => {
+          return this.setTime(w);
+        });
       refresher.complete();
     });
   });
@@ -156,9 +162,6 @@ export class HomePage {
         message: err,
         duration: 10000
       });
-      /*toast.present().then(() => {
-        this.navCtrl.setRoot(PAGES.LOGIN);
-      });*/
       this.nav.setRoot(PAGES.LOGIN);
       toast.present();
     } 
@@ -168,6 +171,9 @@ export class HomePage {
       this.page ++;
       navigator.geolocation.getCurrentPosition((position) => {
       this.whistleService.list(position, this.page).subscribe((data: Array<Whistle>) => {
+          data = data.map((w) => {
+            return this.setTime(w);
+          });
           this.whistles = this.whistles.concat(data);
           if(data.length == 0) {
               this.page --;
@@ -175,6 +181,12 @@ export class HomePage {
           infiniteScroll.complete();       
       });
     });
+  }
+
+  setTime(w: Whistle) {
+    let date = new Date(w.date);
+    w.time = date.toLocaleDateString() + ", " + date.getHours() +":"+ date.getMinutes();
+    return w;
   }
 
 

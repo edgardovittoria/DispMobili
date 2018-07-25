@@ -46,8 +46,8 @@ export class WhistleService {
         return this.http.get<Array<Comment>>(apiURL);
     }
 
-    newComment(comment: Comment) {    
-        return this.http.post(URL.STORE.COMMENT, comment);
+    newComment(comment: Comment): Observable<number> {    
+        return this.http.post<number>(URL.STORE.COMMENT, comment);
     }
 
     deleteComment(comment: Comment){

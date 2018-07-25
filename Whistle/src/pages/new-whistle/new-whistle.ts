@@ -5,6 +5,8 @@ import { Whistle } from '../../model/whistle.model';
 import { User } from '../../model/user.model';
 import { Call } from '../../model/call.model';
 import { UserService } from '../../services/user.service';
+import { PAGES } from '../pages';
+import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -13,27 +15,32 @@ import { UserService } from '../../services/user.service';
 })
 
 export class WhistlePage {
+  newCallTitle: string;
+  newCallSubTitle: string;
   postType: string = 'Fun';
   user: User;
   whistle: Whistle = new Whistle();
   call: Call = new Call();
 
 
-  alert = this.alertCtrl.create({
-    title: 'Type selection',
-    subTitle: 'Please, select at least one type!',
-    buttons: ['OK']
-  });
+ 
 
   constructor(private navCtrl: NavController, 
               private alertCtrl: AlertController, 
               private whistleService: WhistleService,
-              private userService: UserService) { 
+              private userService: UserService,
+              private translateService: TranslateService) { 
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WhistlePage');
+    this.translateService.get('NEWCALL_ERROR_SUB_TITLE').subscribe((data) => {
+      this.newCallSubTitle = data;
+    });
+    this.translateService.get('NEWCALL_ERROR_TITLE').subscribe((data) => {
+      this.newCallTitle = data;
+    });
     this.call.callsType = 'none';
     this.userService.getUser().subscribe((user: User) => {
       this.user = user;
@@ -54,19 +61,25 @@ export class WhistlePage {
   }
 
   submit() {
+    let date = new Date();
       if(this.postType === 'Fun') {
-        this.whistle.date = new Date();
+        this.whistle.date = date.getTime();
         this.whistleService.newWhistle(this.whistle).subscribe(() => {
-          this.navCtrl.pop();
+          this.navCtrl.push(PAGES.HOME);
         });          
       }else{
         if(this.call.callsType != 'none') {
-          this.call.date = new Date();
+          this.call.date = date.getTime();
           this.whistleService.newWhistle(this.call).subscribe(() => {
-            this.navCtrl.pop();
+            this.navCtrl.push(PAGES.HOME);
           }); 
         }else{
-          this.alert.present();
+          let alert = this.alertCtrl.create({
+            title: this.newCallTitle,
+            subTitle: this.newCallSubTitle,
+            buttons: ['OK']
+          });
+          alert.present();
         }
       }
 

@@ -11,7 +11,7 @@
         <ion-list *ngFor="let c of chats">
             <ion-item (click)="openChat(c)"> 
               <ion-avatar item-start>
-                <img src="../../assets/imgs/Jessica.jpg">
+                <img src="../../assets/imgs/{{c.partecipant.photo}}">
               </ion-avatar>
               <h2>{{c.partecipant.name}}</h2>
               <p>da vedere...</p>
