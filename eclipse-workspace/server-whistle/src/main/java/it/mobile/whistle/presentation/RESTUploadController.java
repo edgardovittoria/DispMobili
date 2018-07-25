@@ -1,6 +1,5 @@
 package it.mobile.whistle.presentation;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,8 +22,7 @@ import it.mobile.whistle.domain.Utente;
 @RestController
 @RequestMapping("/api")
 public class RESTUploadController {
-	
-	
+
 	  /*@CrossOrigin
 	  @PostMapping("/upload")
 	  public boolean pictureupload(@RequestParam("file") MultipartFile file) {
@@ -49,14 +47,8 @@ public class RESTUploadController {
 	  }*/
 
 	//Save the uploaded file to this folder
-    private static String UPLOADED_FOLDER = "..//..//..//..//..//resources//";
+    private static String UPLOADED_FOLDER = "resource//";
     //"C://Users//Edgardo Vittoria//DispMobili
-    
-   /* @GetMapping("/getimg")
-	public File getimg(){
-		File file = file.
-	}*/
-    
     @GetMapping("/")
     public String upload(Model model) {
         return "upload";

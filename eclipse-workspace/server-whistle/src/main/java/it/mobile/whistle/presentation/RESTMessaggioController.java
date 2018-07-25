@@ -24,25 +24,27 @@ public class RESTMessaggioController {
 	@Autowired
 	private WhistleService service;
 	
-	/*@GetMapping("/a/{idOpener}/{idP}")
-	public List<Utente> a(@PathVariable Long idOpener, @PathVariable Long idP) {
-		Utente opener = service.findUtenteById(idOpener);
-		Utente partecipant = service.findUtenteById(idP);
-		//Utente p = service.findPartecipant(opener, partecipant);
-		return service.findPartecipant(opener, partecipant);
-	}*/
-	
-	@GetMapping("/chat/{idOpener}/{idP}")
-	public List<Messaggio> getMessage(@PathVariable Long idOpener, @PathVariable Long idP){
+	@GetMapping("/chat/{idOpener}/{idP}/{number}")
+	public List<Messaggio> getMessage(@PathVariable Long idOpener, @PathVariable Long idP, @PathVariable int number){
 		Utente opener = service.findUtenteById(idOpener);
 		Utente partecipant = service.findUtenteById(idP);
 		Utente p = service.findPartecipant(opener, partecipant);
 		Utente o = service.findOpener(opener, partecipant);
 		Chat Chat = service.findChat(o,p);
-		return service.findMessageByChat(Chat.getId());
 		
-		/*List<Messaggio> messages = new ArrayList<Messaggio>();
-		return messages;*/
+		List<Messaggio> listmessage = service.findMessageByChat(Chat.getId());
+		int size = listmessage.size();
+		for(int j = size - 1;j >= 40*(number + 1);j--) {
+			Messaggio mex1 = listmessage.remove(j);
+			listmessage.remove(mex1);
+		}
+		for(int i = 0; i < 40*number && i<size;i++) {
+				Messaggio mex2 = listmessage.remove(0);
+				listmessage.remove(mex2);
+		}
+		return listmessage;
+		
+		
 	}
 	
 	@PostMapping("/store/message")

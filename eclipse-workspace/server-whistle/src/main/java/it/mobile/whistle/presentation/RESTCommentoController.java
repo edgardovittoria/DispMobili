@@ -41,8 +41,9 @@ public class RESTCommentoController {
 	}
 	
 	@PostMapping("/store/comment")
-	public void storeCommento(@RequestBody Commento commento) {
+	public Long storeCommento(@RequestBody Commento commento) {
 		service.createCommento(commento);
+		return commento.getId();
 	}
 	
 	@DeleteMapping("/delete/comment/{idComment}")

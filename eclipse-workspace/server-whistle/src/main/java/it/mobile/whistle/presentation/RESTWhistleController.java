@@ -1,6 +1,7 @@
 package it.mobile.whistle.presentation;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class RESTWhistleController {
 	public List<WhistleResponse> list(@PathVariable double latitude, @PathVariable double longitude, @PathVariable int number) {
 		
 		List<Whistle> whistle = service.findWhistle(latitude, longitude);
+		Collections.reverse(whistle);
 		int size = whistle.size();
 		List<WhistleResponse> listwhistle = new ArrayList<WhistleResponse>();
 		Utente utente = Utility.getUtente();
@@ -81,8 +83,7 @@ public class RESTWhistleController {
 				WhistleResponse whistle2 = listwhistle.remove(0);
 				listwhistle.remove(whistle2);
 		}
-		
-		
+	
 		return listwhistle;
 	}
 	
