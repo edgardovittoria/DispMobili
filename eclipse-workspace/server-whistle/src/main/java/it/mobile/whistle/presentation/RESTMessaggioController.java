@@ -33,6 +33,9 @@ public class RESTMessaggioController {
 		Chat Chat = service.findChat(o,p);
 		
 		List<Messaggio> listmessage = service.findMessageByChat(Chat.getId());
+		if(listmessage == null) {
+			listmessage = new ArrayList<>();
+		}
 		/*int size = listmessage.size();
 		
 		
