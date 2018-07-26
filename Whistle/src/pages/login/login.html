@@ -28,4 +28,8 @@
 
     <button ion-button round class="submit" color="primary" [disabled]="!loginForm.form.valid" (click)="submit(loginForm)">{{ 'LOGIN_BUTTON' | translate}}</button>
   </form>
+  <ion-item>
+    <p>{{ 'SIGNIN_MESSAGE' | translate }}</p>
+    <button ion-button round color="secondary" (click)="goToSignin()">{{ 'SIGNIN_BUTTON' | translate }}</button>
+  </ion-item>
 </ion-content>  

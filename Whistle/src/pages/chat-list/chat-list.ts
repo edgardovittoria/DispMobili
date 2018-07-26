@@ -14,8 +14,7 @@ import { User } from "../../model/user.model";
 export class ChatListPage {
     chats: Array<Chat>;
 
-    constructor(private navCtrl: NavController,
-                private nav: Nav,
+    constructor(private nav: Nav,
                 private chatService: ChatService,
                 private userService: UserService) {
 

@@ -19,6 +19,8 @@
 
   "BACK_BUTTON_TEXT":  "Indietro",
 
+  "SIGNIN_BUTTON": "Registrati!",
+  "SIGNIN_MESSAGE": "Prima volta su Whistle?",
   "LOGIN_BUTTON": "Accedi",
   "DONE_BUTTON": "Fatto",
   "SAVE_BUTTON": "Salva",

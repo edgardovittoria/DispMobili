@@ -20,6 +20,9 @@
 
   "BACK_BUTTON_TEXT":  "Indietro",
 
+
+  "SIGNIN_BUTTON": "Signin!",
+  "SIGNIN_MESSAGE": "First time on Whistle?",
   "LOGIN_BUTTON": "Enter",
   "DONE_BUTTON": "Done",
   "SAVE_BUTTON": "Save",
