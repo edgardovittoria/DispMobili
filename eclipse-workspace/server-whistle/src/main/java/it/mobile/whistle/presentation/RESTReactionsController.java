@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.mobile.whistle.business.WhistleService;
-import it.mobile.whistle.common.Utility;
 import it.mobile.whistle.domain.Reactions;
-import it.mobile.whistle.domain.Utente;
+
 
 @RestController
 @RequestMapping("/api")

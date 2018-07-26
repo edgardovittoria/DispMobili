@@ -12,10 +12,6 @@ export class ChatService {
     constructor(private http: HttpClient) {
     }
 
-    createChat(c: Chat): Observable<Chat> {
-        return this.http.post<Chat>(URL.STORE.CHAT, c);
-    }
-
     sendMessage(m: Message) {
         return this.http.post(URL.STORE.MESSAGE, m);
     }

@@ -28,37 +28,19 @@ public class RESTMessaggioController {
 	public List<Messaggio> getMessage(@PathVariable Long idOpener, @PathVariable Long idP, @PathVariable int number){
 		Utente opener = service.findUtenteById(idOpener);
 		Utente partecipant = service.findUtenteById(idP);
-		Utente p = service.findPartecipant(opener, partecipant);
-		Utente o = service.findOpener(opener, partecipant);
-		Chat Chat = service.findChat(o,p);
-		
-		List<Messaggio> listmessage = service.findMessageByChat(Chat.getId());
-		if(listmessage == null) {
-			listmessage = new ArrayList<>();
+		Chat Chat = service.findChat(opener,partecipant);
+		List<Messaggio> listmessage = new ArrayList<>();
+		if(Chat == null) {
+			/*Chat newchat = new Chat();
+			newchat.setOpener(opener);
+			newchat.setPartecipant(partecipant);
+			service.storeChat(newchat);*/
+			return listmessage;
+		}else {
+			return listmessage = service.findMessageByChat(Chat.getId());
 		}
-		/*int size = listmessage.size();
 		
-		
-		for(int z = 0;z<size;z++) {
-			MessaggioResponse messaggioResponse = new MessaggioResponse();
-			
-			messaggioResponse.setAuthor(listmessage.get(z).getAuthor());
-			messaggioResponse.setBody(listmessage.get(z).getBody());
-			messaggioResponse.setId(listmessage.get(z).getId());
-			messaggioResponse.setRelativoa(listmessage.get(z).getRelativoa());
-			messaggioResponse.setTime(listmessage.get(z).getDate().getTime());
-			
-			listmessageresp.add(messaggioResponse);
-		}
-		/*for(int j = size - 1;j >= 40*(number + 1);j--) {
-			Messaggio mex1 = listmessage.remove(j);
-			listmessage.remove(mex1);
-		}
-		for(int i = 0; i < 40*number && i<size;i++) {
-				Messaggio mex2 = listmessage.remove(0);
-				listmessage.remove(mex2);
-		}*/
-		return listmessage;
+		 
 		
 		
 	}
@@ -66,7 +48,28 @@ public class RESTMessaggioController {
 	@PostMapping("/store/message")
 	public void storeMessage(@RequestBody Messaggio messaggio) {
 		//service.storeChat(messaggio.getRelativoa());
-		service.storeMessage(messaggio);
+		if(messaggio.getRelativoa().getId() != null) {
+			service.storeMessage(messaggio);
+		}
+		else {
+			
+			Chat chat = service.findChat(messaggio.getRelativoa().getOpener(), messaggio.getRelativoa().getPartecipant());
+			if(chat == null) {
+				Chat newchat = new Chat();
+				newchat.setOpener(messaggio.getRelativoa().getOpener());
+				newchat.setPartecipant(messaggio.getRelativoa().getPartecipant());
+				service.storeChat(newchat);
+				Chat chat1 = service.findChat(messaggio.getRelativoa().getOpener(), messaggio.getRelativoa().getPartecipant());
+				messaggio.setRelativoa(chat1);
+				service.storeMessage(messaggio);
+				
+			}else {
+				messaggio.setRelativoa(chat);
+				service.storeMessage(messaggio);
+			}
+			
+		}
+		
 	}
 	
 	@DeleteMapping("/delete/message/{idMessage}")

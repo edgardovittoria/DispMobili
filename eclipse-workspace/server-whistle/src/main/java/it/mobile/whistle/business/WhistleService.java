@@ -62,11 +62,11 @@ public interface WhistleService {
     
     //List<Messaggio> findMessageByOpener_Partecipant(Long idChat) throws BusinessException;
     
-    Chat findChat(Utente Opener, Utente Partecipant) throws BusinessException;
+    Chat findChat(Utente opener, Utente partecipant) throws BusinessException;
     
-    Utente findPartecipant(Utente Opener, Utente Partecipant) throws BusinessException;
+    /*List<Chat> findPartecipant(Utente Partecipant) throws BusinessException;
     
-    Utente findOpener(Utente Opener, Utente Partecipant) throws BusinessException;
+    List<Chat> findOpener(Utente Opener) throws BusinessException;*/
     
     void storeMessage(Messaggio messaggio) throws BusinessException;
     

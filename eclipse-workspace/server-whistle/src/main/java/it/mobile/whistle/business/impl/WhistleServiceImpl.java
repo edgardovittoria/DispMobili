@@ -187,12 +187,6 @@ public class WhistleServiceImpl implements WhistleService {
 	//Messaggio----------------------------------------------------------------------------------------------------------------
 	@Override
 	public List<Messaggio> findMessageByChat(Long idChat) throws BusinessException {
-		/*List<Messaggio> listmessage = messaggioRepository.findMessagesByrelativoaId(idChat);
-		int size = listmessage.size();
-		for(int i = 0;i<size;i++) {
-			listmessage.get(i).setDate(listmessage.get(i).getDate().toString());
-		}*/
-		
 		return messaggioRepository.findMessagesByrelativoaId(idChat);
 	}
 
@@ -208,19 +202,19 @@ public class WhistleServiceImpl implements WhistleService {
 	}
 
 	@Override
-	public Chat findChat(Utente Opener, Utente Partecipant) throws BusinessException {
-		return chatRepository.findChat(Opener, Partecipant);
+	public Chat findChat(Utente opener, Utente partecipant) throws BusinessException {
+		return chatRepository.findChat(opener, partecipant);
+	}
+
+	/*@Override
+	public List<Chat> findPartecipant(Utente Partecipant) throws BusinessException {
+		return chatRepository.findPartecipant(Partecipant);
 	}
 
 	@Override
-	public Utente findPartecipant(Utente Opener, Utente Partecipant) throws BusinessException {
-		return chatRepository.findPartecipant(Opener, Partecipant);
-	}
-
-	@Override
-	public Utente findOpener(Utente Opener, Utente Partecipant) throws BusinessException {
-		return chatRepository.findOpener(Opener, Partecipant);
-	}
+	public List<Chat> findOpener(Utente Opener) throws BusinessException {
+		return chatRepository.findOpener(Opener);
+	}*/
 
 	
 

@@ -65,21 +65,12 @@ export class ChatPage {
         newMessage.body = this.myMessage.body;
         newMessage.mine = true;
 
-        if (this.messages.length > 0) {
+        
             this.chatService.sendMessage(this.myMessage).subscribe(() => {
                 this.messages = this.messages.concat(newMessage);
                 this.myMessage.body = '';
             });
-        } else {
-            
-            this.chatService.createChat(this.chat).subscribe((c: Chat) => {
-                this.myMessage.relativoa = c;
-                this.chatService.sendMessage(this.myMessage).subscribe(() => {
-                    this.messages = this.messages.concat(newMessage);
-                    this.myMessage.body = '';
-                });
-            });
-        }
+        
     }
 
     loadMoreMessages(infiniteScroll: InfiniteScroll) {

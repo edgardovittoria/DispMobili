@@ -40,7 +40,7 @@ export class MyApp {
           this.enableMenu(true);
           this.rootPage = PAGES.TABS;
         } else {
-          this.rootPage = PAGES.LOGIN;
+          this.rootPage = PAGES.SIGNIN;
         }
       });
       statusBar.styleDefault();
