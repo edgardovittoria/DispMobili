@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 import it.mobile.whistle.business.WhistleService;
 import it.mobile.whistle.common.spring.security.JWTTokenUtil;
@@ -35,6 +37,9 @@ public class RESTUtenteController {
 
 	@Autowired
 	private WhistleService whistleService;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@PostMapping("/login")
 	public UtenteResponse login(@RequestBody AuthenticationRequest authenticationRequest, HttpServletResponse response) throws AuthenticationException {
@@ -55,6 +60,26 @@ public class RESTUtenteController {
 	public UtenteResponse updateProfilo(@RequestBody Utente utente) {
 		Utente nuovoUtente = whistleService.updateProfilo(utente);		
 		return new UtenteResponse(nuovoUtente);
+	}
+	
+	@PostMapping("/signin")
+	public boolean signin(@RequestBody AuthenticationRequest authenticationRequest) {
+		Utente utente = new Utente();
+		utente.setName(authenticationRequest.getName());
+		utente.setEmail(authenticationRequest.getEmail());
+		utente.setSurname(authenticationRequest.getSurname());
+		utente.setUsername(authenticationRequest.getUsername());
+		utente.setDescription("");
+		utente.setPassword(passwordEncoder.encode(authenticationRequest.getPassword()));
+		utente.setPhoto("");
+		Utente exist = whistleService.findUtenteByEmail(utente);
+		if(exist == null) {
+			whistleService.storeUtente(utente);
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 }

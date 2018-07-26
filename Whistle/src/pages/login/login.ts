@@ -12,7 +12,7 @@ import { NgForm } from '@angular/forms';
     templateUrl: 'login.html'
 })
 export class LoginPage {
-    account: Account = {username: "federap", password: "pluto"};
+    account: Account = {name: "", surname: "", username: "", email: "", password: ""};
 
     loginTitle: string;
     loginSubTitle: string;

@@ -65,6 +65,16 @@ public class WhistleServiceImpl implements WhistleService {
 	public Utente findUtenteById(Long idUser) throws BusinessException {
 		return utenteRepository.findUserById(idUser);
 	}
+	
+	@Override
+	public Utente findUtenteByEmail(Utente utente) throws BusinessException {
+		return utenteRepository.findUsersByemail(utente.getEmail());
+	}
+	
+	@Override
+	public void storeUtente(Utente utente) throws BusinessException {
+		utenteRepository.save(utente);
+	}
 
 
     
@@ -211,6 +221,10 @@ public class WhistleServiceImpl implements WhistleService {
 	public Utente findOpener(Utente Opener, Utente Partecipant) throws BusinessException {
 		return chatRepository.findOpener(Opener, Partecipant);
 	}
+
+	
+
+	
 
 
 	

@@ -9,7 +9,10 @@ import { User } from '../model/user.model';
 
 
 export interface Account {
+    name: string;
+    surname: string;
     username: string;
+    email: string;
     password: string;
 
 }
@@ -71,6 +74,10 @@ export class UserService {
 
     uploadProfileImg(img: any) {
         return this.http.post(URL.UPLOAD, img);
+    }
+
+    signin(account: Account){
+        return this.http.post(URL.SIGNIN, account);
     }
 
 

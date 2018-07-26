@@ -17,6 +17,10 @@ public interface WhistleService {
 	Utente findUtenteById(Long id) throws BusinessException;
 
 	Utente updateProfilo(Utente utente) throws BusinessException;
+	
+	void storeUtente(Utente utente) throws BusinessException;
+	
+	Utente findUtenteByEmail(Utente utente) throws BusinessException;
     
 	List<Whistle> findWhistle(double latitude, double longitude) throws BusinessException;
 

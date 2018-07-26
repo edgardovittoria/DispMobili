@@ -7,6 +7,45 @@
     </ion-navbar>
   </ion-header>
 
-<ion-content>
-    
-</ion-content>
+  <ion-content padding>
+
+    <ion-img cache="true" src="../../assets/imgs/Icon10.png" id="logo"></ion-img>
+
+    <form #signinForm="ngForm">
+<ion-list>
+
+    <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input [(ngModel)]="account.name" name="name" type="text" #name="ngModel" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>Surname</ion-label>
+          <ion-input [(ngModel)]="account.surname" name="surname" type="text" #surname="ngModel" required></ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label floating>Mail</ion-label>
+            <ion-input [(ngModel)]="account.email" name="email" type="email" #email="ngModel" required></ion-input>
+          </ion-item>  
+
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input [(ngModel)]="account.username" name="username" type="text" #username="ngModel" required></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input [(ngModel)]="account.password" name="password" type="password" #password="ngModel" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Conferma Password</ion-label>
+      <ion-input [(ngModel)]="confermaPassword" name="confermaPassword" type="password" #confermaPassword="ngModel" required></ion-input>
+    </ion-item>
+  
+  </ion-list>
+
+    <button ion-button round class="submit" color="primary" [disabled]="!signinForm.form.valid" (click)="submit(signinForm)">{{ 'SIGNIN_BUTTON' | translate}}</button>
+  </form>
+</ion-content>  

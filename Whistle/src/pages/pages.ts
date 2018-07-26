@@ -1,5 +1,6 @@
 
-export const PAGES = {  HOME: 'HomePage', 
+export const PAGES = {  HOME: 'HomePage',
+                        SIGNIN : 'SigninPage',
                         LOGIN: 'LoginPage', 
                         USER: 'UserPage',
                         TABS: 'TabsPage',
