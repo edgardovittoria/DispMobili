@@ -14,7 +14,7 @@ import { PAGES } from "../pages";
 })
 export class SigninPage {
     account: Account = {name: "", surname: "", username: "", email: "", password: ""};
-    confermaPassword: String;
+    confermaPassword: String = "";
     /*s
     loginTitle: string;
     loginSubTitle: string;*/

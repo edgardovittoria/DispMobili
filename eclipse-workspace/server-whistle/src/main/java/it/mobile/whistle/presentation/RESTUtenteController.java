@@ -71,7 +71,7 @@ public class RESTUtenteController {
 		utente.setUsername(authenticationRequest.getUsername());
 		utente.setDescription("");
 		utente.setPassword(passwordEncoder.encode(authenticationRequest.getPassword()));
-		utente.setPhoto("");
+		utente.setPhoto("icon1.jpg");
 		Utente exist = whistleService.findUtenteByEmail(utente);
 		if(exist == null) {
 			whistleService.storeUtente(utente);
